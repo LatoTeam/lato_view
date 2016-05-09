@@ -5,7 +5,7 @@ module LatoView
     # Lista di tipologie di input accettate
     @@types = ['text', 'number', 'select', 'password', 'email', 'editor']
 
-    # Tipplogia di input da inizializzare (text, number, select, password, email)
+    # Tipplogia di input da inizializzare (text, number, select, password, email, multiple-select, date)
     # * *default*: 'text'
     attr_accessor :type
     # Nome da assegnare all'input
@@ -94,9 +94,7 @@ module LatoView
     # Funzione che ritorna la stringa con attributo data-input settato a required se l'input risulta
     # essere stato inizializzato come obbligatorio
     protected def get_required_data_input
-      if(@required)
-        return "data-input='required'"
-      end
+      return "data-input='required'" if(@required)
     end
 
 

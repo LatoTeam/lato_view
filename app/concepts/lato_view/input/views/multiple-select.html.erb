@@ -1,0 +1,11 @@
+<div class="form-control <%= @width %>" <%= get_required_data_input %>>
+  <label class="form-label"><%= @label %></label>
+  <select class="select <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" multiple>
+    <% if(@option_blank) %>
+      <option></option>
+    <% end %>
+    <% @options.each do |option| %>
+      <option value="<%= get_option_value(option) %>" <%= get_selected_value(option) %>><%= get_option_name(option) %></option>
+    <% end %>
+  </select>
+</div>

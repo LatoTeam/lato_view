@@ -1,0 +1,17 @@
+{
+  "name": "lato_view",
+  "version": "1.0.0",
+  "description": "This is the lato view gem.",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "optimsvg": "svgo -f ./app/assets/images/lato_view/icons"
+  },
+  "author": "Lato Team",
+  "license": "MIT",
+  "devDependencies": {}
+}

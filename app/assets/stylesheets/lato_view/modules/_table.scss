@@ -1,0 +1,56 @@
+.table {
+  width: 100%;
+  margin-bottom: $base-padding;
+  border-collapse: collapse;
+  th {
+    letter-spacing: 1px;
+  }
+  th, td {
+    border-bottom: .1rem solid #e1e1e1;
+    padding: 10px 20px;
+    text-align: left;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &.actions {
+      text-align: center;
+      a {
+        font-size: 11px;
+        padding: 7px 18px;
+        margin-right: 10px;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@include mq-max(640px) {
+  .table {
+    thead {
+      display: none;
+    }
+    tr {
+      display: block;
+    }
+    td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      text-align: right;
+      &:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+      }
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}

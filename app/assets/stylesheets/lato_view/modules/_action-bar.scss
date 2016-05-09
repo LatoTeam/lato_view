@@ -1,0 +1,11 @@
+.action-bar {
+  width: 100%;
+  margin: 30px 0;
+  @include clearfix();
+  .action-group-left {
+    float: left;
+  }
+  .action-group-right {
+    float: right;
+  }
+}

@@ -1,0 +1,72 @@
+// Basic form controls
+.label-control {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 2em;
+  height: 1.5em;
+  line-height: 1.5;
+  cursor: pointer;
+  &:before, &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    @include size(1.5em);
+    transition: 0.25s all ease;
+  }
+  &:before {
+    content: " ";
+    border: 2px solid $form-control-border-color;
+    border-radius: 20%;
+  }
+}
+
+.check, .radio {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  + .label-control:after {
+    transform: scale(0);
+  }
+  &:checked {
+    + .label-control:before {
+      background: $form-control-checked-color;
+      border-color: $form-control-checked-color;
+    }
+    + .label-control:after {
+      transform: scale(1);
+    }
+  }
+  &:disabled {
+    + .label-control {
+      color: mix($text-color, white, 50%);
+      &:before {
+        border-color: lighten($form-control-border-color, 10%);
+      }
+    }
+  }
+}
+
+.check {
+  + .label-control:after {
+    content: "\2714";
+    color: $form-control-checked-bg;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+.radio {
+  + .label-control:before {
+    border-radius: 50%;
+  }
+  + .label-control:after {
+    content: " ";
+    top: 0.25em;
+    left: 0.25em;
+    @include size(1em);
+    background: $form-control-checked-color;
+    border: 0.2em solid $form-control-checked-bg;
+    border-radius: 50%;
+  }
+}

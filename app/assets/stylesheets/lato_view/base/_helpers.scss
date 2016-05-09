@@ -1,0 +1,485 @@
+// Strip the units from a value
+@function strip-units($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Calculate ems from a px value
+@function em($px, $context: $em-base) {
+  @if not unitless($px) {
+    $px: strip-units($px);
+  }
+  @if not unitless($context) {
+    $context: strip-units($context);
+  }
+  @return ($px / $context) * 1em;
+}
+
+// Mix with black
+@function _shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
+
+// Mix with white
+@function _tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+// Assets helper functions
+@function _img($filename) {
+  @return url('../img/'#{$filename});
+}
+
+@function _icon($filename) {
+  @return url('../icons/'#{$filename});
+}
+
+// Managing Z-Layers & icon font names
+@function z($layer: "base") {
+  @if not map-has-key($z-layers, $layer) {
+    @warn "No z-index found in $z-layers map for '#{$layer}'. Property omitted.";
+  }
+  @return map-get($z-layers, $layer);
+}
+
+// Assign every icon to its content value
+@function icf($icon: null) {
+  @if not map-has-key($icons, $icon) {
+    @warn "No icon name found in $icons for '#{$icon}'. Property omitted.";
+  }
+  @return map-get($icons, $icon);
+}
+
+// Classic Clearfix
+@mixin clearfix {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $type;
+  $allowed_types: absolute relative fixed;
+  @if not index($allowed_types, $type) {
+    @warn "Unknown position: #{$type}.";
+  }
+  @each $data in top $top, right $right, bottom $bottom, left $left {
+    #{nth($data, 1)}: nth($data, 2);
+  }
+}
+
+// Quantity queries
+// Find the last simple selector in a given selector
+@function _last-simple-selector($selector) {
+  $parsed: selector-parse($selector);
+  @if length($parsed) > 1 {
+    @error '`#{$selector}` contains #{length($parsed)} selectors and the `_last-simple-selector()`function accepts only 1.';
+  }
+  $last-simple-selector: nth(nth($parsed, 1), -1);
+  @return $last-simple-selector;
+}
+// Builds the selector for the quantity query
+@function _build-quantity-selector($selector-append, $last-selector) {
+  $quantity-selector: ();
+  @each $s in & {
+    $last-simple-selector: '~' + if($last-selector, $last-selector, _last-simple-selector($s));
+    $sel: selector-append($s, $selector-append);
+    $sel2: selector-nest($sel, $last-simple-selector);
+    $quantity-selector: append($quantity-selector, $sel, 'comma');
+    $quantity-selector: append($quantity-selector, $sel2 , 'comma');
+  }
+  @return $quantity-selector;
+}
+
+// Query when total items is at least N items
+@mixin at-least($count, $selector: null) {
+  $selector-append: ':nth-last-child(n+#{$count})';
+  @if type-of($count) != 'number' or not unitless($count) or $count < 1 {
+    @error '`#{$count}` is not a valid number for `at-least`';
+  }
+  @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
+    @error '`#{$selector}` is not a valid selector for `at-least`';
+  }
+  $at-least-selector: _build-quantity-selector($selector-append, $selector);
+  @at-root #{$at-least-selector} {
+    @content;
+  }
+}
+
+// Query when total items is at most N items
+@mixin at-most($count, $selector: null) {
+  $selector-append: ':nth-last-child(-n+#{$count}):first-child';
+  @if type-of($count) != 'number' or not unitless($count) or $count < 1 {
+    @error '`#{$count}` is not a valid number for `at-most`.';
+  }
+  @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
+    @error '`#{$selector}` is not a valid selector for `at-most`';
+  }
+  $at-most-selector: _build-quantity-selector($selector-append, $selector);
+  @at-root #{$at-most-selector} {
+    @content;
+  }
+}
+
+// Query when total items is at least X items and at most Y items
+@mixin between($first, $last, $selector: null) {
+  $selector-append: ':nth-last-child(n+#{$first}):nth-last-child(-n+#{$last}):first-child';
+  @if type-of($first) != 'number' or not unitless($first) or $first < 1 {
+    @error '`#{$first}` is not a valid number for `between`';
+  }
+  @if type-of($last) != 'number' or not unitless($last) or $last < 1 {
+    @error '`#{$last}` is not a valid number for `between`';
+  }
+  @if $first > $last {
+    @error '#{$first} can´t be larger that #{$last} for `between`';
+  }
+  @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
+    @error '`#{$selector}` is not a valid selector for `between`';
+  }
+  $between-selector: _build-quantity-selector($selector-append, $selector);
+  @at-root #{$between-selector} {
+    @content;
+  }
+}
+
+// Query when total items is exactly N items
+@mixin exactly($count, $selector: null) {
+  $selector-append: ':nth-last-child(#{$count}):first-child';
+  @if type-of($count) != 'number' or not unitless($count) or $count < 1 {
+    @error '`#{$count}` is not a valid number for `exactly`';
+  }
+  @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
+    @error '`#{$selector}` is not a valid selector for `exactly`';
+  }
+  $exactly-selector: _build-quantity-selector($selector-append, $selector);
+  @at-root #{$exactly-selector} {
+    @content;
+  }
+}
+
+// Visually hide but still accessible to screenreaders
+@mixin visual-hide() {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin visual-hide-off {
+  position: static;
+  height: auto;
+  width: auto;
+  overflow: visible;
+  clip: auto;
+}
+
+// Text hiding for image based text replacement.
+// Higher performance than -9999px because it only renders
+// the size of the actual text, not a full 9999px box.
+@mixin hide-text() {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow($overflow: ellipsis) {
+  overflow: hidden;
+  text-overflow: $overflow;
+  white-space: nowrap;
+}
+
+@mixin bg($pos1: center, $pos2: center, $size: cover, $rep: no-repeat) {
+  background-position: $pos1 $pos2;
+  background-size: $size;
+  background-repeat: $rep
+}
+
+// Keeping text vertically centered at all screen sizes(Fixed Height)
+// Apply on the parent. Requires inline-block on the child
+@mixin pseudo-mid-align() {
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+// Placeholder text
+$pseudo-phprefix: "::-webkit-input-placeholder" "::-moz-placeholder" ":-ms-input-placeholder" "::placeholder";
+@mixin placeholder {
+  @each $pseudo in $pseudo-phprefix {
+    @at-root #{&}#{$pseudo} {
+      @content
+    }
+  }
+}
+
+// Insert icon font through pseudo el
+@mixin insertChar($char-name, $icf-name: $icon-font-name) {
+  font-family: $icf-name;
+  content: icf(#{$char-name});
+  @content;
+}
+
+// Sizing
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin centerer($width: null, $height: null) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @if not $width and not $height {
+    transform: translate(-50%, -50%);
+  } @else if $width and $height {
+    width: $width;
+    height: $height;
+    margin: -($width / 2) #{0 0} -($height / 2);
+  } @else if not $height {
+    width: $width;
+    margin-left: -($width / 2);
+    transform: translateY(-50%);
+  } @else {
+    height: $height;
+    margin-top: -($height / 2);
+    transform: translateX(-50%);
+  }
+}
+
+@mixin center-block() {
+  display: block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Add a filter to the bg
+@mixin filter($opacity: 0.3, $background: #000, $fixed: false) {
+  &:before {
+    @if $fixed == true {
+      position: fixed;
+    } @else {
+      position: absolute;
+    }
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    content: " ";
+    background: $background;
+    opacity: $opacity;
+    transition: opacity 0.3s ease;
+    z-index: z("header");
+  }
+}
+
+@mixin list-inline() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+  }
+}
+
+@mixin triangle($direction, $color: white, $size: 7px) {
+  width: 0;
+  height: 0;
+  @if $direction == 'up' {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  } @else if $direction == 'right' {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if $direction == 'down' {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else if $direction == 'left' {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else {
+    @error "Valore errato inserito per '#{$direction}'. ";
+  }
+}
+
+// Shorthand for border property
+// @include border(1px, solid, red); // Apply to all four borders
+// @include border(5px 0, solid, green); // vertical | horizontal
+// @include border(2px 3px 5px, solid, blue);  // border-top | horizontal | border-bottom
+// @include border(2px 1em 0 25px, dotted, pink); // border-top | border-right | border-bottom | border-left
+
+@mixin border($widths, $styles, $colors) {
+  @if type-of($widths) == 'number' and
+    type-of($styles) == 'string' and
+    type-of($colors) == 'color' {
+    border: $widths $styles $colors;
+  } @else if (type-of($widths) == 'list' or 'number') and
+    (type-of($styles) == 'list' or 'string') and
+    (type-of($colors) == 'list' or 'color') {
+
+    // Define border property placeholders
+    $border-top: ();
+    $border-right: ();
+    $border-bottom: ();
+    $border-left: ();
+
+    // Measure length of each argument value and
+    // append it to appropriate placeholder recursivly
+    @each $property in ($widths, $styles, $colors) {
+      @if length($property) == 1 {
+        $border-top: append($border-top, $property);
+        $border-right: append($border-right, $property);
+        $border-bottom: append($border-bottom, $property);
+        $border-left: append($border-left, $property);
+      } @else if length($property) == 2 {
+        $border-top: append($border-top, nth($property, 1));
+        $border-right: append($border-right, nth($property, 2));
+        $border-bottom: append($border-bottom, nth($property, 1));
+        $border-left: append($border-left, nth($property, 2));
+      } @else if length($property) == 3 {
+        $border-top: append($border-top, nth($property, 1));
+        $border-right: append($border-right, nth($property, 2));
+        $border-bottom: append($border-bottom, nth($property, 3));
+        $border-left: append($border-left, nth($property, 2));
+      } @else if length($property) == 4 {
+        $border-top: append($border-top, nth($property, 1));
+        $border-right: append($border-right, nth($property, 2));
+        $border-bottom: append($border-bottom, nth($property, 3));
+        $border-left: append($border-left, nth($property, 4));
+      } @else {
+        @warn "Invalid list length for border mixin arguments";
+      }
+    }
+
+    @each $border-property in ($border-top, $border-right, $border-bottom, $border-left) {
+      @if nth($border-property, 1) == 0 {
+        $border-property: nth($border-property, 1);
+      }
+    }
+
+    // Output generated properties
+    border-top: $border-top;
+    border-right: $border-right;
+    border-bottom: $border-bottom;
+    border-left: $border-left;
+  } @else {
+    @warn 'Check border mixin arguments';
+  }
+}
+
+@mixin gradient (
+  $bgColor,       // background-color
+  $angle,         // gradient angle
+  $gradientColor, // gradient color
+  $opacityStart,  // opacity at start > 1 - 0
+  $opacityEnd     // opacity at end > 1 - 0
+  ) {
+  background-color: $bgColor;
+  background-image: linear-gradient(
+    ($angle * 1deg),
+    rgba($gradientColor, $opacityStart),
+    rgba($gradientColor, $opacityEnd)
+  );
+  background-size: 100% 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+// example
+// @include gradient($purple-base, 180, $mint-base, 0.8, 0.6);
+
+// Predefined gradients from http://mrmrs.io/gradients/
+@mixin linear-gradient($type: 'aqua') {
+  @if $type == 'aqua' {
+    background: rgba(127,219,255,1);
+    background: linear-gradient(to bottom, rgba(127,219,255,1) 0%, rgba(82,140,163,1) 100%);
+  } @else if $type == 'blue' {
+    background: rgba(0,116,217,1);
+    background: linear-gradient(to bottom, rgba(0,116,217,1) 0%, rgba(0,65,122,1) 100%);
+  } @else if $type == 'navy' {
+    background: rgba(0,32,63,1);
+    background: linear-gradient(to bottom, rgba(0,32,63,1) 0%, rgba(0,10,20,1) 100%);
+  } @else if $type == 'teal' {
+    background: rgba(57,204,204,1);
+    background: linear-gradient(to bottom, rgba(57,204,204,1) 0%, rgba(34,122,122,1) 100%);
+  } @else if $type == 'lime' {
+    background: rgba(1,255,111,1);
+    background: linear-gradient(to bottom, rgba(1,255,111,1) 0%, rgba(2,163,72,1) 100%);
+  } @else if $type == 'orange' {
+    background: rgba(255,133,27,1);
+    background: linear-gradient(to bottom, rgba(255,133,27,1) 0%, rgba(255,80,27,1) 100%);
+  } @else if $type == 'red' {
+    background: rgba(246,46,36,1);
+    background: linear-gradient(to bottom, rgba(246,46,36,1) 0%, rgba(255,54,121,1) 100%);
+  } @else if $type == 'fuxia' {
+    background: rgba(240,18,188,1);
+    background: linear-gradient(to bottom, rgba(240,18,188,1) 0%, rgba(163,11,128,1) 100%);
+  } @else if $type == 'purple' {
+    background: rgba(176,13,201,1);
+    background: linear-gradient(to bottom, rgba(176,13,201,1) 0%, rgba(107,7,122,1) 100%);
+  } @else if $type == 'maroon' {
+    background: rgba(204,31,115,1);
+    background: linear-gradient(to bottom, rgba(204,31,115,1) 0%, rgba(133,20,75,1) 100%);
+  } @else {
+    @warn 'Check gradient mixin arguments';
+  }
+}
+
+// Write currencies the right way
+%currency {
+  position: relative;
+  &:before {
+    content: '$';
+    position: relative;
+    left: 0;
+  }
+}
+.usd %currency:before {
+  content: '$';
+}
+.eur %currency:before {
+  content: '\20AC';
+}
+
+// Media Query Mixins
+@mixin mq($minWidth, $maxWidth) {
+  @media only screen and (min-width: em($minWidth)) and (max-width: em($maxWidth)) {
+    @content;
+  }
+}
+
+@mixin mq-max($maxWidth) {
+  @media only screen and (max-width: em($maxWidth)) {
+    @content;
+  }
+}
+
+@mixin mq-min($minWidth) {
+  @media only screen and (min-width: em($minWidth)) {
+    @content;
+  }
+}
+
+// HiDPI mixin
+@mixin mq-hidpi($ratio: 2) {
+  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+  only screen and (min--moz-device-pixel-ratio: $ratio),
+  only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
+  only screen and (min-resolution: round($ratio * 96dpi)),
+  only screen and (min-resolution: $ratio * 1dppx) {
+    @content;
+  }
+}

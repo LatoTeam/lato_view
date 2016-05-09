@@ -1,0 +1,10 @@
+<% if(@head and !@head.nil?) %>
+  <thead>
+    <tr>
+      <% @head.each do |title| %>
+        <th><%=raw title %></th>
+      <% end %>
+      <th class="actions"><%= VIEW_LANG['index']['actions'] %></th>
+    </tr>
+  </thead>
+<% end %>

@@ -1,0 +1,24 @@
+<% if(@elements) %>
+  <tbody>
+    <% @elements.each do |element| %>
+    <tr>
+      <% @attributes.each_with_index do |attribute, index| %>
+        <td data-label="<%= @head[index] %>"><%= element.send(attribute) %></td>
+      <% end %>
+      <% if(@show_link or @edit_link or @delete_link) %>
+        <td class="actions">
+          <% if(@show_link) %>
+            <%= link_to VIEW_LANG['index']['show'], self.show_link(element.id), class: 'lato-button' %>
+          <% end %>
+          <% if(@edit_link) %>
+            <%= link_to VIEW_LANG['index']['edit'], self.edit_link(element.id), class: 'lato-button button-yellow' %>
+          <% end %>
+          <% if(@delete_link) %>
+            <%= link_to VIEW_LANG['index']['delete'], self.delete_link(element.id), method: :delete, class: 'lato-button button-red' %>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+<% end %>

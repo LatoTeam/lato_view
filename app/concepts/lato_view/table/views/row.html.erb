@@ -1,0 +1,7 @@
+<% if(@current_row) %>
+<tr>
+  <% @current_row.each_with_index do |attribute, index| %>
+    <td data-label="<%= @head[index] %>"><%= attribute %></td>
+  <% end %>
+</tr>
+<% end %>

@@ -1,0 +1,52 @@
+.flashes-container {
+  width: 100%;
+  position: absolute;
+  top: -25px;
+  left: 0;
+  overflow: hidden;
+  transition: opacity 0.75s ease, transform 0.55s $snappy;
+  z-index: z(highest)-1;
+  .flash {
+    width: 100%;
+    padding: 10px 5px 10px 30px;
+    background-color: $ebony-clay;
+    color: white;
+    font-size: em(16px);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.25s ease, transform 0.3s $snappy;
+    &.danger {
+     background-color: $scarlet;
+    }
+    &.success {
+      background-color: $jungle-green;
+    }
+    &.info {
+      background-color: $robin-blue;
+    }
+    &.warning {
+      background-color: $yellow-sea;
+    }
+    &:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.25s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.35s;
+    }
+    &:last-child {
+      box-shadow: 0 1px 4px rgba(41, 59, 90, 0.25);
+    }
+  }
+  &.is-remove {
+    opacity: 0;
+    transform: translateY(-100%);
+    z-index: -1;
+    .flash {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
+}

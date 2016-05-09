@@ -1,0 +1,9 @@
+<% if(@head and !@head.nil?) %>
+  <thead>
+    <tr>
+    <% @head.each do |title| %>
+      <th><%=raw title %></th>
+    <% end %>
+    </tr>
+  </thead>
+<% end %>

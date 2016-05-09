@@ -1,0 +1,12 @@
+<div class="action-bar">
+  <div class="action-group-left">
+    <h1 class="admin-section-title"><%= @title %></h1>
+  </div>
+  <div class="action-group-right">
+    <% if(@links) %>
+      <% @links.each do |link| %>
+        <%= link_to link[0], link[1], class: 'lato-button action-button' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

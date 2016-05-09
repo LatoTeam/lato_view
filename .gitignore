@@ -1,6 +1,9 @@
 .bundle/
+node_modules
 log/*.log
 pkg/
+*.sass-cache
+/.sass-cache
 test/dummy/db/*.sqlite3
 test/dummy/db/*.sqlite3-journal
 test/dummy/log/*.log

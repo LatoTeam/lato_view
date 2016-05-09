@@ -1,0 +1,74 @@
+<% method = 'post' if !defined? method %>
+
+<%= form_for(@superuser, html: {class: "lato-form"}, method: method) do |f| %>
+
+    <h2 class="form-section-title"><%= CORE_LANG['forms']['base_informations'] %></h2>
+
+    <div class="form-group">
+
+      <%=raw view(:input).new(type: 'text',
+                           value: @superuser.name,
+                           name: 'superuser[name]',
+                           label: CORE_LANG['vocabolary']['name'],
+                           width: 'half',
+                           required: true) %>
+
+      <%=raw view(:input).new(type: 'text',
+                          value: @superuser.username,
+                          name: 'superuser[username]',
+                          label: CORE_LANG['vocabolary']['username'],
+                          width: 'half',
+                          required: true) %>
+
+    </div>
+
+    <div class="form-group">
+
+      <%=raw view(:input).new(type: 'email',
+                           value: @superuser.email,
+                           name: 'superuser[email]',
+                           label: CORE_LANG['vocabolary']['email'],
+                           width: 'half',
+                           custom_class: 'email-suggestion',
+                           required: true) %>
+
+      <%=raw view(:input).new(type: 'select',
+                          value: @superuser.permission,
+                          name: 'superuser[permission]',
+                          label: CORE_LANG['vocabolary']['permission'],
+                          width: 'half',
+                          options: (1...11).to_a,
+                          required: true) %>
+
+    </div>
+
+    <h2 class="form-section-title"><%= CORE_LANG['forms']['user_password'] %></h2>
+    <% if(method === 'put') %>
+        <p class="form-secondary-info"><%= CORE_LANG['forms']['password_edit_settings'] %></p>
+    <% end %>
+
+    <div class="form-group">
+
+      <% password_require = true
+        password_require = false if(method === 'put') %>
+
+      <%=raw view(:input).new(type: 'password',
+                          value: @superuser.password,
+                          name: 'superuser[password]',
+                          label: CORE_LANG['vocabolary']['password'],
+                          width: 'half',
+                          required: password_require) %>
+
+      <%=raw view(:input).new(type: 'password',
+                          value: @superuser.password,
+                          name: 'superuser[password_confirmation]',
+                          label: CORE_LANG['vocabolary']['password_confirmation'],
+                          width: 'half',
+                          custom_class: 'confirm-password',
+                          required: password_require) %>
+
+    </div>
+
+    <%= f.submit CORE_LANG['vocabolary']['save'], class: 'lato-button' %>
+
+<% end %>

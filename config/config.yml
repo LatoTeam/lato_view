@@ -1,0 +1,7 @@
+# Impostazione voci del menu
+menu:
+  core_superusers:
+    name: Utenti
+    url: /lato/core/superusers
+    icon: user
+    position: 1

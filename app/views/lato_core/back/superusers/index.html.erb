@@ -1,0 +1,13 @@
+<% block = view(:block).new %>
+
+<%=raw view(:actionbar).new(links: [[CORE_LANG['vocabolary']['new'], lato_core.new_superuser_path]], title: CORE_LANG['vocabolary']['users']) %>
+
+<%=raw block.open %>
+
+  <%=raw view(:index).new(head: [CORE_LANG['vocabolary']['username'], CORE_LANG['vocabolary']['email']],
+                       elements: @superusers,
+                       attributes: ['username', 'email'],
+                       link: lato_core.superusers_path,
+                       show_link: false) %>
+
+<%=raw block.close %>

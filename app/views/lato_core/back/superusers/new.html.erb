@@ -1,0 +1,9 @@
+<% block = view(:block).new %>
+
+<%=raw view(:actionbar).new(title: CORE_LANG['vocabolary']['new']) %>
+
+<%=raw block.open %>
+
+  <%= render 'lato_core/back/superusers/shared/form', method: 'post' %>
+
+<%=raw block.close %>

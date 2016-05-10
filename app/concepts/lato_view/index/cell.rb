@@ -21,9 +21,12 @@ module LatoView
     # Valore booleano che indica se mostrare il link al delete dell'entità
     # * *default*: true
     attr_accessor :delete_link
+    # Valore booleano che indica se il link di eliminazione deve essere eseguito con il remote: true
+    # * *default*: false
+    attr_accessor :remote_delete
 
 
-    def initialize(elements: nil, head: nil, attributes: nil, link: nil, show_link: true, edit_link: true, delete_link: true)
+    def initialize(elements: nil, head: nil, attributes: nil, link: nil, show_link: true, edit_link: true, delete_link: true, remote_delete: false)
       @elements = elements
       @head = head
       @attributes = attributes
@@ -31,6 +34,7 @@ module LatoView
       @show_link = show_link
       @edit_link = edit_link
       @delete_link = delete_link
+      @remote_delete = remote_delete
     end
 
 

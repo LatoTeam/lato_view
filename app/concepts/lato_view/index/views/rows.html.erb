@@ -14,7 +14,7 @@
             <%= link_to VIEW_LANG['index']['edit'], self.edit_link(element.id), class: 'lato-button button-yellow' %>
           <% end %>
           <% if(@delete_link) %>
-            <%= link_to VIEW_LANG['index']['delete'], self.delete_link(element.id), method: :delete, class: 'lato-button button-red' %>
+            <%= link_to VIEW_LANG['index']['delete'], self.delete_link(element.id), method: :delete, remote: @remote_delete, class: 'lato-button button-red' %>
           <% end %>
         </td>
       <% end %>

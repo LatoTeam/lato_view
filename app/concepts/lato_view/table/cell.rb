@@ -72,10 +72,10 @@ module LatoView
     # di array da usare per inizializzare una tabella
     def self.generate_rows_from_activerecords(activerecords, attributes)
       rows = []
-      activerecords.each do |row|
+      activerecords.each do |activerecord|
         row = []
         attributes.each do |attribute|
-          row.push(row.send(attribute))
+          row.push(activerecord.send(attribute))
         end
         rows.push(row)
       end

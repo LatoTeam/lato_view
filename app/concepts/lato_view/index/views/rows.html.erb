@@ -3,7 +3,19 @@
     <% @elements.each do |element| %>
     <tr>
       <% @attributes.each_with_index do |attribute, index| %>
-        <td data-label="<%= @head[index] %>"><%= element.send(attribute) %></td>
+        <% if(element.send(attribute).class === Boolean) %>
+          <td data-label="<%= @head[index] %>">
+            <% if element.send(attribute).nil? %>
+              ?
+            <% elsif element.send(attribute) === false %>
+              x
+            <% else %>
+             v
+            <% end %>
+          </td>
+        <% else %>
+          <td data-label="<%= @head[index] %>"><%= element.send(attribute) %></td>
+        <% end %>
       <% end %>
       <% if(@show_link or @edit_link or @delete_link) %>
         <td class="actions">

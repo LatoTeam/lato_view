@@ -217,6 +217,7 @@ textarea {
 // Email autocomplete custom
 .eac-input-wrap {
   width: 100%;
+  overflow: hidden;
 }
 .eac-sugg {
   color: #999;

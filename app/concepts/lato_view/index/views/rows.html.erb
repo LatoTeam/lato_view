@@ -3,12 +3,13 @@
     <% @elements.each do |element| %>
     <tr>
       <% @attributes.each_with_index do |attribute, index| %>
-        <% if(value = element.send(attribute) and !!value == value) %>
+        <% value = element.send(attribute) %>
+        <% if(!!value == value) %>
           <td data-label="<%= @head[index] %>">
             <% if value %>v<% else %>x<% end %>
           </td>
         <% else %>
-          <td data-label="<%= @head[index] %>"><%= element.send(attribute) %></td>
+          <td data-label="<%= @head[index] %>"><%= value %></td>
         <% end %>
       <% end %>
       <% if(@show_link or @edit_link or @delete_link) %>

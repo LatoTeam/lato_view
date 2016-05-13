@@ -3,11 +3,11 @@
     <% @elements.each do |element| %>
     <tr>
       <% @attributes.each_with_index do |attribute, index| %>
-        <% if(element.send(attribute).class === Boolean) %>
+        <% if(value = element.send(attribute) and !!value == value) %>
           <td data-label="<%= @head[index] %>">
-            <% if element.send(attribute).nil? %>
+            <% if value.nil? %>
               ?
-            <% elsif element.send(attribute) === false %>
+            <% elsif value === false %>
               x
             <% else %>
              v

@@ -3,9 +3,9 @@ module LatoView
   class Input::Cell < Cell
 
     # Lista di tipologie di input accettate
-    @@types = ['text', 'number', 'select', 'password', 'email', 'editor']
+    @@types = ['text', 'number', 'select', 'password', 'email', 'editor','checkbox','radio']
 
-    # Tipplogia di input da inizializzare (text, number, select, password, email, multiple-select, date)
+    # Tipplogia di input da inizializzare (text, number, select, password, email, multiple-select, date, checkbox, radio)
     # * *default*: 'text'
     attr_accessor :type
     # Nome da assegnare all'input
@@ -39,11 +39,13 @@ module LatoView
     # select vuota
     # * *default*: false
     attr_accessor :option_blank
-
+    # Valore che indica se disattivare o meno l'input
+    # * *default*: false
+    attr_accessor :disabled
 
     def initialize(type: 'text', name: 'input', placeholder: '',
                    value: '', label: '', width: '', required: false,
-                   password_visible: true, custom_class: '', options: [], option_blank: false)
+                   password_visible: true, custom_class: '', options: [], option_blank: false, disabled: false)
       @type = type
       @name = name
       @placeholder = placeholder
@@ -55,6 +57,7 @@ module LatoView
       @options = options
       @custom_class = custom_class
       @option_blank = option_blank
+      @disabled = disabled
     end
 
 
@@ -96,6 +99,13 @@ module LatoView
     protected def get_required_data_input
       return "data-input='required'" if(@required)
     end
+
+
+    # Funzione che disabilita un input
+    protected def get_disabled_data_input
+      return "disabled='disabled'" if(@disabled)
+    end
+
 
 
     # Funzione che prende in input un activerecords, il nome dell'attributo da usare come valore e il nome

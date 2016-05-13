@@ -1,4 +1,5 @@
 <div class="form-control <%= @width %>" <%= get_required_data_input %>>
   <label class="form-label"><%= @label %></label>
-  <input type="email" autocomplete="off" class="input input-email <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" value="<%= @value %>">
+  <input type="email" autocomplete="off" class="input input-email <%= @custom_class %>" <%= get_disabled_data_input %> name="<%= @name %>" placeholder="<%= @placeholder %>" value="<%= @value %>">
+  <div class="input-error-message"></div>
 </div>

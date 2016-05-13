@@ -1,5 +1,5 @@
 <div class="form-control <%= @width %>" <%= get_required_data_input %>>
   <label class="form-label"><%= @label %></label>
-  <input type="text" class="input date-picker <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" value="<%= @value %>">
+  <input type="text" class="input date-picker <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= get_disabled_data_input %> value="<%= @value %>">
   <div class="input-error-message"></div>
 </div>

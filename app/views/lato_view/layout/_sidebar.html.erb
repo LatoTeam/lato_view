@@ -1,7 +1,7 @@
 <% voices = CORE_NAVIGATION.sort_by { |hsh| hsh[:position] } %>
 <div class="main-navigation-sidebar">
   <a href="" class="sidebar-logo"><%= CORE_APPNAME %></a>
-  <img src="<%= core_getApplicationLogo %>">
+  <!--<%=raw core_getApplicationLogo %>-->
   <nav class="sidebar-nav">
     <ul class="sidebar-list">
       <% voices.each do |voice| %>

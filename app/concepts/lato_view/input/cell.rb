@@ -40,7 +40,6 @@ module LatoView
     # select vuota
     # * *default*: false
     attr_accessor :option_blank
-
     # Valore che indica se disattivare o meno l'input
     # * *default*: false
     attr_accessor :disabled
@@ -48,7 +47,6 @@ module LatoView
     def initialize(type: 'text', name: 'input', placeholder: '',
                    value: '', label: '', width: '', required: false,
                    password_visible: true, custom_class: '', options: [], option_blank: false, disabled: false)
-
       @type = type
       @name = name
       @placeholder = placeholder
@@ -103,7 +101,6 @@ module LatoView
       return "data-input='check'" if (@type === "checkbox" && @required)
       return "data-input='required'" if(@required)
     end
-
 
 
     # Funzione che disabilita un input

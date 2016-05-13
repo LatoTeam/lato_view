@@ -5,13 +5,7 @@
       <% @attributes.each_with_index do |attribute, index| %>
         <% if(value = element.send(attribute) and !!value == value) %>
           <td data-label="<%= @head[index] %>">
-            <% if value.nil? %>
-              ?
-            <% elsif value === false %>
-              x
-            <% else %>
-             v
-            <% end %>
+            <% if value %>v<% else %>x<% end %>
           </td>
         <% else %>
           <td data-label="<%= @head[index] %>"><%= element.send(attribute) %></td>

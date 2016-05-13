@@ -2,20 +2,6 @@
 
 <div class="content-row">
 
-  <%= raw block.open width: 'third' %>
-      
-      <%=raw view(:input).new(type: 'radio',
-                          value: 'test',
-                          name: 'superuser[username]',
-                          label: 'amo la figa',
-                          width: 'half',
-                          options: [["value","nome"],["value2","nome2"]],
-                          required: true,
-                          disabled: true) %>
-
-
-  <%= raw block.close %>
-
   <%= raw block.open(width: 'two-third') %>
     <h2 class="form-title">Example form</h2>
     <form action="" class="lato-form">

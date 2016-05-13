@@ -1,0 +1,223 @@
+/* Form Module */
+
+// Remove default fieldset styles.
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea, select {
+  padding: 6px 10px; // The 6px vertically centers text on FF, ignored by Webkit
+  box-shadow: none;
+}
+
+textarea, input {
+  appearance: none;
+}
+
+textarea {
+  height: auto;
+  min-height: $text-area-min-height;
+}
+
+.form-title {
+  font-size: em(30px);
+}
+
+// The most basic form
+.lato-form {
+  width: 100%;
+  .input, .textarea {
+    width: 100%;
+    border: 0;
+    border-radius: 2px;
+    padding: $form-input-padding;
+    border: 1px solid $form-input-border-color;
+    transition: border-color 0.3s ease;
+    &:focus {
+      outline: none;
+      border-color: $form-input-hover-border-color;
+    }
+  }
+  .form-label {
+    display: inline-block;
+    padding-bottom: 8px;
+    .form-advise {
+      display: inline-block;
+      padding-left: 4px;
+      font-size: 12px;
+      color: $ship-cove;
+    }
+  }
+  .textarea {
+    padding: 10px 20px;
+  }
+}
+
+// Form group = Row for form controls
+.form-group {
+  width: 100%;
+  @include clearfix();
+}
+
+.form-block {
+  display: block;
+  margin: 8px 0;
+}
+
+// A single input container
+.form-control {
+  position: relative;
+  width: 100%;
+  margin-bottom: $form-control-margin;
+  &.half {
+    @include col(1/2);
+  }
+  &.third {
+    @include col(1/3);
+  }
+  &.two-third {
+    @include col(2/3);
+  }
+  &.fourth {
+    @include col(1/4);
+  }
+  // when an input is required
+  &[data-input="required"] {
+    .form-label:after {
+      content: "*";
+      margin-left: 5px;
+    }
+  }
+  .input-error-message {
+    opacity: 0;
+    visibility: hidden;
+    font-size: em(12px);
+    transition: all 0.28s ease;
+  }
+}
+
+.form-section-title {
+  font-size: em(18px);
+}
+.form-secondary-info {
+  font-size: 12px;
+  line-height: 1;
+  color: $ship-cove;
+  // FIXME - Forse metterei in Lato Light 
+}
+
+// Form states
+.form-error {
+  .input, .textarea {
+    border-color: $scarlet;
+    &:focus {
+      border-color: $scarlet;
+    }
+  }
+  .label-control:before {
+    border-color: $scarlet;
+  }
+  .input-error-message {
+    opacity: 1;
+    visibility: visible;
+    color: $scarlet;
+  }
+}
+
+.form-required {
+  .input, .textarea {
+    border-color: $yellow-sea;
+    &:focus {
+      border-color: $yellow-sea;
+    }
+  }
+  .input-error-message {
+    opacity: 1;
+    visibility: visible;
+    color: $yellow-sea;
+  }
+}
+
+// Password reveal submodule
+.password-reveal {
+  position: absolute;
+  @include size($psw-reveal-width, $psw-reveal-height);
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  &:before, &:after {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+  }
+  &:before {
+    @include size($psw-eye-size);
+    background: $psw-eye-bg;
+    border-radius: 15px 0 15px 0;
+    transform: rotate(45deg);
+    transition: height 0.168s, background 0.23s;
+  }
+  &:after {
+    @include size($psw-inner-size);
+    border-radius: 50%;
+    background-color: $white;
+  }
+  &.is-text {
+    &:before {
+      @include size(18px);
+      background: transparent;
+      border: 3px solid $psw-eye-bg;
+      border-radius: 15px 0 15px 0;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      @include size(3px, 30px);
+      border-radius: 0;
+      transform: rotate(30deg);
+      background: $psw-eye-bg;
+      transition: height 0.132s;
+    }
+  }
+}
+
+.input-password, .confirm-password {
+  padding-right: 50px !important;
+  &:focus {
+    + .password-reveal {
+      &:before {
+        background: $psw-active;
+      }
+      &.is-text {
+        &:before {
+          border-color: $psw-active;
+        }
+        &:after {
+          background: $psw-active;
+        }
+      }
+    }
+  }
+}
+
+.form-hidden-messages {
+  display: none;
+}
+
+// Email autocomplete custom
+.eac-input-wrap {
+  width: 100%;
+}
+.eac-sugg {
+  color: #999;
+}

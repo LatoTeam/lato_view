@@ -1,0 +1,26 @@
+<header class="main-navigation-header">
+    <div class="nav-logo">
+      <%= putSvg('latologo') %>
+    </div>
+    <div class="nav-account-area">
+      <div class="nav-account-img">
+        <span>Immagine Utente</span>
+      </div>
+      <span class="nav-account-username"><%= core_getCurrentUser().name %></span>
+      <ul class="nav-account-dropdown">
+        <li>
+          <a href="<%= lato_core.exec_logout_path %>" data-method="delete"><span class="dropdown-icon"><%= putSvg('power') %></span>Logout</a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <a href="" class="nav-action">
+        <span></span>
+        <%= putSvg('info') %>
+      </a>
+      <a href="" class="nav-action">
+        <span></span>
+        <%= putSvg('web') %>
+      </a>
+    </div>
+</header>

@@ -1,0 +1,9 @@
+<div class="form-control <%= @width %>" <%= get_required_data_input %> data-input="check">
+		<% @options.each do |option| %>
+		<div class="form-block">
+			<input type="radio" class="radio <%= @custom_class %>" <%= get_disabled_data_input %> name="<%= @name %>" value="<%= get_option_value(option) %>" id="<%= @name %>" <%= get_selected_value(option) %>>
+			<label class="label-control" for="<%= @name %>"><%= get_option_name(option) %></label>
+		</div>
+		<% end %>
+	<div class="input-error-message"></div>
+</div>

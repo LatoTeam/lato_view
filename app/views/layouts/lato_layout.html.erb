@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <title><%= CORE_APPNAME %></title>
+    <%= stylesheet_link_tag    "lato_view/application", media: "all" %>
+    <%= javascript_include_tag "lato_view/application" %>
+
+    <% # LISTA DEGLI ASSETS CUSTOM %>
+    <% CORE_ASSETS.each do |asset| %>
+      <% if asset[:type] === "css" %>
+        <%= stylesheet_link_tag asset[:url], media: "all" %>
+      <% end %>
+      <% if asset[:type] === "js" %>
+        <%= javascript_include_tag asset[:url] %>
+      <% end %>
+    <% end %>
+
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+  <div id="admin-wrapper">
+    <% if(core_controlSession()) %>
+
+      <% # Stampa la sidebar del pannello %>
+     <%= render 'lato_view/layout/sidebar' %>
+
+      <div class="main-content">
+
+        <% # Stampa l'header del pannello %>
+        <%= render 'lato_view/layout/header' %>
+
+        <main>
+          <% # Stampa i flash ricevuti dai controller %>
+          <%= render 'lato_view/layout/flash' %>
+          <div class="content-wrapper">
+
+            <%= yield %>
+
+          </div>
+        </main>
+
+      </div>
+
+      <%= render 'lato_view/layout/strings' %>
+
+    <% else %>
+
+      <div>
+
+        <%= yield %>
+        
+      </div>
+
+    <% end %>
+  </div>
+
+  </body>
+</html>

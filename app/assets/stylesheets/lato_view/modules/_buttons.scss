@@ -1,0 +1,124 @@
+/* Button Module */
+
+%button_base {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+%button_brand {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+button {
+  @extend %button_base;
+  background-image: none;
+  &:focus, &:active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  &.button-disabled, &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+}
+
+.lato-button {
+  @extend %button_base;
+  @extend %button_brand;
+  background-color: $button-bg;
+  border-radius: 100px;
+  padding: 13px 40px;
+  color: $button-color;
+  font-size: 0.875em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transform: translateY(0);
+  transition: background-color 0.3s ease, transform 0.25s $snappy;
+  &:hover {
+    background-color: darken($button-bg, 5%);
+  }
+  &:active, &:focus {
+    outline: none;
+  }
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 13px rgba($button-bg, 0.30);
+  }
+  &:focus {
+    box-shadow: 0 5px 18px rgba($button-bg, 0.35);
+  }
+  &[disabled] {
+    background-color: #A6A8AB;
+    cursor: not-allowed;
+  }
+}
+
+.button-green {
+  background-color: $jungle-green;
+  &:hover {
+    background-color: darken($jungle-green, 5%);
+  }
+  &:active {
+    box-shadow: 0 3px 13px rgba($button-bg, 0.30);
+  }
+  &:focus {
+    box-shadow: 0 5px 18px rgba($button-bg, 0.35);
+  }
+}
+
+.button-yellow {
+  background-color: $yellow-sea;
+  &:hover {
+    background-color: darken($yellow-sea, 5%);
+  }
+  &:active {
+    box-shadow: 0 3px 13px rgba($yellow-sea, 0.30);
+  }
+  &:focus {
+    box-shadow: 0 5px 18px rgba($yellow-sea, 0.35);
+  }
+}
+
+.button-red {
+  background-color: $scarlet;
+  &:hover {
+    background-color: darken($scarlet, 5%);
+  }
+  &:active {
+    box-shadow: 0 3px 13px rgba($scarlet, 0.30);
+  }
+  &:focus {
+    box-shadow: 0 5px 18px rgba($scarlet, 0.35);
+  }
+}
+
+.action-button {
+  font-size: 12px;
+  padding: 8px 20px;
+  margin-right: 10px;
+}
+
+.button-small {
+  font-size: 12px;
+  padding: 8px 20px;
+}
+
+.button-medium {
+  font-size: 14px;
+  padding: 10px 25px;
+}
+
+.button-full {
+  display: block;
+  width: 100%;
+}

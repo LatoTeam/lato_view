@@ -1,0 +1,16 @@
+input:
+  required: Campo obbligatorio
+
+index:
+  actions: Azioni
+  show: Visualizza
+  edit: Modifica
+  delete: Elimina
+
+form_validation:
+  number: The value must be a number.
+  required: This field is required.
+  email: Please, type a valid email address.
+  char : Wrong number of characters.
+  pass_same: Fields must have the same password value.
+  check: This box must be checked.

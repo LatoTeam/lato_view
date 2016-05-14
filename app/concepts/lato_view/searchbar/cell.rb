@@ -2,48 +2,25 @@ module LatoView
 
   class Searchbar::Cell < Cell
 
-    # Istanze del database da utilizzare nella ricerca
-    attr_accessor :elements
+    # Nome dell'istanza del database da utilizzare nella ricerca
+    attr_accessor :element_name
 
     # La variabile di filtro ricerca
     attr_accessor :search_filter
 
+    # La variabile ricercata
+    attr_accessor :searched_val
 
-    def initialize(elements: nil, search_filter: nil)
-      @elements = elements
+    def initialize(element_name: nil, search_filter: nil, searched_val: nil)
+      @element_name = element_name
+      @elements = instance_variable_get("@#{element_name}")
+      @elements = @elements.ransack(searched_val)
       @search_filter = search_filter
     end
 
 
     def show
       render 'show.html'
-    end
-
-
-
-    # Funzione che ritorna il link allo show dell'entità con l'id passato come parametro
-    protected def show_link(id)
-      if(@link.end_with? '/')
-        return "#{@link}#{id}"
-      else
-        return "#{@link}/#{id}"
-      end
-    end
-
-
-    # Funzione che ritorna il link all'edit dell'entità con l'id passato come parametro
-    protected def edit_link(id)
-      if(@link.end_with? '/')
-        return "#{@link}#{id}/edit"
-      else
-        return "#{@link}/#{id}/edit"
-      end
-    end
-
-
-    # Funzione che ritorna il link all'edit dell'entità con l'id passato come parametro
-    protected def delete_link(id)
-      return show_link(id)
     end
 
   end

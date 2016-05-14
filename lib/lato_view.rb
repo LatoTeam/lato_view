@@ -1,8 +1,5 @@
 module LatoView
 
-  require "lato_view/engine"
-  require "lato_view/interface"
-
   # Gemme di dipendenza
   require "sass-rails"
   require "autoprefixer-rails"
@@ -12,6 +9,9 @@ module LatoView
   require "cells-erb"
   require "ransack" # ereditata da lato_core
 
+  # Moduli della gemma
+  require "lato_view/engine"
+  require "lato_view/interface"
   require "lato_view/concepts"
 
 end

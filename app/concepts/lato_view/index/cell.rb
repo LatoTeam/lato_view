@@ -24,9 +24,12 @@ module LatoView
     # Valore booleano che indica se il link di eliminazione deve essere eseguito con il remote: true
     # * *default*: false
     attr_accessor :remote_delete
+    # Valore usato per aggiungere delle classi custom alla tabella dell'index
+    # * *default*: nil
+    attr_accessor :custom_class
 
 
-    def initialize(elements: nil, head: nil, attributes: nil, link: nil, show_link: true, edit_link: true, delete_link: true, remote_delete: false)
+    def initialize(elements: nil, head: nil, attributes: nil, link: nil, show_link: true, edit_link: true, delete_link: true, remote_delete: false, custom_class: nil)
       @elements = elements
       @head = head
       @attributes = attributes
@@ -35,6 +38,7 @@ module LatoView
       @edit_link = edit_link
       @delete_link = delete_link
       @remote_delete = remote_delete
+      @custom_class = custom_class
     end
 
 
@@ -45,7 +49,7 @@ module LatoView
 
     # Funzione che stampa l'apertura dell'index
     def open
-      return "<table class='table'>"
+      return "<table class='table #{@custom_class}'>"
     end
 
 

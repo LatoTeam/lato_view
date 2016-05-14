@@ -5,7 +5,6 @@ Il modulo **lato_view** è in grado di offrire diverse funzionalità tra le qual
 
 * Caricamento degli assets utilizzati da tutti i moduli Lato
 * Funzioni per stampare componenti grafiche da ultilizzare durante lo sviluppo
-* Caricamento di bootstrap 3 utlizzabile per lo sviluppo di interfacce di altri moduli
 
 ## Installazione
 

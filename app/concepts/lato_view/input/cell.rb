@@ -3,10 +3,10 @@ module LatoView
   class Input::Cell < Cell
 
     # Lista di tipologie di input accettate
-    @@types = ['text', 'number', 'select', 'password', 'email', 'editor','checkbox','radio', 'textarea']
+    @@types = ['text', 'number', 'select', 'password', 'email', 'editor','checkbox','radio', 'textarea', 'file']
 
 
-    # Tipologia di input da inizializzare (text, number, select, password, email, multiple-select, date, checkbox, radio, textarea)
+    # Tipologia di input da inizializzare (text, number, select, password, email, multiple-select, date, checkbox, radio, textarea, file)
     # * *default*: 'text'
     attr_accessor :type
     # Nome da assegnare all'input

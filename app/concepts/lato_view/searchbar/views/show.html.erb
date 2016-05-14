@@ -1,0 +1,7 @@
+<div class='content-block large'>
+    <%= search_form_for @elements, method: @method, url: @url do |f| %>
+      <%= f.label 'Caiao' %>
+      <%= f.text_field @filter %>
+	    <%= f.submit %>
+    <% end %>
+</div>

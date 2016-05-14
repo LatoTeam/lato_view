@@ -10,6 +10,7 @@ module LatoView
   require "selectize-rails"
   require "cells"
   require "cells-erb"
+  require "ransack" # ereditata da lato_core
 
   require "lato_view/concepts"
 

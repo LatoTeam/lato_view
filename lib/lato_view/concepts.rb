@@ -5,6 +5,7 @@ module LatoView
 
     view_paths << "#{LatoView::Engine.root}/app/concepts"
 
+    include Ransack::Helpers::FormHelper
     include ActionView::Helpers::UrlHelper
     include ::Cell::Erb
 

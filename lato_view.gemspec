@@ -4,7 +4,7 @@ $:.push File.expand_path("../lib", __FILE__)
 Gem::Specification.new do |s|
   s.name        = "lato_view"
   s.version     = "0.1.0"
-  s.authors     = ["Gregorio Galante"]
+  s.authors     = ["Gregorio Galante, Antonio Dal Cin, Riccardo Zanutta"]
   s.email       = ["gregogalante@gmail.com"]
   s.homepage    = "http://www.gregoriogalante.com"
   s.summary     = "Starter kit for new Lato module"

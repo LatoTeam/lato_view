@@ -6,12 +6,12 @@ module LatoView
     attr_accessor :elements
 
     # La variabile di filtro ricerca
-    attr_accessor :filter
+    attr_accessor :search_filter
 
 
-    def initialize(elements: nil, filter: nil)
+    def initialize(elements: nil, search_filter: nil)
       @elements = elements
-      @filter = filter
+      @search_filter = search_filter
     end
 
 

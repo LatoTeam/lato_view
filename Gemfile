@@ -14,3 +14,4 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 gem 'lato_core', :path => '../lato_core'
+gem 'ransack'

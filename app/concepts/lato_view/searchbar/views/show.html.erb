@@ -1,7 +1,6 @@
-<div class='content-block large'>
-    <%= search_form_for @elements, method: @method, url: @url do |f| %>
-      <%= f.label 'Caiao' %>
-      <%= f.text_field @filter %>
-	    <%= f.submit %>
-    <% end %>
+<div class="search-bar">
+  <%= search_form_for @elements, method: @method, url: @url, class: 'lato-form' do |f| %>
+      <%= f.text_field @filter, class: 'input search-text' %>
+      <%= f.submit VIEW_LANG['index']['search'], class: 'lato-button button-small search-button' %>
+  <% end %>
 </div>

@@ -1,0 +1,11 @@
+.search-bar {
+    .search-text {
+        width: calc(100% - 200px);
+    }
+
+    .search-button {
+        position: relative;
+        margin-left: 10px;
+        top: -2.5px;
+    }
+}

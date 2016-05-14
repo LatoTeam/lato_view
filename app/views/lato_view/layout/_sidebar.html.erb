@@ -1,7 +1,7 @@
 <% voices = CORE_NAVIGATION.sort_by { |hsh| hsh[:position] } %>
 <div class="main-navigation-sidebar">
   <% if(logo = core_getApplicationLogo) %>
-    <%=raw logo %>
+    <a href="" class="sidebar-logo"><%=raw logo %></a>
   <% else %>
     <a href="" class="sidebar-logo"><%= CORE_APPNAME %></a>
   <% end %>

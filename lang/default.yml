@@ -6,6 +6,7 @@ index:
   show: Visualizza
   edit: Modifica
   delete: Elimina
+  search: Cerca
 
 form_validation:
   number: The value must be a number.

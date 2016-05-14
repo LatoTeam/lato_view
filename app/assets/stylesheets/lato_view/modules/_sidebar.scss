@@ -13,6 +13,13 @@
   text-align: center;
   color: white;
   background-color: darken($sidebar-bg, 10%);
+  text-decoration: none;
+  padding: 20px;
+
+  svg {
+    max-width: 60%;
+    margin: auto;
+  }
 }
 
 .sidebar-nav {

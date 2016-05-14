@@ -1,5 +1,9 @@
 module LatoView
 
+  module Searchbar
+    # Elemento grafico composto da una barra di ricerca utilizzabile insieme alla gemma 'ransack' per eseguire la ricerca tra le entità di un modello.
+  end
+
   class Searchbar::Cell < Cell
 
     # Nome dell'istanza del database da utilizzare nella ricerca

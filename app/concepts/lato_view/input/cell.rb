@@ -33,7 +33,7 @@ module LatoView
     # Classi custom da inserire nel codice dell'input
     # * *default*: nil
     attr_accessor :custom_class
-    # Lista di opzioni da mostrare (nel caso di input select). La struttura deve essere [['value1', 'Name 1'], ['value2', 'Name 2']]
+    # Lista di opzioni da mostrare (nel caso di input select o radio buttons). La struttura deve essere [['value1', 'Name 1'], ['value2', 'Name 2']]
     # * *default*: []
     attr_accessor :options
     # Valore booleano che indica (nel caso di input select) se mostrare o meno la prima opzione del
@@ -69,7 +69,7 @@ module LatoView
     end
 
 
-    # Ritorna il value di un opzione di un select ricevuta come parametro
+    # Ritorna il value di un opzione di un select ricevuta come parametro. Funzione usata solo per i select e i radio button
     protected def get_option_value(option)
       if(option.kind_of?(Array))
         return option.first
@@ -79,7 +79,7 @@ module LatoView
     end
 
 
-    # Ritorna il name di un opzione di un select di un select ricevuta come parametro
+    # Ritorna il name di un opzione di un select di un select ricevuta come parametro. Funzione usata solo per i select e i radio button
     protected def get_option_name(option)
       if(option.kind_of?(Array))
         return option.last

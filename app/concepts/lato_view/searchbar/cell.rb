@@ -2,12 +2,16 @@ module LatoView
 
   class Searchbar::Cell < Cell
 
-    # Istanze del database da stampare
+    # Istanze del database da utilizzare nella ricerca
     attr_accessor :elements
 
+    # La variabile di filtro ricerca
+    attr_accessor :filter
 
-    def initialize(elements: nil)
+
+    def initialize(elements: nil, filter: nil)
       @elements = elements
+      @filter = filter
     end
 
 

@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require lato_view/vendor/modernizr
 //= require selectize
+//= require lato_view/vendor/moment.min
 //= require lato_view/vendor/pikaday
 //= require lato_view/vendor/pikaday.jquery
+//= require lato_view/vendor/dropzone.min
 //= require lato_view/vendor/jquery.email-autocomplete.min
 //= require lato_view/vendor/trumbowyg.min
 //= require lato_view/build/Util

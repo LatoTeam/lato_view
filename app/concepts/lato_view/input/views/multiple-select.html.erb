@@ -1,11 +1,11 @@
-<div class="form-control <%= @width %>" <%= get_required_data_input %>>
+<div class="form-control <%= @width %>" <%= required_data_input %>>
   <label class="form-label"><%= @label %></label>
-  <select class="select <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= get_disabled_data_input %> multiple>
+  <select class="select <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= disabled_data_input %> multiple>
     <% if(@option_blank) %>
       <option></option>
     <% end %>
     <% @options.each do |option| %>
-      <option value="<%= get_option_value(option) %>" <%= get_selected_value(option) %>><%= get_option_name(option) %></option>
+      <option value="<%= option_value(option) %>" <%= selected_value(option) %>><%= option_name(option) %></option>
     <% end %>
   </select>
   <div class="input-error-message"></div>

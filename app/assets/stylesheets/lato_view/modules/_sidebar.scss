@@ -20,6 +20,16 @@
     max-width: 60%;
     margin: auto;
   }
+  &.lato-logo {
+    svg {
+      position: relative;
+      top: 2px;
+      @include size(70px, 26px);
+      path {
+        fill: white;
+      }
+    }
+  }
 }
 
 .sidebar-nav {

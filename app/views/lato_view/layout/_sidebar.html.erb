@@ -1,16 +1,16 @@
 <% voices = CORE_NAVIGATION.sort_by { |hsh| hsh[:position] } %>
 <div class="main-navigation-sidebar">
   <% if(logo = core_getApplicationLogo) %>
-    <a href="" class="sidebar-logo"><%=raw logo %></a>
+    <a href="" class="sidebar-logo lato-logo"><%= put_svg('latologo') %></a>
   <% else %>
     <a href="" class="sidebar-logo"><%= CORE_APPNAME %></a>
   <% end %>
   <nav class="sidebar-nav">
     <ul class="sidebar-list">
       <% voices.each do |voice| %>
-        <% if(!voice[:permission] or ( voice[:permission] and core_getCurrentUser().permission >= voice[:permission])) %>
+        <% if(!voice[:permission] or ( voice[:permission] and core_getCurrentUser.permission >= voice[:permission])) %>
           <li class="sidebar-list-item <% if(@view_navbar_unique_name and @view_navbar_unique_name === voice[:unique_name]) %>active<% end %>">
-            <a class="sidebar-main-link" href="<%= voice[:url] %>"><span class="sidebar-item-icon"><%= putSvg(voice[:icon]) %></span><%= voice[:name] %></a>
+            <a class="sidebar-main-link" href="<%= voice[:url] %>"><span class="sidebar-item-icon"><%= put_svg(voice[:icon]) %></span><%= voice[:name] %></a>
           </li>
         <% end %>
       <% end %>

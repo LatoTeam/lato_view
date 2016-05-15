@@ -12,7 +12,8 @@ var FormManager = (function($) {
       firstDay: 1,
       minDate: new Date(2000, 0, 1),
       maxDate: new Date(2020, 12, 31),
-      yearRange: [2000, 2020],
+      format: 'DD/MM/YYYY',
+      yearRange: [1900, 3000],
       i18n: {
         previousMonth : 'Mese precedente',
         nextMonth     : 'Mese successivo',
@@ -21,6 +22,13 @@ var FormManager = (function($) {
         weekdaysShort : ['Dom','Lun','Mar','Mar','Gio','Ven','Sab']
       }
     });
+  };
+
+  var _manageFileUploader = function() {
+    var $dropZone = $('.drop-zone');
+    var parentForm = $dropZone.parent('.lato-form');
+
+    $dropZone.dropzone({ url: parentForm.attr('action') });
   };
 
   // Manage password-reveal sub-module.
@@ -110,6 +118,7 @@ var FormManager = (function($) {
   var init = function() {
     _manageSelect();
     _manageDatePicker();
+    // _manageFileUploader();
     _manageInputPassword();
     _insertSuggestions();
     _manageFormSubmit();

@@ -1,121 +1,130 @@
 <% block = view(:block).new() %>
 
-<div class="content-row">
+  <div class="action-bar">
+    <div class="action-group-left">
+      <h1 class="admin-section-title">Action Bar</h1>
+    </div>
+    <div class="action-group-left">
+      <form action="" class="search-bar">
+        <input type="text" class="search-field">
+        <button type="submit" class="search-button">Cerca</button>
+      </form>
+    </div>
+    <div class="action-group-right">
+      <a href="" class="lato-button action-button">Action</a>
+    </div>
+  </div>
 
-  <%= raw block.open(width: 'third') %>
-    <%= raw view(:input).new(type: 'file') %>
-  <%= raw block.close %>
+  <div class="content-row">
+    <%= raw block.open(width: 'two-third') %>
+      <h2 class="form-title">Example form</h2>
+      <form action="" class="lato-form">
+        <div class="form-group">
+          <div class="form-control">
+            <label class="form-label">Informazione</label>
+            <input type="text" class="input">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-control half">
+            <label class="form-label">Nome</label>
+            <input type="text" class="input">
+          </div>
+          <div class="form-control half" data-control="email">
+            <label class="form-label">Email</label>
+            <input type="text" class="input input-email email-suggestion">
+            <div class="input-error-message"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-control half" data-input="required">
+            <label class="form-label">Date</label>
+            <input type="text" class="input date-picker">
+            <div class="input-error-message"></div>
+          </div>
+          <div class="form-control half" data-control="number">
+            <label class="form-label">Number</label>
+            <input type="text" class="input input-number">
+            <div class="input-error-message"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-control half">
+            <label class="form-label">Selectize</label>
+            <select class="select" name="" id="">
+              <option value="yes">Voto si</option>
+              <option value="no">Voto no</option>
+            </select>
+          </div>
+          <div class="form-control half">
+            <label class="form-label">Selectize Multiplo</label>
+            <select class="select" multiple name="" id="">
+              <option value="yoppa">Voto yoppa</option>
+              <option value="no">Voto no</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-control half" data-input="check">
+            <label class="form-label">Checkbox e Radio</label>
+            <div class="form-block">
+              <input type="checkbox" class="check" name="cb" id="cb1"><label class="label-control" for="cb1">Check and uncheck this</label>
+            </div>
+            <div class="form-block">
+              <input type="checkbox" class="check" disabled="disabled" name="cb" id="cb2">
+              <label class="label-control" for="cb2">Disabled man</label>
+            </div>
+            <div class="form-block">
+              <input type="radio" class="radio" name="rd" id="rd1">
+              <label class="label-control" for="rd1">Click this</label>
+            </div>
+            <div class="form-block">
+              <input type="radio" class="radio" disabled="disabled" name="rd" id="rd2">
+              <label class="label-control" for="rd2">Disabled man</label>
+            </div>
+            <div class="input-error-message"></div>
+          </div>
+          <div class="form-control half" data-input="required">
+            <label class="form-label">Textarea</label>
+            <textarea class="textarea" name="" id=""></textarea>
+            <div class="input-error-message"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-control half">
+            <label class="form-label">Password</label>
+            <input type="password" class="input input-password">
+            <button class="password-reveal"></button>
+          </div>
+          <div class="form-control half">
+            <label class="form-label">Input <span class="form-advise">(max 5 caratteri)</span></label>
+            <input type="password" class="input input-length">
+            <div class="input-error-message"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-control half">
+            <label class="form-label">Upload File</label>
+            <input type="file" name="file" id="file" class="input-file" data-multiple-caption="{count} files selected" multiple />
+            <label for="file">
+              <div class="upload-icon"><%= put_svg('upload') %></div>
+              <span>Choose a file</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group text-right">
+          <div class="form-control">
+            <input type="submit" class="lato-button">
+          </div>
+        </div>
+      </form>
+    <%= raw block.close %>
 
-  <%= raw block.open(width: 'two-third') %>
-    <h2 class="form-title">Example form</h2>
-    <form action="" class="lato-form">
-      <div class="form-group">
-        <div class="form-control">
-          <label class="form-label">Informazione</label>
-          <input type="text" class="input">
+    <% raw block.open(width: 'third') %>
+      <!-- <form action="/file-upload" class="dropzone">
+        <div class="fallback">
+          <input name="file" type="file" multiple />
         </div>
-      </div>
-      <div class="form-group">
-        <div class="form-control half">
-          <label class="form-label">Nome</label>
-          <input type="text" class="input">
-        </div>
-        <div class="form-control half" data-control="email">
-          <label class="form-label">Email</label>
-          <input type="text" class="input input-email email-suggestion">
-          <div class="input-error-message"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-control half" data-input="required">
-          <label class="form-label">Date</label>
-          <input type="text" class="input date-picker">
-          <div class="input-error-message"></div>
-        </div>
-        <div class="form-control half" data-control="number">
-          <label class="form-label">Number</label>
-          <input type="text" class="input input-number">
-          <div class="input-error-message"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-control half">
-          <label class="form-label">Selectize</label>
-          <select class="select" name="" id="">
-            <option value="yes">Voto si</option>
-            <option value="no">Voto no</option>
-          </select>
-        </div>
-        <div class="form-control half">
-          <label class="form-label">Selectize Multiplo</label>
-          <select class="select" multiple name="" id="">
-            <option value="yoppa">Voto yoppa</option>
-            <option value="no">Voto no</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-control half" data-input="check">
-          <label class="form-label">Checkbox e Radio</label>
-          <div class="form-block">
-            <input type="checkbox" class="check" name="cb" id="cb1"><label class="label-control" for="cb1">Check and uncheck this</label>
-          </div>
-          <div class="form-block">
-            <input type="checkbox" class="check" disabled="disabled" name="cb" id="cb2">
-            <label class="label-control" for="cb2">Disabled man</label>
-          </div>
-          <div class="form-block">
-            <input type="radio" class="radio" name="rd" id="rd1">
-            <label class="label-control" for="rd1">Click this</label>
-          </div>
-          <div class="form-block">
-            <input type="radio" class="radio" disabled="disabled" name="rd" id="rd2">
-            <label class="label-control" for="rd2">Disabled man</label>
-          </div>
-          <div class="input-error-message"></div>
-        </div>
-        <div class="form-control half" data-input="required">
-          <label class="form-label">Textarea</label>
-          <textarea class="textarea" name="" id=""></textarea>
-          <div class="input-error-message"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-control half">
-          <label class="form-label">Password</label>
-          <input type="password" class="input input-password">
-          <button class="password-reveal"></button>
-        </div>
-        <div class="form-control half">
-          <label class="form-label">Input <span class="form-advise">(max 5 caratteri)</span></label>
-          <input type="password" class="input input-length">
-          <div class="input-error-message"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-control half">
-          <label class="form-label">Upload File</label>
-          <input type="file" name="file" id="file" class="input-file" data-multiple-caption="{count} files selected" multiple />
-          <label for="file">
-            <div class="upload-icon"><%= put_svg('upload') %></div>
-            <span>Choose a file</span>
-          </label>
-        </div>
-      </div>
-      <div class="form-group text-right">
-        <div class="form-control">
-          <input type="submit" class="lato-button">
-        </div>
-      </div>
-    </form>
-  <%= raw block.close %>
-
-  <% raw block.open(width: 'third') %>
-    <!-- <form action="/file-upload" class="dropzone">
-      <div class="fallback">
-        <input name="file" type="file" multiple />
-      </div>
-    </form> -->
-  <%= raw block.close %>
-
-</div>
+      </form> -->
+  </div>
+<%= raw block.close %>

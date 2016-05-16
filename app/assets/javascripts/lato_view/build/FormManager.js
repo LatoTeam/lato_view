@@ -10,8 +10,8 @@ var FormManager = (function($) {
   var _manageDatePicker = function() {
     var $datepicker = $('.date-picker').pikaday({
       firstDay: 1,
-      minDate: new Date(2000, 0, 1),
-      maxDate: new Date(2020, 12, 31),
+      minDate: new Date(1900, 0, 1),
+      maxDate: new Date(3000, 12, 31),
       format: 'DD/MM/YYYY',
       yearRange: [1900, 3000],
       i18n: {

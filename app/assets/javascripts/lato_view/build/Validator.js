@@ -12,16 +12,6 @@ var Validator = (function($) {
   };
 
   /*
-  * Prints out the error message after the validation process.
-  * @params:
-  * message: message to print
-  * @return: boolean
-  */
-  var _appendMessage = function(message) {
-
-  };
-
-  /*
   * Check if an input in a form has a number as its value.
   * @params:
   * input: input to control
@@ -61,8 +51,15 @@ var Validator = (function($) {
   var isInputRequired = function(attribute) {
     if($('.form-control[' + attribute + ']').length) {
       var passed = false;
-      var $requiredInputs = $('.form-control[' + attribute + ']').find('.input');
+      var $requiredInputs = '';
+
+      var isTextarea = $('.form-control[' + attribute + ']').find('.textarea').length;
+      var $allInputs = $('.form-control[' + attribute + ']').find('.input, .textarea');
+      var $onlyInput = $('.form-control[' + attribute + ']').find('.input');
+
       var errorMessage = $('.required-hidden-message').text();
+
+      $requiredInputs = isTextarea ? $allInputs : $onlyInput;
 
       $requiredInputs.each(function() {
         if($(this).val() === '') {
@@ -92,12 +89,16 @@ var Validator = (function($) {
       var $checkboxes = $('.form-control[' + attribute + ']').find('.check');
       var $radios = $('.form-control[' + attribute + ']').find('.radio');
       var $control = $checkboxes.parent().parent();
+      var errorMessage = $('.check-hidden-message').text();
 
       if($checkboxes.length) {
         $checkboxes.each(function() {
           if($(this).prop('checked')) {
             passed = true;
+            $(this).parent().next('.input-error-message').text('');
             return false;
+          } else {
+            $(this).parent().next('.input-error-message').text(errorMessage);
           }
         });
       }
@@ -106,12 +107,15 @@ var Validator = (function($) {
         $radios.each(function() {
           if($(this).prop('checked')) {
             passed = true;
+            $(this).parent().next('.input-error-message').text('');
             return false;
+          } else {
+            $(this).parent().next('.input-error-message').text(errorMessage);
           }
         });
       }
 
-      !passed ? $control.addClass('form-error') : $control.removeClass('form-error');
+      !passed ? $control.addClass('form-required') : $control.removeClass('form-required');
 
       return passed;
     }
@@ -127,7 +131,13 @@ var Validator = (function($) {
     if ($(input).length) {
       var passed = false;
       var results = [];
-      var $formControl = $(input).parent('.form-control');
+      var isSuggestion = $(input).parent('.eac-input-wrap').length;
+      var $suggestionControl = $(input).parent('.eac-input-wrap').parent('.form-control');
+      var $baseControl = $(input).parent('.form-control');
+
+      // Distinguish when we have email suggestion or not
+      var $formControl = isSuggestion ? $suggestionControl : $baseControl;
+
       var errorMessage = $('.email-hidden-message').text();
 
       $(input).each(function () {
@@ -139,12 +149,28 @@ var Validator = (function($) {
       passed = results.indexOf(false);
 
       if(passed === -1) {
+
         $formControl.addClass('form-error');
-        $(input).next('.input-error-message').text(errorMessage);
+
+        // Distinguish when we have email suggestion or not
+        if ($(input).parent('.eac-input-wrap').length) {
+          $(input).parent('.eac-input-wrap').next('.input-error-message').text(errorMessage);
+        } else {
+          $(input).next('.input-error-message').text(errorMessage);
+        }
+        
       } else {
+
         $formControl.removeClass('form-error');
-        $(input).next('.input-error-message').text('');
+
+        // Distinguish when we have email suggestion or not
+        if ($(input).parent('.eac-input-wrap').length) {
+          $(input).parent('.eac-input-wrap').next('.input-error-message').text('');
+        } else {
+          $(input).next('.input-error-message').text('');
+        }
       }
+
       return passed;
     }
   };
@@ -161,10 +187,18 @@ var Validator = (function($) {
       var $confirmPassword = $(firstInput + ',' + secondInput).parent('.form-control');
       var firstValue = $(firstInput).val();
       var secondValue = $(secondInput).val();
+      var errorMessage = $('.pass-same-hidden-message').text();
 
       var result = Util.isEqual(firstValue, secondValue);
 
-      result ? $confirmPassword.removeClass('form-error') : $confirmPassword.addClass('form-error');
+      if (result) {
+        $confirmPassword.removeClass('form-error');
+        $(firstInput + ',' + secondInput).next('.password-reveal').next('.input-error-message').text('');
+      } else {
+        $confirmPassword.addClass('form-error');
+        $(firstInput + ',' + secondInput).next('.password-reveal').next('.input-error-message').text(errorMessage);
+      }
+
       return result;
     }
   };
@@ -180,13 +214,23 @@ var Validator = (function($) {
       var passed = false;
       var results = [];
       var $formControl = $(input).parent('.form-control');
+      var errorMessage = $('.char-hidden-message').text();
 
       $(input).each(function() {
         passed = Util.checkLength($(this), 'max', undefined, 5);
         results[results.length] = passed;
       });
+
       passed = results.indexOf(false);
-      passed === -1 ? $formControl.removeClass('form-error') : $formControl.addClass('form-error');
+
+      if (passed === -1) {
+        $formControl.removeClass('form-error');
+        $(input).next('.input-error-message').text('');
+      } else {
+        $formControl.addClass('form-error');
+        $(input).next('.input-error-message').text(errorMessage);
+      }
+
       var result = passed === -1 ? false : true;
       return result;
     }

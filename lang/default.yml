@@ -1,5 +1,7 @@
 input:
   required: Campo obbligatorio
+  choose_file: Seleziona file
+  selected_files: Files selezionati
 
 index:
   actions: Azioni
@@ -9,9 +11,9 @@ index:
   search: Cerca
 
 form_validation:
-  number: The value must be a number.
-  required: This field is required.
-  email: Please, type a valid email address.
-  char : Wrong number of characters.
-  pass_same: Fields must have the same password value.
-  check: This box must be checked.
+  number: Il valore deve essere un numero.
+  required: Campo obbligatorio.
+  email: Inserisci un indirizzo email valido.
+  char : Numero errato di caratteri.
+  pass_same: I campi devono avere lo stesso valore.
+  check: Non puoi lasciare vuoto questo campo.

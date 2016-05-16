@@ -31,7 +31,42 @@ var FormManager = (function($) {
     $dropZone.dropzone({ url: parentForm.attr('action') });
   };
 
+  // Manage input type="file" component. 
+  // Replaces the label text depending on the uploaded files.
+  var _manageInputFile = function() {
+    if($('.input-file').length) {
+      $('.input-file').each( function() {
+        var $input = $(this);
+        var $label   = $input.next('label');
+        var labelVal = $label.html();
+
+        $input.on('change', function(event) {
+          var fileName = '';
+
+          if(this.files && this.files.length > 1) {
+            fileName = (this.getAttribute('data-multiple-caption') || '' ).replace( '{count}', this.files.length );
+          } else if(event.target.value) {
+            fileName = event.target.value.split('\\').pop();
+          }
+
+          if(fileName) {
+            $label.find('span').html(fileName);
+          } else {
+            $label.html(labelVal);
+          }
+
+        });
+
+        // Firefox bug fix
+        $input
+        .on('focus', function(){ $input.addClass( 'has-focus' ); })
+        .on('blur', function(){ $input.removeClass( 'has-focus' ); });
+      });
+    }
+  };
+
   // Manage password-reveal sub-module.
+  // Transforms the input type.
   var _manageInputPassword = function() {
     $(document).on('click', '.password-reveal', function(event) {
       event.preventDefault();
@@ -55,9 +90,6 @@ var FormManager = (function($) {
 
   /*
   * Manage form submission/validation
-  * @params: 
-  * form: form element to test
-  * validationTests: object of validation functions, coming from the Validate.js module.
   * @return: undefined or boolean
   */
   var _manageFormSubmit = function() {
@@ -83,35 +115,30 @@ var FormManager = (function($) {
     });
   }
 
+  // Manage form validation in semi-real-time.
   var _manageBlurValidation = function() {
     $('.lato-form').on('blur', '.input', function(event) {
       var type = $(this).parent('.form-control').data('input');
       var controlType = $(this).parent('.form-control').data('control');
 
-      // Manage data-input type
-      if(type === 'required') {
-        Validator.controlRequired('data-input="required"');
+      // Email suggestion case
+      if($('.eac-input-wrap').length) {
+        Validator.controlEmail('.input-email');
       }
+      
+      // Get input desired className.
+      var tester = '.' + $(this).attr('class').split(' ')[1];
 
       // Manage data-control type
       switch(controlType) {
         case 'number':
-          Validator.controlNumber($(this));
+          Validator.controlNumber(tester);
           break;
         case 'email':
-          Validator.controlEmail('.input-email');
+          Validator.controlEmail(tester);
           break;
       }
 
-    });
-
-    $('.lato-form').on('blur', '.textarea', function() {
-      var type = $(this).parent('.form-control').data('input');
-
-      // Manage data-input type
-      if(type === 'required') {
-        Validator.controlRequired('data-input="required"');
-      }
     });
   };
 
@@ -119,6 +146,7 @@ var FormManager = (function($) {
     _manageSelect();
     _manageDatePicker();
     // _manageFileUploader();
+    _manageInputFile();
     _manageInputPassword();
     _insertSuggestions();
     _manageFormSubmit();

@@ -49,11 +49,16 @@ module LatoView
       # Valore che indica se disattivare o meno l'input
       # * *default*: false
       attr_accessor :disabled
+      # Valore che indica (nel caso di input file) se accettare piu' file o
+      # uno singolarmente
+      # * *default*: false
+      attr_accessor :multiple_files
 
       def initialize(type: 'text', name: 'input', placeholder: '',
                      value: '', label: '', width: '', required: false,
                      password_visible: true, custom_class: '', options: [],
-                     option_blank: false, disabled: false)
+                     option_blank: false, disabled: false,
+                     multiple_files: false)
         @type = type
         @name = name
         @placeholder = placeholder
@@ -66,6 +71,7 @@ module LatoView
         @custom_class = custom_class
         @option_blank = option_blank
         @disabled = disabled
+        @multiple_files = multiple_files
       end
 
       def show

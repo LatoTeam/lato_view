@@ -2,6 +2,10 @@
 
 <div class="content-row">
 
+  <%= raw block.open(width: 'third') %>
+    <%= raw view(:input).new(type: 'file') %>
+  <%= raw block.close %>
+
   <%= raw block.open(width: 'two-third') %>
     <h2 class="form-title">Example form</h2>
     <form action="" class="lato-form">
@@ -18,7 +22,7 @@
         </div>
         <div class="form-control half" data-control="email">
           <label class="form-label">Email</label>
-          <input type="text" class="input input-email">
+          <input type="text" class="input input-email email-suggestion">
           <div class="input-error-message"></div>
         </div>
       </div>
@@ -68,8 +72,9 @@
             <input type="radio" class="radio" disabled="disabled" name="rd" id="rd2">
             <label class="label-control" for="rd2">Disabled man</label>
           </div>
+          <div class="input-error-message"></div>
         </div>
-        <div class="form-control half">
+        <div class="form-control half" data-input="required">
           <label class="form-label">Textarea</label>
           <textarea class="textarea" name="" id=""></textarea>
           <div class="input-error-message"></div>
@@ -84,9 +89,20 @@
         <div class="form-control half">
           <label class="form-label">Input <span class="form-advise">(max 5 caratteri)</span></label>
           <input type="password" class="input input-length">
+          <div class="input-error-message"></div>
         </div>
       </div>
       <div class="form-group">
+        <div class="form-control half">
+          <label class="form-label">Upload File</label>
+          <input type="file" name="file" id="file" class="input-file" data-multiple-caption="{count} files selected" multiple />
+          <label for="file">
+            <div class="upload-icon"><%= put_svg('upload') %></div>
+            <span>Choose a file</span>
+          </label>
+        </div>
+      </div>
+      <div class="form-group text-right">
         <div class="form-control">
           <input type="submit" class="lato-button">
         </div>
@@ -94,12 +110,12 @@
     </form>
   <%= raw block.close %>
 
-  <%= raw block.open(width: 'third') %>
-    <form action="/file-upload" class="dropzone">
+  <% raw block.open(width: 'third') %>
+    <!-- <form action="/file-upload" class="dropzone">
       <div class="fallback">
         <input name="file" type="file" multiple />
       </div>
-    </form>
+    </form> -->
   <%= raw block.close %>
 
 </div>

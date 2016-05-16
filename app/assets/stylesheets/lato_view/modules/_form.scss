@@ -41,7 +41,7 @@ textarea {
     }
   }
   .form-label {
-    display: inline-block;
+    display: block;
     padding-bottom: 8px;
     .form-advise {
       display: inline-block;
@@ -124,6 +124,9 @@ textarea {
     visibility: visible;
     color: $scarlet;
   }
+  .password-reveal {
+    bottom: 18px;
+  }
 }
 
 .form-required {
@@ -133,10 +136,78 @@ textarea {
       border-color: $yellow-sea;
     }
   }
+  .label-control:before {
+    border-color: $yellow-sea;
+  }
   .input-error-message {
     opacity: 1;
     visibility: visible;
     color: $yellow-sea;
+  }
+  .password-reveal {
+    bottom: 18px;
+  }
+}
+
+// Input file
+.input-file {
+  .js & {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  + label {
+    cursor: pointer;
+    font-size: em(14px);
+    color: white;
+    background-color: $ship-cove;
+    border-radius: 100px;
+    padding: 13px 40px;
+    font-size: em(14px);
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    clear: both;
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    .upload-icon {
+      display: inline-block;
+      margin-right: 12px;
+      svg {
+        position: relative;
+        top: 3px;
+        @include size(20px);
+        path {
+          fill: white;
+        }
+      }
+    }
+    span {
+      position: relative;
+      top: -2px;
+    }
+    &:hover {
+      background-color: darken($ship-cove, 10%);
+    }
+  }
+  &:focus {
+    + label {
+      background-color: darken($ship-cove, 10%);
+      outline: 1px dotted #000;
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+  }
+  .no-js & {
+    + label {
+      display: none;
+    }
   }
 }
 

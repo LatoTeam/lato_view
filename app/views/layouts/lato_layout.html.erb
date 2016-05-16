@@ -2,8 +2,6 @@
 <html class="no-js">
   <head>
     <title><%= CORE_APPNAME %></title>
-    <%= stylesheet_link_tag    "lato_view/application", media: "all" %>
-    <%= javascript_include_tag "lato_view/application" %>
 
     <% # LISTA DEGLI ASSETS CUSTOM %>
     <% CORE_ASSETS.each do |asset| %>
@@ -14,6 +12,9 @@
         <%= javascript_include_tag asset[:url] %>
       <% end %>
     <% end %>
+
+    <%= stylesheet_link_tag    "lato_view/application", media: "all" %>
+    <%= javascript_include_tag "lato_view/application" %>
 
     <%= csrf_meta_tags %>
   </head>
@@ -49,7 +50,7 @@
       <div>
 
         <%= yield %>
-        
+
       </div>
 
     <% end %>

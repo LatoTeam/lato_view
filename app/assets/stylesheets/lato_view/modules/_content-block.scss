@@ -22,6 +22,9 @@
   &.fourth {
     @include col(1/4);
   }
+  &.three-fourth {
+    @include col(3/4);
+  }
 }
 
 .content-block-title {

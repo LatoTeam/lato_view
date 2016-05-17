@@ -5,8 +5,17 @@
   .action-group-left {
     float: left;
     margin-right: 20px;
+    .search-bar {
+      margin-left: 20px;
+    }
   }
   .action-group-right {
     float: right;
+    margin-left: 20px;
+  }
+
+  // Stile searchbar contenuta
+  .search-bar {
+    width: 270px;
   }
 }

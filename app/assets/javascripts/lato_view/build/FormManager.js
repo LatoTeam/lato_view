@@ -101,7 +101,7 @@ var FormManager = (function($) {
         "email": Validator.controlEmail('.input-email'), 
         "password": Validator.controlPasswordEquality('.input-password', '.confirm-password'),
         "length": Validator.controlInputLength('.input-length'),
-        "checkbox": Validator.controlCheckbox('data-input="check"')
+        "radiobox": Validator.controlRadiobox('data-input="radio"')
       };
 
       // Basta che uno dei test fallisca per generare un errore

@@ -1,8 +1,4 @@
-<div class="form-control <%= @width %>" <%= required_data_input %>>
-	<div class="form-block">
-	  <input type="checkbox" class="check <%= @custom_class %>" <%= disabled_data_input %> name="<%= @name %>" id="<%= @name %>">
-	  <label class="label-control" for="<%= @name %>"><%= @label%></label>
-	</div>
+<div class="form-block">
+  <input type="checkbox" class="check <%= @custom_class %>" <%= disabled_data_input %> name="<%= @name %>" id="<%= @name %>">
+  <label class="label-control" for="<%= @name %>"><%= @label%></label>
 </div>
-
-<!-- <div class="input-error-message"></div> deve essere messo o staticamente o con un helper alla fine di TUTTI i radio o checkbox di un field => guarda la pagina di prova di Lato_view per dettagli -->

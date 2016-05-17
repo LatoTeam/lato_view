@@ -78,30 +78,17 @@ var Validator = (function($) {
   };
 
   /*
-  * check if a required checkbox is empty.
+  * check if a required radio box is empty.
   * @params
   * attribute: data-attribute of form-control
   * @return: boolean
   */
-  var isCheckboxChecked = function(attribute) {
+  var isRadioChecked = function(attribute) {
     if ($('.form-control[' + attribute + ']').length) {
       var passed = false;
-      var $checkboxes = $('.form-control[' + attribute + ']').find('.check');
       var $radios = $('.form-control[' + attribute + ']').find('.radio');
-      var $control = $checkboxes.parent().parent();
+      var $control = $radios.parent().parent();
       var errorMessage = $('.check-hidden-message').text();
-
-      if($checkboxes.length) {
-        $checkboxes.each(function() {
-          if($(this).prop('checked')) {
-            passed = true;
-            $(this).parent().next('.input-error-message').text('');
-            return false;
-          } else {
-            $(this).parent().next('.input-error-message').text(errorMessage);
-          }
-        });
-      }
 
       if($radios.length) {
         $radios.each(function() {
@@ -242,7 +229,7 @@ var Validator = (function($) {
     controlEmail: isInputEmail,
     controlPasswordEquality: isPasswordEqual,
     controlInputLength: isInputCorrectLenght,
-    controlCheckbox: isCheckboxChecked
+    controlRadiobox: isRadioChecked
   };
 
 })(jQuery);

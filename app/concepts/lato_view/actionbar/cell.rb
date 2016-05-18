@@ -29,26 +29,6 @@ module LatoView
         render 'show.html'
       end
 
-      # Funzione che ritorna i widget da mostrare a sinistra ordinati per
-      # posizione
-      protected def left_widgets
-        return false unless @widgets
-        widgets = []
-        @widgets.each do |widget|
-          widgets.push(widget) if widget.last === 'left'
-        end
-        widgets
-      end
-
-      # Funzione che ritorna i widget da mostrare a destra ordinati per
-      # posizione
-      protected def right_widgets
-        return false unless @widgets
-        widgets = []
-        @widgets.each do |widget|
-          widgets.push(widget) if widget.last === 'right'
-        end
-      end
       # Fine funzioni cella
     end
     # Fine cella

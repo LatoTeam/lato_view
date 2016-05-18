@@ -2,16 +2,9 @@
   <div class="action-group-left">
     <h1 class="admin-section-title"><%= @title %></h1>
   </div>
-  <% if left_widgets %>
-    <% left_widgets.each do |widget| %>
-    <div class="action-group-left">
-      <%= raw widget.first %>
-    </div>
-    <% end %>
-  <% end %>
 
-  <% if right_widgets %>
-    <% right_widgets.each do |widget| %>
+  <% if @widgets %>
+    <% @widgets.each do |widget| %>
     <div class="action-group-right">
       <%= raw widget.first %>
     </div>

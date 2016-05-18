@@ -46,7 +46,7 @@ module LatoView
       protected def right_widgets
         widgets = []
         @widgets.each do |widget|
-          if widget.last === 'left'
+          if widget.last === 'right'
             widgets.push(widget)
           end
         end

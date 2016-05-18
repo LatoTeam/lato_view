@@ -15,7 +15,7 @@ module LatoView
       # supportate sono: (searchbar, dropdown, buttongroup).
       # I widget devono essere inseriti sotto forma di array che segue
       # la seguente struttura:
-      # [[cella_widget, 'posizione', 'allineamento'], [...]]
+      # [[cella_widget, 'allineamento'], [...]]
       # * *default*: nil
       attr_accessor :widgets
 
@@ -32,25 +32,26 @@ module LatoView
       # Funzione che ritorna i widget da mostrare a sinistra ordinati per
       # posizione
       protected def left_widgets
+        return false unless @widgets
         widgets = []
         @widgets.each do |widget|
           if widget.last === 'left'
             widgets.push(widget)
           end
         end
-        widgets.sort_by { |e| e.second }
+        widgets
       end
 
       # Funzione che ritorna i widget da mostrare a destra ordinati per
       # posizione
       protected def right_widgets
+        return false unless @widgets
         widgets = []
         @widgets.each do |widget|
           if widget.last === 'right'
             widgets.push(widget)
           end
         end
-        widgets.sort_by { |e| e.second }
       end
       # Fine funzioni cella
     end

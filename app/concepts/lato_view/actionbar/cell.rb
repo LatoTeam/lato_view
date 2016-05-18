@@ -11,10 +11,13 @@ module LatoView
       # Titolo principale da mostrare nella Actionbar
       # * *default*: nil
       attr_accessor :title
+      # Searchbar da aggiungere nella Actionbar
+      # * *default*: nil
 
-      def initialize(links: nil, title: '')
+      def initialize(links: nil, title: '', searchbar: nil)
         @links = links
         @title = title
+        @searchbar = searchbar
       end
 
       def show

@@ -3,10 +3,15 @@
     <h1 class="admin-section-title"><%= @title %></h1>
   </div>
   <div class="action-group-right">
-    <% if(@links) %>
+    <% if @links %>
       <% @links.each do |link| %>
         <%= link_to link[0], link[1], class: 'lato-button action-button' %>
       <% end %>
     <% end %>
   </div>
+  <% if @searchbar %>
+  <div class="action-group-right">
+    <%= raw @searchbar %>
+  </div>
+  <% end %>
 </div>

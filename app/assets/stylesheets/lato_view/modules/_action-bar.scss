@@ -14,9 +14,12 @@
     margin-left: 20px;
   }
 
-  // Stile searchbar contenuta
+  // Stile widgets contenuta
   .search-bar {
     width: 270px;
+    .search-field {
+      width: auto;
+    }
   }
   .arranger {
     position: relative;

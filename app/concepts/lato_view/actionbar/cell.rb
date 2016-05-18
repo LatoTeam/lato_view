@@ -35,9 +35,7 @@ module LatoView
         return false unless @widgets
         widgets = []
         @widgets.each do |widget|
-          if widget.last === 'left'
-            widgets.push(widget)
-          end
+          widgets.push(widget) if widget.last === 'left'
         end
         widgets
       end
@@ -48,9 +46,7 @@ module LatoView
         return false unless @widgets
         widgets = []
         @widgets.each do |widget|
-          if widget.last === 'right'
-            widgets.push(widget)
-          end
+          widgets.push(widget) if widget.last === 'right'
         end
       end
       # Fine funzioni cella

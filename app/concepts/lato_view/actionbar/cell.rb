@@ -11,17 +11,46 @@ module LatoView
       # Titolo principale da mostrare nella Actionbar
       # * *default*: nil
       attr_accessor :title
-      # Searchbar da aggiungere nella Actionbar
+      # Celleda inserire all'interno della Actionbar. Le celle per ora
+      # supportate sono: (searchbar, dropdown, buttongroup).
+      # I widget devono essere inseriti sotto forma di array che segue
+      # la seguente struttura:
+      # [[cella_widget, 'posizione', 'allineamento'], [...]]
       # * *default*: nil
+      attr_accessor :widgets
 
-      def initialize(links: nil, title: '', searchbar: nil)
+      def initialize(links: nil, title: '', widgets: nil)
         @links = links
         @title = title
-        @searchbar = searchbar
+        @widgets = widgets
       end
 
       def show
         render 'show.html'
+      end
+
+      # Funzione che ritorna i widget da mostrare a sinistra ordinati per
+      # posizione
+      protected def left_widgets
+        widgets = []
+        @widgets.each do |widget|
+          if widget.last === 'left'
+            widgets.push(widget)
+          end
+        end
+        widgets.sort_by { |e| e.second }
+      end
+
+      # Funzione che ritorna i widget da mostrare a destra ordinati per
+      # posizione
+      protected def right_widgets
+        widgets = []
+        @widgets.each do |widget|
+          if widget.last === 'left'
+            widgets.push(widget)
+          end
+        end
+        widgets.sort_by { |e| e.second }
       end
       # Fine funzioni cella
     end

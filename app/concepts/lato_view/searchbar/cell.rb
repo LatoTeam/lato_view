@@ -16,12 +16,17 @@ module LatoView
       # Metodo con il quale il form deve comunicare con il controller
       # * *default*: 'get'
       attr_accessor :method
+      # Stile della searchbar
+      # * *default*: nil
+      attr_accessor :style
 
-      def initialize(elements: nil, filter: nil, url: nil, method: 'get')
+      def initialize(elements: nil, filter: nil, url: nil, method: 'get',
+                     style: nil)
         @elements = elements
         @filter = filter
         @url = url
         @method = method
+        @style = style
       end
 
       def show

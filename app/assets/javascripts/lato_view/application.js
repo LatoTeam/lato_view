@@ -23,6 +23,7 @@
 //= require lato_view/build/Util
 //= require lato_view/build/Validator
 //= require lato_view/build/FormManager
+//= require lato_view/build/Dropdown
 //= require lato_view/build/Navigation
 //= require lato_view/build/Flash
 
@@ -41,6 +42,7 @@ var Application = (function($) {
       document.documentElement.className = 'js';
 
       // Init our modules
+      Dropdown.init();
       Navigation.init();
       Flash.init();
       FormManager.init();

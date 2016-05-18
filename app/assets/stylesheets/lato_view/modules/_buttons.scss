@@ -26,6 +26,7 @@ button {
     border: none;
   }
   &.button-disabled, &[disabled] {
+    background-color: #cecece;
     cursor: not-allowed;
     opacity: 0.65;
   }
@@ -44,6 +45,9 @@ button {
   text-transform: uppercase;
   transform: translateY(0);
   transition: background-color 0.3s ease, transform 0.25s $snappy;
+  + .lato-button {
+    margin-left: 5px;
+  }
   &:hover {
     background-color: darken($button-bg, 5%);
   }
@@ -58,8 +62,35 @@ button {
     box-shadow: 0 5px 18px rgba($button-bg, 0.35);
   }
   &[disabled] {
-    background-color: #A6A8AB;
+    background-color: #cecece;
     cursor: not-allowed;
+    opacity: 0.65;
+  }
+}
+
+.button-icon {
+  display: inline-block;
+  margin-right: 12px;
+  svg {
+    position: relative;
+    top: 3px;
+    @include size(20px);
+    path {
+      fill: white;
+    }
+  }
+  + span {
+    position: relative;
+    top: -2px;
+  }
+  .button-small & {
+    margin-right: 7px;
+    svg {
+      @include size(15px);
+    }
+    + span {
+      top: 0;
+    }
   }
 }
 
@@ -102,19 +133,37 @@ button {
   }
 }
 
+.button-line {
+  background-color: white;
+  color: $ship-cove;
+  border: 2px solid $ship-cove;
+  &:hover {
+    background-color: $ship-cove;
+    color: white;
+  }
+  &:active {
+    box-shadow: 0 3px 13px rgba($ship-cove, 0.30);
+  }
+  &:focus {
+    box-shadow: 0 5px 18px rgba($ship-cove, 0.35);
+  }
+}
+
+// In the action bar component
 .action-button {
-  font-size: 12px;
+  font-size: em(12px);
   padding: 8px 20px;
   margin-right: 10px;
 }
 
+// Sizing
 .button-small {
-  font-size: 12px;
+  font-size: em(12px);
   padding: 8px 20px;
 }
 
 .button-medium {
-  font-size: 14px;
+  font-size: em(14px);
   padding: 10px 25px;
 }
 

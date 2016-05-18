@@ -12,7 +12,7 @@
           <td data-label="<%= @head[index] %>"><%= value %></td>
         <% end %>
       <% end %>
-      <% if(@show_link or @edit_link or @delete_link) %>
+      <% if @show_link || @edit_link || @delete_link %>
         <td class="actions">
           <% if(@show_link) %>
             <%= link_to VIEW_LANG['index']['show'], self.show_link(element.id), class: 'lato-button' %>

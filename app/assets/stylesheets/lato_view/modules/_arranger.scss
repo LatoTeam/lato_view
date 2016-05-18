@@ -1,0 +1,10 @@
+.arrange-voice {
+  display: inline-block;
+  font-size: em(18px);
+  letter-spacing: 1px;
+  color: darken($ship-cove, 15%);
+  &:after {
+    content: "\/";
+    margin: 0 5px;
+  }
+}

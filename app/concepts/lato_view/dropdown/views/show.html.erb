@@ -1,0 +1,19 @@
+<div class="arranger">
+  <% if @title %>
+    <div class="arrange-voice"><%= @title %></div>
+  <% end %>
+  <div class="dropdown">
+    <% if @button %>
+      <div class="active-voice"><span class="voice-text"><%= @button %></span> <span class="drop-icon"></span></div>
+    <% else %>
+      <div class="active-voice"><span class="voice-text"><%= @links.first.first %></span> <span class="drop-icon"></span></div>
+    <% end %>
+    <div class="the-drop">
+      <ul>
+        <% @links.each do |link| %>
+        <li><a href="<%= link.last %>"><%= link.first %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

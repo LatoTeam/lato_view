@@ -22,27 +22,8 @@ var Navigation = (function($) {
     }
   }, 200);
 
-  /*
-  * Opens the main menu dropdown
-  * @params: -
-  * @return: undefined
-  */
-  var _manageAccountDropdown = function() {
-    $(document).on('click', '.nav-account-area', function(event) {
-      event.stopPropagation();
-      $('body').toggleClass('is-dropdown-open');
-    });
-    // FIXME - da rivedere il click fuori dall'area dropdown
-    $('html').on('click', function(event) {
-      if($('body').hasClass('is-dropdown-open')) {
-        //$('body').removeClass('is-dropdown-open');
-      }
-    });
-  };
-
   var init = function() {
     sidebarDropdown();
-    _manageAccountDropdown();
   };
 
   return {

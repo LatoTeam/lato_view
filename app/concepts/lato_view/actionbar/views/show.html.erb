@@ -2,6 +2,7 @@
   <div class="action-group-left">
     <h1 class="admin-section-title"><%= @title %></h1>
   </div>
+  <%= render 'widgets' %>
   <div class="action-group-right">
     <% if @links %>
       <% @links.each do |link| %>
@@ -9,9 +10,4 @@
       <% end %>
     <% end %>
   </div>
-  <% if @searchbar %>
-  <div class="action-group-right">
-    <%= raw @searchbar %>
-  </div>
-  <% end %>
 </div>

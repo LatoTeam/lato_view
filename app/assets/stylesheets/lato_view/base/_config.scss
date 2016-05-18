@@ -67,6 +67,8 @@ $font-size-small        : $font-size-base * 0.70 !default;
 
 $font-primary           : $font-stack;
 $font-secondary         : "latobold", "Helvetica", "Arial", sans-serif !default;
+$font-bold              : $font-secondary;
+
 // Icon Fonts
 $icon-font-name: 'lato' !default;
 $icon-font-path: "../fonts/" + $icon-font-name !default;

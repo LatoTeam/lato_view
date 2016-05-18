@@ -4,7 +4,9 @@
       <% @head.each do |title| %>
         <th><%=raw title %></th>
       <% end %>
-      <th class="actions"><%= VIEW_LANG['index']['actions'] %></th>
+      <% if @show_link || @edit_link || @delete_link %>
+        <th class="actions"><%= VIEW_LANG['index']['actions'] %></th>
+      <% end %>
     </tr>
   </thead>
 <% end %>

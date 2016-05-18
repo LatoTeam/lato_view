@@ -1,0 +1,52 @@
+.group-button {
+  @extend %button_base;
+  @extend %button_brand;
+  padding: 10px 25px;
+  background-color: white;
+  color: $ship-cove;
+  border: 1px solid $ship-cove;
+  font-size: em(14px);
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: $ship-cove;
+    color: white;
+  }
+  &:active {
+    box-shadow: 0 3px 13px rgba($ship-cove, 0.30);
+  }
+  &:focus {
+    box-shadow: 0 5px 18px rgba($ship-cove, 0.35);
+  }
+}
+
+.button-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  @include clearfix();
+  .group-button {
+    margin-right: -3px;
+    border-right: 1px solid transparent;
+    &:first-child {
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+    }
+    &:last-child {
+      border-right: 1px solid $ship-cove;
+      margin-right: 0;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+  }
+}
+
+.group-small {
+  font-size: em(12px);
+}
+
+.group-medium {
+  font-size: em(14px);
+}

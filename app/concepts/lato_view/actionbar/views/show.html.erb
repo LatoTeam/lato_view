@@ -5,7 +5,7 @@
 
   <% if @widgets %>
     <% @widgets.each do |widget| %>
-    <div class="action-group-right">
+    <div class="action-group-<%= widget.last %>">
       <%= raw widget.first %>
     </div>
     <% end %>

@@ -6,7 +6,11 @@
         <% value = element.send(attribute) %>
         <% if(!!value == value) %>
           <td data-label="<%= @head[index] %>">
-            <% if value %>v<% else %>x<% end %>
+            <% if value %>
+              v
+            <% else %>
+              x
+            <% end %>
           </td>
         <% else %>
           <td data-label="<%= @head[index] %>"><%= value %></td>

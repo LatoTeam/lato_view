@@ -1,5 +1,6 @@
 <div class="form-control <%= @width %>" <%= required_data_input %>>
   <div class="form-block">
+    <%= check_box_tag(:ciao) %>
     <input type="checkbox" class="check <%= @custom_class %>" <%= disabled_data_input %> name="<%= @name %>" id="<%= @name %>" value="true" <% if @value %>checked<% end %>>
     <label class="label-control" for="<%= @name %>"><%= @label%></label>
   </div>

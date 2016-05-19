@@ -40,26 +40,17 @@
       <h4>Hello</h4>
       <h5>Hello</h5>
       <h6>Hello</h6>
-      <h2 class="content-block-title">Button</h2>
-      <a href="" class="lato-button">
-        <div class="button-icon"><%= put_svg('upload') %></div>
-        <span>Icona</span>
-      </a>
-      <a href="" class="lato-button button-small button-yellow">
-        <div class="button-icon"><%= put_svg('upload') %></div>
-        <span>Icona</span>
-      </a>
-      <a href="" class="lato-button button-green">Green</a>
-      <a href="" class="lato-button button-medium button-red">Red</a>
-      <button class="lato-button" disabled>Disabled</button>
-      <a href="" class="lato-button button-line">Line</a>
-      <h2 class="content-block-title">Button Group</h2>
-      <div class="button-group">
-        <a href="" class="group-button">Group</a>
-        <a href="" class="group-button">Group</a>
-        <a href="" class="group-button">Group</a>
-        <a href="" class="group-button">Group</a>
-      </div>
+      <p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipisicing elit. Officia necessitatibus cupiditate ut neque itaque ullam reiciendis ipsum qui, fugit, atque molestias. Et <strong>ullam illo consectetur</strong> rem repudiandae necessitatibus minima provident corporis natus nobis, fugit qui eos fuga facilis quia cum autem ex atque assumenda libero sed iste saepe nisi. Fuga, ut fugiat odio itaque odit necessitatibus explicabo rem incidunt hic illum, quaerat, distinctio, ratione dolore.</p>
+      <ul>
+        <li>Unordered List</li>
+        <li>Unordered List</li>
+        <li>Unordered List</li>
+      </ul>
+      <ol>
+        <li>Ordered List</li>
+        <li>Ordered List</li>
+        <li>Ordered List</li>
+      </ol>
      <!--  <form action="/file-upload" class="dropzone">
         <div class="fallback">
           <input name="file" type="file" multiple />
@@ -171,7 +162,6 @@
         </div>
       </form>
     <%= raw block.close %>
-
   </div>
 
   <div class="action-bar">
@@ -190,7 +180,26 @@
 
   <div class="content-row">
     <%= raw block.open() %>
-      <h2 class="content-block-title">Link group</h2>
+      <h2 class="content-block-title">Button</h2>
+      <a href="" class="lato-button">
+        <div class="button-icon"><%= put_svg('upload') %></div>
+        <span>Icona</span>
+      </a>
+      <a href="" class="lato-button button-small button-yellow">
+        <div class="button-icon"><%= put_svg('upload') %></div>
+        <span>Icona</span>
+      </a>
+      <a href="" class="lato-button button-green">Green</a>
+      <a href="" class="lato-button button-medium button-red">Red</a>
+      <button class="lato-button" disabled>Disabled</button>
+      <a href="" class="lato-button button-line">Line</a>
+      <h2 class="content-block-title">Button Group</h2>
+      <div class="button-group">
+        <a href="" class="group-button">Group</a>
+        <a href="" class="group-button">Group</a>
+        <a href="" class="group-button">Group</a>
+        <a href="" class="group-button">Group</a>
+      </div>
     <%= raw block.close %>
   </div>
 <%= raw block.close %>

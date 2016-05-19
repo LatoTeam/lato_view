@@ -11,7 +11,7 @@
     <% @options.each do |option| %>
       <div class="form-block">
         <input type="checkbox" class="check <%= @custom_class %>" <%= disabled_data_input %> name="<%= @name %>" value="<%= option_value(option) %>" id="<%= @name %>" <%= selected_value(option) %>>
-        <label class="label-control" for="<%= @name %>-<%= index %>"><%= option_name(option) %></label>
+        <label class="label-control" for="<%= @name %>"><%= option_name(option) %></label>
       </div>
     <% end %>
   <% end %>

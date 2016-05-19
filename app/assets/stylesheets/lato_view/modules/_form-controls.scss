@@ -70,3 +70,14 @@
     border-radius: 50%;
   }
 }
+
+// Hover effects - thanks to the container
+.form-control {
+  &[data-input="radio"] {
+    .form-block:hover {
+      .label-control:before {
+        border-color: darken($robin-blue, 5%);
+      }
+    }
+  }
+}

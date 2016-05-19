@@ -24,8 +24,10 @@ Gem::Specification.new do |s|
   s.add_dependency "cells"
   s.add_dependency "cells-erb"
 
-  #Search dependencies
+  # Search dependencies
   s.add_dependency "ransack"
+  # Pagination dependencies
+  s.add_dependency "kaminari"
 
   # Lato dependencies
   s.add_dependency "lato_core"

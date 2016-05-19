@@ -38,7 +38,8 @@ module LatoView
       # Classi custom da inserire nel codice dell'input
       # * *default*: nil
       attr_accessor :custom_class
-      # Lista di opzioni da mostrare (nel caso di input select o radio buttons).
+      # Lista di opzioni da mostrare (nel caso di input select o radio buttons
+      # e checkbox).
       # La struttura deve essere [['value1', 'Name 1'], ['value2', 'Name 2']]
       # * *default*: []
       attr_accessor :options

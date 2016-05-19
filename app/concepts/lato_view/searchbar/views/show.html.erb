@@ -1,4 +1,4 @@
-<%= search_form_for @elements, method: @method, url: @url, class: "search-bar #{@style}" do |f| %>
+<%= search_form_for @elements, method: @method, url: @url, remote: @remote, class: "search-bar #{@style}" do |f| %>
     <%= f.text_field @filter, class: 'search-field' %>
     <%= f.submit 'O-', class: 'search-button' %>
 <% end %>

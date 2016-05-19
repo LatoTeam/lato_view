@@ -19,14 +19,19 @@ module LatoView
       # Stile della searchbar
       # * *default*: nil
       attr_accessor :style
+      # Valore booleano indicante se la serachbar deve utilizzare il
+      # remote true o meno nel form
+      # * *default*: false
+      attr_accessor :remote
 
       def initialize(elements: nil, filter: nil, url: nil, method: 'get',
-                     style: nil)
+                     style: nil, remote: false)
         @elements = elements
         @filter = filter
         @url = url
         @method = method
         @style = style
+        @remote = remote
       end
 
       def show

@@ -98,7 +98,7 @@ module LatoView
       protected def selected_value(option)
         value = option_value(option)
         return "checked='checked'" if value === @value &&
-                                      %w(radio checkbox).include?(@type)
+                                      @type === 'radio'
         return "selected='selected'" if value === @value
       end
 

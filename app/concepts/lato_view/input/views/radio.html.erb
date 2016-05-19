@@ -2,7 +2,7 @@
   <label class="form-label"><%= @label %></label>
 	<% @options.each_with_index do |option, index| %>
   	<div class="form-block">
-  		<input type="radio" class="radio <%= @custom_class %>" <%= disabled_data_input %> name="<%= @name %>" value="<%= option_value(option) %>" id="<%= @name %>-<%= index %>" <%= selected_value(option) %>>
+  		<input type="radio" class="radio <%= @custom_class %>" <%= disabled_data_input %> name="<%= @name %>" value="<%= option_value(option) %>" id="<%= @name %>-<%= index %>" <% if @value %>checked <% end %>>
   		<label class="label-control" for="<%= @name %>-<%= index %>"><%= option_name(option) %></label>
   	</div>
 	<% end %>

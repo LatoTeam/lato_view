@@ -7,9 +7,11 @@ module LatoView
       # struttura [['Nome link', 'url'], ['Nome link', 'url']]
       # * *default*: nil
       attr_accessor :links
+
       # Dimensione dei pulsanti della button
       # * *default*: nil
       attr_accessor :size
+
       # Stile da utilizzare per la buttongroup
       # * *default*: nil
       attr_accessor :style

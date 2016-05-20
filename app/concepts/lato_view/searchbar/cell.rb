@@ -7,18 +7,23 @@ module LatoView
       # Nome dell'istanza del database da utilizzare nella ricerca
       # * *default*: nil
       attr_accessor :elements
+
       # La variabile di filtro ricerca
       # * *default*: nil
       attr_accessor :filter
+
       # Url custom a cui il form deve inviare la ricerca
       # * *default*: nil
       attr_accessor :url
+
       # Metodo con il quale il form deve comunicare con il controller
       # * *default*: 'get'
       attr_accessor :method
+
       # Stile della searchbar
       # * *default*: nil
       attr_accessor :style
+
       # Valore booleano indicante se la serachbar deve utilizzare il
       # remote true o meno nel form
       # * *default*: false

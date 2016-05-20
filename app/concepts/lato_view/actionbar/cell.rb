@@ -8,9 +8,11 @@ module LatoView
       # struttura [['Nome link', 'url'], ['Nome link', 'url']]
       # * *default*: nil
       attr_accessor :links
+
       # Titolo principale da mostrare nella Actionbar
       # * *default*: nil
       attr_accessor :title
+
       # Celleda inserire all'interno della Actionbar. Le celle per ora
       # supportate sono: (searchbar, dropdown, buttongroup).
       # I widget devono essere inseriti sotto forma di array che segue

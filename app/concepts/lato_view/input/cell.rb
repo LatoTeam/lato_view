@@ -12,44 +12,56 @@ module LatoView
       # checkbox, radio, textarea, file)
       # * *default*: 'text'
       attr_accessor :type
+
       # Nome da assegnare all'input
       # * *default*: 'input'
       attr_accessor :name
+
       # Valore da inserire come placeholder all'input
       # * *default*: nil
       attr_accessor :placeholder
+
       # Valore gia' impostato nell'input
       # * *default*: nil
       attr_accessor :value
+
       # Testo da inserire nella label dell'input
       # * *default*: nil
       attr_accessor :label
+
       # Dimensione dell'input (half, third, fourth, two-third)
       # * *default*: nil ('large')
       attr_accessor :width
+
       # Valore booleano usato per indicare se l'input e' obbligatorio
       # nel form in cui si trova
       # * *default*: false
       attr_accessor :required
+
       # Valore booleano che indica (nel caso di input password) se mostrare
       # il pulsante per vedere la password
       # * *default*: true
       attr_accessor :password_visible
+
       # Classi custom da inserire nel codice dell'input
       # * *default*: nil
       attr_accessor :custom_class
+
       # Lista di opzioni da mostrare (nel caso di input select o radio buttons
       # e checkbox).
       # La struttura deve essere [['value1', 'Name 1'], ['value2', 'Name 2']]
       # * *default*: []
       attr_accessor :options
+
       # Valore booleano che indica (nel caso di input select) se mostrare
       # o meno la prima opzione del select vuota
       # * *default*: false
       attr_accessor :option_blank
+
       # Valore che indica se disattivare o meno l'input
       # * *default*: false
       attr_accessor :disabled
+
       # Valore che indica (nel caso di input file) se accettare piu' file o
       # uno singolarmente
       # * *default*: false

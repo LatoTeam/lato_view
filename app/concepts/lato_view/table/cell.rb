@@ -7,6 +7,7 @@ module LatoView
       # * *struttura*: ['Voce 1', 'Voce 2', ... ]
       # * *default*: nil
       attr_accessor :head
+
       # Array contenente le righe da stampare della tabella
       # * *struttura*: [['val 1', 'val 2'], ['val 1', 'val 2']]
       # * *default*: nil

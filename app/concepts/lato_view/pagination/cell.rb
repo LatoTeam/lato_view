@@ -7,9 +7,11 @@ module LatoView
       # Nome dell'istanza del database da utilizzare nella paginazione
       # * *default*: nil
       attr_accessor :elements
+
       # Classi da aggiungere al contenitore della paginazione
       # * *default*: nil
       attr_accessor :custom_class
+
       # Valore booleano indicante se mostrare i numeri delle pagine o meno
       # * *default*: true
       attr_accessor :show_links

@@ -8,9 +8,11 @@ module LatoView
       # struttura [['Nome link', 'url'], ['Nome link', 'url']]
       # * *default*: nil
       attr_accessor :links
+
       # Titolo principale da mostrare nel dropdown
       # * *default*: nil
       attr_accessor :title
+
       # Testo da inserire come nome nel pulsante che apre il Dropdown
       # * *default*: nil
       attr_accessor :button

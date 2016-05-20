@@ -10,9 +10,11 @@ module LatoView
       # Dimensione del blocco (half, third, fourth, two-third)
       # * *default*: nil (large)
       attr_accessor :width
+
       # Contenuto del blocco
       # * *default*: nil
       attr_accessor :content
+
       # Classi custom aggiunte all'html del  blocco
       # * *default*: nil
       attr_accessor :custom_class

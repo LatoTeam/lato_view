@@ -45,6 +45,11 @@ module LatoView
       def initialize(elements: nil, head: nil, attributes: nil, link: nil,
                      show_link: true, edit_link: true, delete_link: true,
                      remote_delete: false, custom_class: nil)
+        # eseguo brevi controlli sull'input
+        raise 'Index Concept: head must be an array' unless head.is_a? Array
+        raise 'Index Concept: attributes must be an array' unless attributes.is_a? Array
+        raise 'Index Concept: head and attributes have different length' if head.length != attributes.length
+        # assegno i valori alle variabili di istanza
         @elements = elements
         @head = head
         @attributes = attributes
@@ -99,6 +104,7 @@ module LatoView
       protected def delete_link(id)
         show_link(id)
       end
+
       # Fine funzioni cella
     end
     # Fine cella

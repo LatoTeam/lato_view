@@ -1,6 +1,5 @@
 module LatoView
-  # Elemento grafico che genera una paginazione utilizzando la gemma
-  # 'will_paginate'
+  # Elemento grafico che genera una paginazione.
   module Pagination
     # Cella Pagination
     class Cell < Cell
@@ -12,14 +11,9 @@ module LatoView
       # * *default*: nil
       attr_accessor :custom_class
 
-      # Valore booleano indicante se mostrare i numeri delle pagine o meno
-      # * *default*: true
-      attr_accessor :show_links
-
-      def initialize(elements: nil, custom_class: '', show_links: true)
+      def initialize(elements: nil, custom_class: '')
         @elements = elements
         @custom_class = custom_class
-        @show_links = show_links
       end
 
       def show

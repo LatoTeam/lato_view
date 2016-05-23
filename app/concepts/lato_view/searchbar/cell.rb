@@ -4,6 +4,12 @@ module LatoView
   module Searchbar
     # Cella Searchbar
     class Cell < Cell
+      # includo i formhelper di ransack
+      include Ransack::Helpers::FormHelper
+
+      # Lista stili possibili per la searchbar
+      @@styles = %w(normal rounded)
+
       # Nome dell'istanza del database da utilizzare nella ricerca
       # * *default*: nil
       attr_accessor :elements
@@ -31,6 +37,9 @@ module LatoView
 
       def initialize(elements: nil, filter: nil, url: nil, method: 'get',
                      style: nil, remote: false)
+       # eseguo brevi controlli sull'input
+       raise 'Bottongroup Concept: style value in not correct' unless @@styles.include? style.to_s
+       # assegno i valori alle variabili di istanza
         @elements = elements
         @filter = filter
         @url = url

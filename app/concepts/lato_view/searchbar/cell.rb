@@ -36,9 +36,9 @@ module LatoView
       attr_accessor :remote
 
       def initialize(elements: nil, filter: nil, url: nil, method: 'get',
-                     style: nil, remote: false)
+                     style: 'normal', remote: false)
        # eseguo brevi controlli sull'input
-       raise 'Bottongroup Concept: style value in not correct' unless @@styles.include? style.to_s
+       raise 'Searchbar Concept: style value in not correct' unless @@styles.include? style.to_s
        # assegno i valori alle variabili di istanza
         @elements = elements
         @filter = filter

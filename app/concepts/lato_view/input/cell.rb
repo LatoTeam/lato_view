@@ -5,7 +5,7 @@ module LatoView
     class Cell < Cell
       # Lista di tipologie di input accettate
       @@types = %w(text number select password email editor checkbox radio
-                   textarea file)
+                   textarea file date)
      # Lista dei parametri accettati per l'attributo width
      @@widths = %w(large half third fourth two-third three-fourth)
 

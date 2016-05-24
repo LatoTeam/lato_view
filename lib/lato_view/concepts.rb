@@ -8,7 +8,9 @@ module LatoView
     # concepts
     include ActionView::Helpers::FormHelper
     include ActionView::Helpers::UrlHelper
-    include Ransack::Helpers::FormHelper
+
+
+    # Funzioni per usare files .erb nelle celle
     include ::Cell::Erb
   end
 end

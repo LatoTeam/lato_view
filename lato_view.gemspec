@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cells"
   s.add_dependency "cells-erb"
 
-  #Search dependencies
+  # Search dependencies
   s.add_dependency "ransack"
 
   # Lato dependencies

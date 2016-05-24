@@ -5,19 +5,24 @@ module LatoView
     # Cella Block
     class Cell < Cell
       # Lista dei parametri accettati per l'attributo width
-      @@widths = %w(half third fourth two-third)
+      @@widths = %w(large half third fourth two-third three-fourth)
 
       # Dimensione del blocco (half, third, fourth, two-third)
       # * *default*: nil (large)
       attr_accessor :width
+
       # Contenuto del blocco
       # * *default*: nil
       attr_accessor :content
+
       # Classi custom aggiunte all'html del  blocco
       # * *default*: nil
       attr_accessor :custom_class
 
-      def initialize(width: '', content: '', custom_class: '')
+      def initialize(width: 'large', content: '', custom_class: '')
+        # eseguo brevi controlli sull'input
+        raise 'Block Concept: width value in not correct' unless @@widths.include? width.to_s
+        # assegno i valori alle variabili di istanza
         @width = width
         @content = content
         @class = custom_class

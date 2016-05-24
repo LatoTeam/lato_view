@@ -8,28 +8,36 @@ module LatoView
     class Cell < Cell
       # Istanze del database da stampare
       attr_accessor :elements
+
       # Intestazione della tabella
       # * *struttura*: ['Voce 1', 'Voce 2', ... ]
       attr_accessor :head
+
       # Attributi dellle entita' da mostrare nella tabella
       # * *struttura*: ['voce1', 'voce2', ... ]
       attr_accessor :attributes
+
       # Link principale alla pagina index delle entita'
       # (da gestire tramite resources)
       attr_accessor :link
+
       # Valore booleano che indica se mostrare il link allo show dell'entita'
       # * *default*: true
       attr_accessor :show_link
+
       # Valore booleano che indica se mostrare il link all'edit dell'entita'
       # * *default*: true
       attr_accessor :edit_link
+
       # Valore booleano che indica se mostrare il link al delete dell'entita'
       # * *default*: true
       attr_accessor :delete_link
+
       # Valore booleano che indica se il link di eliminazione deve essere
       # eseguito con il remote: true
       # * *default*: false
       attr_accessor :remote_delete
+
       # Valore usato per aggiungere delle classi custom alla tabella dell'index
       # * *default*: nil
       attr_accessor :custom_class
@@ -37,6 +45,11 @@ module LatoView
       def initialize(elements: nil, head: nil, attributes: nil, link: nil,
                      show_link: true, edit_link: true, delete_link: true,
                      remote_delete: false, custom_class: nil)
+        # eseguo brevi controlli sull'input
+        raise 'Index Concept: head must be an array' unless head.is_a? Array
+        raise 'Index Concept: attributes must be an array' unless attributes.is_a? Array
+        raise 'Index Concept: head and attributes have different length' if head.length != attributes.length
+        # assegno i valori alle variabili di istanza
         @elements = elements
         @head = head
         @attributes = attributes
@@ -91,6 +104,7 @@ module LatoView
       protected def delete_link(id)
         show_link(id)
       end
+
       # Fine funzioni cella
     end
     # Fine cella

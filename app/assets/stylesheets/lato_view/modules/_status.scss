@@ -25,4 +25,15 @@
       }
     }
   }
+  &.round-status {
+    @include size(18px);
+    border-radius: 50%;
+    margin: 0 auto;
+    &.true {
+      background-color: $jungle-green;
+    }
+    &.false {
+      background-color: $scarlet;
+    }
+  }
 }

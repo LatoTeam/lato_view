@@ -77,6 +77,7 @@ module LatoView
         # eseguo brevi controlli sull'input
         raise 'Input Concept: type has not a correct value' unless @@types.include? type
         raise 'Input Concept: width has not a correct value' unless @@widths.include? width
+        raise 'Input Concept: options must be an array' if options && !options.is_a?(Array)
         # assegno i valori alle variabili di istanza
         @type = type
         @name = name
@@ -86,7 +87,7 @@ module LatoView
         @width = width
         @required = required
         @password_visible = password_visible
-        @options = options if options && check_options(options)
+        @options = options
         @custom_class = custom_class
         @option_blank = option_blank
         @disabled = disabled
@@ -141,18 +142,6 @@ module LatoView
           rows.push([row.send(value), row.send(name)])
         end
         rows
-      end
-
-      # Funzione che controlla che la lista di options sia inviata nel formato
-      # corretto
-      private def check_options(options)
-        # evito il controllo se sono in production
-        return true if Rails.env.production?
-        raise 'Input Concept: options must be an array' unless options.is_a? Array
-        options.each do |option|
-          raise 'Input Concept: options content must be an array' unless option.is_a? Array
-          raise 'Input Concept: options content must have two value' if option.length != 2
-        end
       end
       # Fine funzioni cella
     end

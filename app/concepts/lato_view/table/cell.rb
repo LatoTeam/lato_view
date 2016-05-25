@@ -15,7 +15,7 @@ module LatoView
 
       def initialize(head: nil, rows: nil)
         # eseguo brevi controlli sull'input
-        raise 'Table Concept: head must be an array' if head && !head.is_a? Array
+        raise 'Table Concept: head must be an array' if head and !head.is_a? Array
         # assegno i valori alle variabili di istanza
         @head = head
         @rows = rows if rows && check_rows(rows)

@@ -47,8 +47,13 @@ $transition-duration: 150ms;
 }
 
 .trumbowyg-box.trumbowyg-fullscreen {
+    position: fixed;
+    top: 0; left: 0;
     background: #FEFEFE;
     border: none !important;
+    height: 100%;
+    width: 100%;
+    max-height: none;
 }
 
 .trumbowyg-editor,

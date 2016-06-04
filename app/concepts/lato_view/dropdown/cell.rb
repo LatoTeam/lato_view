@@ -39,7 +39,7 @@ module LatoView
           raise 'Dropdown Concept: links content must have two value' if link.length != 2
         end
       end
-      # Fine funzioni cella
+      
     end
     # Fine cella
   end

@@ -143,7 +143,7 @@ module LatoView
         end
         rows
       end
-      # Fine funzioni cella
+      
     end
     # Fine cella
   end

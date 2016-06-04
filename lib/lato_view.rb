@@ -7,6 +7,7 @@ module LatoView
   require 'cells'
   require 'cells-erb'
   require 'ransack'
+  require 'will_paginate'
 
   # Moduli della gemma
   require 'lato_view/engine'

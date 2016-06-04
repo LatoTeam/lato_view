@@ -45,7 +45,7 @@ module LatoView
       def close
         '</div>'
       end
-      # Fine funzioni cella
+      
     end
     # Fine cella
   end

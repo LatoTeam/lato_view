@@ -24,6 +24,12 @@
   background-color: $robin-blue;
   color: white;
   box-shadow: 0px 2px 6px rgba(black, 0.1);
+  svg {
+    @include size(15px);
+    path {
+      fill: white;
+    }
+  }
 }
 
 .search-bar.rounded {

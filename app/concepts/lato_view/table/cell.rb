@@ -81,7 +81,7 @@ module LatoView
           raise 'Table Concept: rows content must be an array' unless row.is_a? Array
         end
       end
-      # Fine funzioni cella
+      
     end
     # Fine cella
   end

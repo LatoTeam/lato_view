@@ -9,8 +9,8 @@ module LatoView
       def view_setCurrentVoice(unique_name)
         @view_navbar_unique_name = unique_name
       end
-      # Fine funzioni modulo
+
     end
-    # Fine modulo
+
   end
 end

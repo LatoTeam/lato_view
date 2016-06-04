@@ -51,7 +51,7 @@ module LatoView
       def show
         render 'show.html'
       end
-      # Fine funzioni cella
+      
     end
     # Fine cella
   end

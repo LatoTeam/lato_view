@@ -105,7 +105,7 @@ module LatoView
         show_link(id)
       end
 
-      # Fine funzioni cella
+      
     end
     # Fine cella
   end

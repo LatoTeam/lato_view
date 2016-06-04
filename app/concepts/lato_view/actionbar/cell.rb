@@ -57,7 +57,7 @@ module LatoView
           raise 'Actionbar Concept: widget align is not a correct value' unless @@align.include? widget.last.to_s
         end
       end
-      # Fine funzioni cella
+      
     end
     # Fine cella
   end

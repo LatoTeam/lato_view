@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
 
   # Search dependencies
   s.add_dependency "ransack"
+  # Pagination
+  s.add_dependency "will_paginate"
 
   # Lato dependencies
   s.add_dependency "lato_core"

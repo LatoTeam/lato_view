@@ -1,0 +1,31 @@
+// Stile paginazione momentaneamente per la gemma
+// 'will_paginate' già inclusa in lato_view
+
+.pagination{
+  text-align: center;
+
+  .previous_page {
+    float: left;
+    text-decoration: none;
+  }
+
+  .next_page {
+    float: right;
+    text-decoration: none;
+  }
+
+  .current {
+    display: inline-block;
+    background: #292f43;
+    color: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-style: normal;
+  }
+
+  a {
+    margin: 0 5px;
+  }
+
+}

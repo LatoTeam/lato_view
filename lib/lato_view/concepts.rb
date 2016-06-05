@@ -1,5 +1,6 @@
 module LatoView
-  # Sopraclasse di tutti i concepts
+  # Sopraclasse di tutte le Celle. Include tutte quelle componenti usate
+  # dalle celle che generano l'interfaccia grafica.
   class Cell < Cell::Concept
     # Imposto la directory che contiene i vari concepts
     view_paths << "#{LatoView::Engine.root}/app/concepts"

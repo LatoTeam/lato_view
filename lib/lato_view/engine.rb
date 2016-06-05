@@ -1,5 +1,6 @@
 module LatoView
-  # Classe che gestisce l'inizializzazione del modulo
+  # Classe che gestisce l'inizializzazione del modulo. Principalemente
+  # aggiunge il supporto ai routes di lato_view e agli helper.
   class Engine < ::Rails::Engine
     isolate_namespace LatoView
 

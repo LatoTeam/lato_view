@@ -91,6 +91,8 @@
 
   <section class="description">
     
+<p>Cella <a href="../Block.html">Block</a></p>
+
   </section>
 
   
@@ -172,7 +174,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(width: '', content: '', custom_class: '')</span>
+            class="method-args">(width: 'large', content: '', custom_class: '')</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -187,8 +189,11 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/block/cell.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">custom_class</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>)
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/block/cell.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;large&#39;</span>, <span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">custom_class</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-comment"># eseguo brevi controlli sull&#39;input</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Block Concept: width value in not correct&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">@@widths</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-comment"># assegno i valori alle variabili di istanza</span>
   <span class="ruby-ivar">@width</span> = <span class="ruby-identifier">width</span>
   <span class="ruby-ivar">@content</span> = <span class="ruby-identifier">content</span>
   <span class="ruby-ivar">@class</span> = <span class="ruby-identifier">custom_class</span>
@@ -230,9 +235,9 @@
 
           
           <div class="method-source-code" id="close-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/block/cell.rb, line 41</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/block/cell.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&lt;/div&gt;&#39;</span>
+  <span class="ruby-string">&#39;&lt;/div&gt;&#39;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -261,18 +266,18 @@
 <ul><li>
 <p><strong>Parametri</strong> :</p>
 </li><li>
-<p>width: dimensione del blocco da aprire (se non viene impostata la funzione</p>
+<p>width: dimensione del blocco da aprire (se non viene impostata la</p>
 </li></ul>
 
-<p>utilizza la dimensione prefissata in fase di inizializzazione)</p>
+<p>funzione utilizza la dimensione prefissata in fase di inizializzazione)</p>
           
           
 
           
           <div class="method-source-code" id="open-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/block/cell.rb, line 35</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/block/cell.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">open</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@width</span>, <span class="ruby-identifier">custom_class</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@class</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;&lt;div class=&#39;content-block #{width} #{custom_class}&#39;&gt;&quot;</span>
+  <span class="ruby-node">&quot;&lt;div class=&#39;content-block #{width} #{custom_class}&#39;&gt;&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -303,9 +308,9 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/block/cell.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/block/cell.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">open</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@content</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">open</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@content</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">close</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -325,7 +330,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

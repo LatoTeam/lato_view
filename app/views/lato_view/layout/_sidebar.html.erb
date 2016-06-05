@@ -1,4 +1,4 @@
-<% voices = CORE_NAVIGATION.sort_by { |hsh| hsh[:position] } %>
+<% voices = core_getNavbarItems.sort_by { |hsh| hsh[:position] } %>
 <div class="main-navigation-sidebar">
   <% if(logo = core_getApplicationLogo) %>
     <a href="" class="sidebar-logo"><%=raw logo %></a>

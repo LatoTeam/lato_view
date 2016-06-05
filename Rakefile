@@ -9,8 +9,9 @@ require 'rdoc/task'
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'doc'
   rdoc.title    = 'LatoView'
-  rdoc.options << '--line-numbers'
-  rdoc.rdoc_files.include('lib/lato_view/interface/**/*.rb')
+  rdoc.rdoc_files.include('README.md')
+  rdoc.rdoc_files.include('lib/lato_view.rb')
+  rdoc.rdoc_files.include('lib/lato_view/**/*.rb')
   rdoc.rdoc_files.include('app/helpers/**/*.rb')
   rdoc.rdoc_files.include('app/concepts/**/*.rb')
 end

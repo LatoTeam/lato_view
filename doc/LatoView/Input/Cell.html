@@ -87,6 +87,8 @@
 
   <section class="description">
     
+<p>Cella <a href="../Input.html">Input</a></p>
+
   </section>
 
   
@@ -122,6 +124,22 @@
         </div>
       </div>
       
+      <div id="attribute-i-disabled" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">disabled</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Valore che indica se disattivare o meno l&#39;input</p>
+<ul><li>
+<p><strong>default</strong>: false</p>
+</li></ul>
+        
+        </div>
+      </div>
+      
       <div id="attribute-i-label" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">label</span><span
@@ -133,6 +151,23 @@
         <p>Testo da inserire nella label dell&#39;input</p>
 <ul><li>
 <p><strong>default</strong>: nil</p>
+</li></ul>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-multiple_files" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">multiple_files</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Valore che indica (nel caso di input file) se accettare piu&#39; file o uno
+singolarmente</p>
+<ul><li>
+<p><strong>default</strong>: false</p>
 </li></ul>
         
         </div>
@@ -179,9 +214,9 @@ prima opzione del select vuota</p>
 
         <div class="method-description">
         
-        <p>Lista di opzioni da mostrare (nel caso di input select). La struttura deve
-essere [[&#39;value1&#39;, &#39;Name 1&#39;], [&#39;value2&#39;, &#39;Name
-2&#39;]]</p>
+        <p>Lista di opzioni da mostrare (nel caso di input select o radio buttons e
+checkbox). La struttura deve essere [[&#39;value1&#39;, &#39;Name 1&#39;],
+[&#39;value2&#39;, &#39;Name 2&#39;]]</p>
 <ul><li>
 <p><strong>default</strong>: []</p>
 </li></ul>
@@ -230,8 +265,8 @@ pulsante per vedere la password</p>
 
         <div class="method-description">
         
-        <p>Valore booleano usato per indicare se l&#39;input è obbligatorio nel form
-in cui si trova</p>
+        <p>Valore booleano usato per indicare se l&#39;input e&#39; obbligatorio nel
+form in cui si trova</p>
 <ul><li>
 <p><strong>default</strong>: false</p>
 </li></ul>
@@ -247,7 +282,8 @@ in cui si trova</p>
 
         <div class="method-description">
         
-        <p>Tipplogia di input da inizializzare (text, number, select, password, email)</p>
+        <p>Tipologia di input da inizializzare (text, number, select, password, email,
+multiple-select, date, checkbox, radio, textarea, file)</p>
 <ul><li>
 <p><strong>default</strong>: &#39;text&#39;</p>
 </li></ul>
@@ -263,7 +299,7 @@ in cui si trova</p>
 
         <div class="method-description">
         
-        <p>Valore già impostato nell&#39;input</p>
+        <p>Valore gia&#39; impostato nell&#39;input</p>
 <ul><li>
 <p><strong>default</strong>: nil</p>
 </li></ul>
@@ -301,7 +337,7 @@ in cui si trova</p>
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(type: 'text', name: 'input', placeholder: '', value: '', label: '', width: '', required: false, password_visible: true, custom_class: '', options: [], option_blank: false)</span>
+            class="method-args">(type: 'text', name: 'input', placeholder: '', value: '', label: '', width: 'large', required: false, password_visible: true, custom_class: '', options: [], option_blank: false, disabled: false, multiple_files: false)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -316,10 +352,17 @@ in cui si trova</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/input/cell.rb, line 44</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/input/cell.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;input&#39;</span>, <span class="ruby-identifier">placeholder</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>,
-               <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">label</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">required</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
-               <span class="ruby-identifier">password_visible</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">custom_class</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">:</span> [], <span class="ruby-identifier">option_blank</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+               <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">label</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">width</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;large&#39;</span>, <span class="ruby-identifier">required</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+               <span class="ruby-identifier">password_visible</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">custom_class</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">:</span> [],
+               <span class="ruby-identifier">option_blank</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">disabled</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+               <span class="ruby-identifier">multiple_files</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-comment"># eseguo brevi controlli sull&#39;input</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Input Concept: type has not a correct value&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">@@types</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Input Concept: width has not a correct value&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">@@widths</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">width</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Input Concept: options must be an array&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+  <span class="ruby-comment"># assegno i valori alle variabili di istanza</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">type</span>
   <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
   <span class="ruby-ivar">@placeholder</span> = <span class="ruby-identifier">placeholder</span>
@@ -331,6 +374,8 @@ in cui si trova</p>
   <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
   <span class="ruby-ivar">@custom_class</span> = <span class="ruby-identifier">custom_class</span>
   <span class="ruby-ivar">@option_blank</span> = <span class="ruby-identifier">option_blank</span>
+  <span class="ruby-ivar">@disabled</span> = <span class="ruby-identifier">disabled</span>
+  <span class="ruby-ivar">@multiple_files</span> = <span class="ruby-identifier">multiple_files</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -369,9 +414,9 @@ in cui si trova</p>
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/input/cell.rb, line 61</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/input/cell.rb, line 97</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-  <span class="ruby-identifier">render</span> <span class="ruby-node">&quot;#{@type.downcase}.html&quot;</span> <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@type</span>)
+  <span class="ruby-identifier">render</span> <span class="ruby-node">&quot;#{@type.downcase}.html&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@type</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -391,7 +436,7 @@ in cui si trova</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

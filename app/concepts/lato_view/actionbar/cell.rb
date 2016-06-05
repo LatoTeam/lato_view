@@ -1,6 +1,7 @@
 module LatoView
   # Cella che si occupa di generare una actionbar in grado di contenere
-  # il titolo della pagina e i link alle principali azioni
+  # il titolo della pagina e i link alle principali azioni. Puo' inoltre
+  # contenere anche dei widget per altri tipi di interazioni.
   module Actionbar
     # Cella Actionbar
     class Cell < Cell
@@ -57,7 +58,7 @@ module LatoView
           raise 'Actionbar Concept: widget align is not a correct value' unless @@align.include? widget.last.to_s
         end
       end
-      
+
     end
     # Fine cella
   end

@@ -9,7 +9,7 @@ module LatoView
 
     # Pagina di visualizzazione degli elementi statici dell'interfaccia
     def home
-
+      redirect_to lato_core.root_path if Rails.env.production?
     end
 
   end

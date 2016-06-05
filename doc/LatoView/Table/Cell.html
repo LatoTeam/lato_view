@@ -95,11 +95,7 @@
 
   <section class="description">
     
-<p>Concept usato per la generazione di tabelle. Il concept supporta dati in
-input sia sotto forma di array che sotto forma di query ad un model.</p>
-<ul><li>
-<p><strong>Inizializzazione</strong> :</p>
-</li></ul>
+<p>Cella <a href="../Table.html">Table</a></p>
 
   </section>
 
@@ -180,24 +176,24 @@ input sia sotto forma di array che sotto forma di query ad un model.</p>
 
         <div class="method-description">
           
-          <p>Funzione che, se il primo parametro è il risultato di una query, lo
+          <p>Funzione che, se il primo parametro e&#39; il risultato di una query, lo
 trasforma in un array di array da usare per inizializzare una tabella</p>
           
           
 
           
           <div class="method-source-code" id="generate_rows_from_activerecords-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 73</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_rows_from_activerecords</span>(<span class="ruby-identifier">activerecords</span>, <span class="ruby-identifier">attributes</span>)
   <span class="ruby-identifier">rows</span> = []
-  <span class="ruby-identifier">activerecords</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">activerecords</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">activerecord</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">row</span> = []
     <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">row</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">row</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attribute</span>))
+      <span class="ruby-identifier">row</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">activerecord</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attribute</span>))
     <span class="ruby-keyword">end</span>
     <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">row</span>)
   <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">rows</span>
+  <span class="ruby-identifier">rows</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -228,10 +224,13 @@ trasforma in un array di array da usare per inizializzare una tabella</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 20</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">head</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">rows</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># eseguo brevi controlli sull&#39;input</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Table Concept: head must be an array&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">head</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">head</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+  <span class="ruby-comment"># assegno i valori alle variabili di istanza</span>
   <span class="ruby-ivar">@head</span> = <span class="ruby-identifier">head</span>
-  <span class="ruby-ivar">@rows</span> = <span class="ruby-identifier">rows</span>
+  <span class="ruby-ivar">@rows</span> = <span class="ruby-identifier">rows</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">rows</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">check_rows</span>(<span class="ruby-identifier">rows</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -270,9 +269,9 @@ trasforma in un array di array da usare per inizializzare una tabella</p>
 
           
           <div class="method-source-code" id="close-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 66</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&lt;/table&gt;&#39;</span>
+  <span class="ruby-string">&#39;&lt;/table&gt;&#39;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -303,9 +302,9 @@ trasforma in un array di array da usare per inizializzare una tabella</p>
 
           
           <div class="method-source-code" id="open-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 32</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">open</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&lt;table class=&#39;table&#39;&gt;&quot;</span>
+  <span class="ruby-string">&quot;&lt;table class=&#39;table&#39;&gt;&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -321,7 +320,7 @@ trasforma in un array di array da usare per inizializzare una tabella</p>
         
         <div class="method-heading">
           <span class="method-name">row</span><span
-            class="method-args">(position: position, row: row)</span>
+            class="method-args">(position: 0, row: nil)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -334,11 +333,10 @@ trasforma in un array di array da usare per inizializzare una tabella</p>
 <ul><li>
 <p><strong>Parametri</strong> :</p>
 </li><li>
-<p>position: posizione della riga da stampare nell&#39;array di righe definito
-durante</p>
+<p>position: posizione della riga da stampare nell&#39;array di righe</p>
 </li></ul>
 
-<p>l&#39;inizializzazione</p>
+<p>definito durante l&#39;inizializzazione</p>
 <ul><li>
 <p>row: array che rappresenta la riga da stampare</p>
 </li></ul>
@@ -347,14 +345,12 @@ durante</p>
 
           
           <div class="method-source-code" id="row-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 54</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">row</span>(<span class="ruby-identifier">position</span><span class="ruby-operator">:</span> <span class="ruby-identifier">position</span>, <span class="ruby-identifier">row</span><span class="ruby-operator">:</span> <span class="ruby-identifier">row</span>)
-  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">position</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">position</span>].<span class="ruby-identifier">nil?</span>)
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">row</span>(<span class="ruby-identifier">position</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">row</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">position</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">position</span>].<span class="ruby-identifier">nil?</span>
     <span class="ruby-ivar">@current_row</span> = <span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">position</span>]
   <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">row</span>)
-    <span class="ruby-ivar">@current_row</span> = <span class="ruby-identifier">row</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@current_row</span> = <span class="ruby-identifier">row</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">row</span>
   <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;row.html&#39;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -386,9 +382,9 @@ durante</p>
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/concepts/lato_view/table/cell.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">open</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">head</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">rows</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">open</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">head</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">rows</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">close</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -408,7 +404,7 @@ durante</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

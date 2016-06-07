@@ -5,6 +5,7 @@ module LatoView
   module Actionbar
     # Cella Actionbar
     class Cell < Cell
+      
       # Lista allineamenti accettati dalla cella per i widget
       @@align = %(left right)
       # Lista di links da mostrare nella Actionbar secondo la

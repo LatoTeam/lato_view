@@ -22,5 +22,3 @@ bundle install
 ## Sviluppare con Lato View
 
 Per sviluppare utilizzando le funzioni messe a disposizione da Lato è possibile consultare la documentazione di ogni singolo modulo.
-
-Per il modulo **lato_view** la documentazione è consultabile nella directory *doc* della repository.

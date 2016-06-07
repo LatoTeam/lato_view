@@ -3,6 +3,7 @@ module LatoView
     # Insieme di funzioni usate per modificare l'aspetto della navbar del
     # sistema
     module Navigation
+      
       # Funzione che prende una stringa come parametro e, se essa e' presente
       # come nome univoco tra le voci della navbar la imposta come voce con
       # classe active nella navigazione

@@ -5,7 +5,7 @@ module LatoView
   module Actionbar
     # Cella Actionbar
     class Cell < Cell
-      
+
       # Lista allineamenti accettati dalla cella per i widget
       @@align = %(left right)
       # Lista di links da mostrare nella Actionbar secondo la
@@ -17,11 +17,10 @@ module LatoView
       # * *default*: nil
       attr_accessor :title
 
-      # Celleda inserire all'interno della Actionbar. Le celle per ora
+      # Celle da inserire all'interno della Actionbar. Le celle per ora
       # supportate sono: (searchbar, dropdown, buttongroup).
       # I widget devono essere inseriti sotto forma di array che segue
-      # la seguente struttura:
-      # [[cella_widget, 'allineamento'], [...]]
+      # la struttura [[cella_widget, 'allineamento'], [...]]
       # * *default*: nil
       attr_accessor :widgets
 

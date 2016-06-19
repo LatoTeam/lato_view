@@ -63,11 +63,11 @@ Per inizializzare una componente è possibile utilizzare l'helper **view(name)**
 
 Le componenti messe a disposizione da lato_view sono le seguenti:
 
-* actionbar: una barra utilizzata per contenere un titolo, una serie di links e di widget che possono essere a loro volta altre componenti.
-* block: un contenitore generico.
-* buttongroup: una lista di links.
-* dropdown: un dropdown composto da una intestazione e una serie di links.
-* index: una lista di oggetti appartenenti ad una entità del database.
-* input: un input con la quale l'utente può inserire dati da inviare al server.
-* searchbar: un input speciale utilizzato per stampare una barra di ricerca.
-* table: una tabella personalizzabile.
+* **actionbar**: una barra utilizzata per contenere un titolo, una serie di links e di widget che possono essere a loro volta altre componenti.
+* **block**: un contenitore generico.
+* **buttongroup**: una lista di links.
+* **dropdown**: un dropdown composto da una intestazione e una serie di links.
+* **index**: una lista di oggetti appartenenti ad una entità del database.
+* **input**: un input con la quale l'utente può inserire dati da inviare al server.
+* **searchbar**: un input speciale utilizzato per stampare una barra di ricerca.
+* **table**: una tabella personalizzabile.

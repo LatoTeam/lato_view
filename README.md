@@ -56,9 +56,7 @@ Utilizzare le celle per sviluppare una interfaccia utilizzando il layout di Lato
 Per inizializzare una componente è possibile utilizzare l'helper **view(name)** dove il parametro *name* deve essere una stringa contenente il nome della componente da inizializzare. All'helper bisogna richiamare poi il metodo new() passando i parametri necessari se richiesto dalla componente.
 
 ```erb
-<%
-block = view(:block).new()
-%>
+<% block = view(:block).new() %>
 
 <%= block %>
 ```

@@ -12,10 +12,11 @@ module LatoView
 
     # Funzione che stampa una icona svg
     def put_svg(icon)
-      # non ritorno nulla se non ricevo alcuna icona
-      return '' if !icon || icon.nil? || icon.blank?
+      # gestisco l'errore se il parametro non è corretto
+      raise 'You must send an icon value as parameter' if !icon || icon.nil? || icon.blank?
+      # renderizzo l'icona richiesta
       render "lato_view/icons/#{icon}.svg"
     end
-    
+
   end
 end

@@ -81,6 +81,8 @@ I parametri che possono essere passati nel costruttore sono:
 * content: contenuto da mostrare all'interno del blocco sotto forma di stringa.
 * custom_class: classi custom da aggiungere al blocco sotto forma di stringa.
 
+Le funzioni utilizzabili con la componente block sono le seguenti:
+
 * **open(width: width, custom_class: custom_class)**
 
 Funzione che stampa esclusivamente i tag di apertura del blocco. Può ricevere come parametri la dimensione dell'apertura (di default quella definita nel costruttore) e le classi custom da aggiungere (di default quelle definite nel costruttore).
@@ -89,7 +91,7 @@ Funzione che stampa esclusivamente i tag di apertura del blocco. Può ricevere c
 
 Funzione che stampa i tag di chiusura del blocco.
 
-**Esempio utilizzo open() e close()**
+*Esempio:*
 
 ```erb
 <% block = view(:block).new(width: 'half') %>

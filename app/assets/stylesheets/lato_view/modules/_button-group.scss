@@ -2,23 +2,23 @@
   @extend %button_base;
   @extend %button_brand;
   padding: 10px 25px;
-  background-color: white;
-  color: $ship-cove;
-  border: 1px solid $ship-cove;
+  background-color: $button-group-bg;
+  color: $button-group-color;
+  border: 1px solid $button-group-color;
   font-size: em(14px);
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
   transition: all 0.3s ease;
   &:hover {
-    background-color: $ship-cove;
-    color: white;
+    background-color: $button-group-color;
+    color: $button-group-bg;
   }
   &:active {
-    box-shadow: 0 3px 13px rgba($ship-cove, 0.30);
+    box-shadow: 0 3px 13px rgba($button-group-color, 0.30);
   }
   &:focus {
-    box-shadow: 0 5px 18px rgba($ship-cove, 0.35);
+    box-shadow: 0 5px 18px rgba($button-group-color, 0.35);
   }
 }
 
@@ -26,27 +26,45 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  font-size: em(14px);
   @include clearfix();
   .group-button {
     margin-right: -3px;
     border-right: 1px solid transparent;
     &:first-child {
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
+      border-top-left-radius: $button-group-radius;
+      border-bottom-left-radius: $button-group-radius;
     }
     &:last-child {
-      border-right: 1px solid $ship-cove;
+      border-right: 1px solid $button-group-color;
       margin-right: 0;
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
+      border-top-right-radius: $button-group-radius;
+      border-bottom-right-radius: $button-group-radius;
+    }
+  }
+  &.no-radius {
+    .group-button {
+      &:first-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &:last-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
   }
 }
 
+// Size classes
 .group-small {
   font-size: em(12px);
 }
 
 .group-medium {
-  font-size: em(14px);
+  font-size: em(16px);
+}
+
+.group-large {
+  font-size: em(20px);
 }

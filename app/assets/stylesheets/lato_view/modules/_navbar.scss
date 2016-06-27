@@ -37,7 +37,7 @@
       position: relative;
       top: 3px;
       path {
-        fill: mix($ship-cove, white, 50%);
+        fill: mix($nav-actions-color, white, 50%);
         transition: all 0.3s ease;
       }
     }
@@ -46,7 +46,7 @@
     }
     &:hover {
       svg path {
-        fill: $ship-cove;
+        fill: $nav-actions-color;
       }
     }
   }
@@ -61,7 +61,7 @@
   .nav-account-img {
     display: inline-block;
     @include size(45px);
-    background-color: $ship-cove;
+    background-color: $nav-account-img-bg;
     border-radius: 50%;
     margin-right: 10px;
     span {
@@ -80,8 +80,8 @@
     width: 100%;
     background-color: white;
     list-style: none;
-    box-shadow: 0 4px 9px -3px rgba($text-color, 0.25);
-    border-top: 1px solid $catskill-white;
+    box-shadow: 0 4px 9px -3px rgba($nav-account-drop-shadow, 0.25);
+    border-top: 1px solid $nav-account-drop-border-color;
     transform: translateY(10px);
     opacity: 0;
     visibility: hidden;
@@ -121,7 +121,7 @@
         width: 2px;
         height: 100%;
         transform: translateX(-5px);
-        background-color: $robin-blue;
+        background-color: $nav-account-drop-left-stripe;
         transition: transform 0.35s $snappy;
       }
       &:after {
@@ -155,7 +155,7 @@
         position: relative;
         top: 1px;
         path {
-          fill: $ship-cove;
+          fill: $nav-account-drop-icon-color;
           transition: all 0.3s ease;
         }
       }
@@ -178,6 +178,84 @@
       li {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@include mq-max(766px) {
+  .menu-toggle {
+    display: block;
+    float: right;
+    @include size(40px, 40px);
+    padding-top: 12px;
+    span {
+      display: block;
+      @include size(40px, 3px);
+      margin: 0 0 5px;
+      background: $white;
+      transition: all 0.2s ease;
+    }
+
+    &.is-mobile-menu-open {
+      span {
+        background: $white;
+        &:first-child {
+          transition-delay: 0.2s;
+          transform: rotate(45deg);
+          transform-origin: 10px 50%;
+        }
+        &:nth-child(2) {
+          transform: translateX(40px);
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transition-delay: 0.4s;
+          transform: rotate(-45deg);
+          transform-origin: 8px 50%;
+        }
+      }
+    }
+  }
+  .main-navigation-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 5px 20px;
+    background-color: $sidebar-bg;
+  }
+  .nav-account-area {
+    width: 100%;
+    padding: 0;
+    border-left: 0;
+    .nav-account-img, .nav-account-username {
+      display: none;
+    }
+    .nav-account-dropdown {
+      position: relative;
+      top: auto;
+      left: auto;
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      border: 0;
+      background-color: $sidebar-bg;
+      li {
+        opacity: 1;
+        transform: none;
+      }
+      a {
+        padding: 20px 0 20px 25px;
+        color: $ship-cove;
+        .dropdown-icon {
+          margin-right: 20px;
+        }
       }
     }
   }

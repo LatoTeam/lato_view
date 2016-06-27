@@ -3,7 +3,7 @@
   position: relative;
   .active-voice {
     position: relative;
-    color: $ebony-clay;
+    color: $drop-active-voice-color;
     font-size: em(16px);
     text-transform: uppercase;
     font-family: $font-bold;
@@ -21,7 +21,7 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background-color: $robin-blue;
+        background-color: $drop-active-voice-underline-color;
         transition: width 0.3s $snappy;
       }
     }
@@ -31,7 +31,7 @@
       width: 2px;
       height: 13px;
       border-radius: 4px;
-      background-color: #343d46;
+      background-color: $drop-icon-bg;
       transform: translate(8.48528px, 0) rotate(45deg);
       transition: all 0.2s ease;
       transition-delay: 0.3s;
@@ -41,7 +41,7 @@
         width: 2px;
         height: 13px;
         border-radius: 4px;
-        background-color: #343d46;
+        background-color: $drop-icon-bg;
         transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
       &:before {
@@ -60,13 +60,21 @@
     visibility: hidden;
     transform: translateY(10px);
     min-width: 130px;
-    background-color: $ebony-clay;
+    background-color: $drop-bg;
     color: white;
     text-align: center;
     font-size: em(12px);
     box-shadow: 0px 2px 6px rgba(black, 0.3);
     transition: all 0.3s ease;
     z-index: z(modal);
+    &.drop-medium { // Custom Size class
+      min-width: 145px;
+      font-size: em(14px);
+    }
+    &.drop-big {
+      min-width: 160px;
+      font-size: em(16px);
+    }
     &:before {
       content: "";
       position: absolute;
@@ -76,7 +84,7 @@
       height: 0;
       border-style: solid;
       border-width: 0 10px 10px 10px;
-      border-color: transparent transparent $ebony-clay transparent;
+      border-color: transparent transparent $drop-bg transparent;
     }
     ul {
       padding: 15px 0;
@@ -101,6 +109,21 @@
       &:nth-child(5) {
         transition-delay: 0.45s;
       }
+      &:nth-child(6) {
+        transition-delay: 0.50s;
+      }
+      &:nth-child(7) {
+        transition-delay: 0.54s;
+      }
+      &:nth-child(8) {
+        transition-delay: 0.59s;
+      }
+      &:nth-child(9) {
+        transition-delay: 0.53s;
+      }
+      &:nth-child(10) {
+        transition-delay: 0.57s;
+      }
     }
     a {
       display: block;
@@ -108,12 +131,12 @@
       padding: 12px 15px;
       text-decoration: none;
       text-transform: uppercase;
-      background-color: $ebony-clay;
+      background-color: $drop-links-bg;
       letter-spacing: 1px;
       transition: all 0.3s ease;
       &:hover {
-        background-color: darken($ebony-clay, 5%);
-        color: $robin-blue;
+        background-color: darken($drop-links-bg, 5%);
+        color: $drop-links-hover-color;
       }
     }
   }

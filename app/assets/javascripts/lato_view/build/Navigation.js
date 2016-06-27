@@ -22,8 +22,53 @@ var Navigation = (function($) {
     }
   }, 200);
 
+  /*
+  * Manage responsive menu - moves the admin dropdown to the sidebar.
+  * @params: -
+  * @return: undefined
+  */
+  var responsiveMenu = function() {
+    var resizing = false;
+    var $topNavigation = $('.nav-account-area');
+    var $sidebar = $('.main-navigation-sidebar');
+    var $header = $('.main-navigation-header');
+
+    function _detachElements() {
+      $topNavigation.detach();
+    }
+     
+    var moveNavigation = Util.debounce(function() {
+      if ( Modernizr.mq("only screen and (max-width: 766px)")) {
+        _detachElements();
+        $topNavigation.appendTo($sidebar);
+      } else if ( Modernizr.mq("only screen and (min-width: 767px)") ) {
+        _detachElements();
+        $header.find('.nav-logo').after($topNavigation);
+      }
+      resizing = false;
+    }, 200);
+
+    moveNavigation();
+    $(window).on('resize', function() {
+      if( !resizing ) {
+        window.requestAnimationFrame(moveNavigation);
+        resizing = true;
+      }
+    });
+  };
+
+  var _openMobileMenu = function() {
+    var $sidebar = $('.main-navigation-sidebar');
+    $(document).on('click', '.menu-toggle', function() {
+      $(this).toggleClass('is-mobile-menu-open');
+      $sidebar.toggleClass('is-mobile-menu-open');
+    });
+  }
+
   var init = function() {
     sidebarDropdown();
+    responsiveMenu();
+    _openMobileMenu();
   };
 
   return {

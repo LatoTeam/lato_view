@@ -9,23 +9,23 @@
   .flash {
     width: 100%;
     padding: 10px 5px 10px 30px;
-    background-color: $ebony-clay;
+    background-color: $flash-default-bg;
     color: white;
     font-size: em(16px);
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.25s ease, transform 0.3s $snappy;
     &.danger {
-     background-color: $scarlet;
+     background-color: $flash-danger-bg;
     }
     &.success {
-      background-color: $jungle-green;
+      background-color: $flash-success-bg;
     }
     &.info {
-      background-color: $robin-blue;
+      background-color: $flash-info-bg;
     }
     &.warning {
-      background-color: $yellow-sea;
+      background-color: $flash-warning-bg;
     }
     &:nth-child(2) {
       transition-delay: 0.15s;
@@ -36,8 +36,11 @@
     &:nth-child(4) {
       transition-delay: 0.35s;
     }
+    &:nth-child(5) {
+      transition-delay: 0.45s;
+    }
     &:last-child {
-      box-shadow: 0 1px 4px rgba(41, 59, 90, 0.25);
+      box-shadow: $flash-shadow;
     }
   }
   &.is-remove {

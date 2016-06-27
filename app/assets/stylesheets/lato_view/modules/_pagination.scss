@@ -1,7 +1,7 @@
 // Stile paginazione momentaneamente per la gemma
 // 'will_paginate' già inclusa in lato_view
 
-.pagination{
+.pagination {
   text-align: center;
 
   .previous_page {
@@ -16,11 +16,10 @@
 
   .current {
     display: inline-block;
-    background: #292f43;
-    color: #fff;
+    background: $pagination-current-bg;
+    color: $pagination-current-color;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    @include size(25px);
     font-style: normal;
   }
 

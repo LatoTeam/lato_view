@@ -63,7 +63,7 @@ Per inizializzare una componente è possibile utilizzare l'helper **view(name)**
 
 Le componenti messe a disposizione da lato_view sono le seguenti:
 
-* **actionbar**: una barra utilizzata per contenere un titolo, una serie di links e di widget che possono essere a loro volta altre componenti.
+* **actionbar**: una barra utilizzata per contenere un titolo, una serie di links e un insieme di widget che possono essere a loro volta altre componenti.
 * **block**: un contenitore generico.
 * **buttongroup**: una lista di links.
 * **dropdown**: un dropdown composto da una intestazione e una serie di links.
@@ -71,3 +71,30 @@ Le componenti messe a disposizione da lato_view sono le seguenti:
 * **input**: un input con la quale l'utente può inserire dati da inviare al server.
 * **searchbar**: un input speciale utilizzato per stampare una barra di ricerca.
 * **table**: una tabella personalizzabile.
+
+#### Concept::Block
+
+L'elemento blocco è un contenitore generico che può essere utilizzato per costruire una griglia di contenuti.
+I parametri che possono essere passati nel costruttore sono:
+
+* width: dimensione del blocco. I valori ammessi possono essere [large half third fourth two-third three-fourth].
+* content: contenuto da mostrare all'interno del blocco sotto forma di stringa.
+* custom_class: classi custom da aggiungere al blocco sotto forma di stringa.
+
+* **open(width: width, custom_class: custom_class)**
+
+Funzione che stampa esclusivamente i tag di apertura del blocco. Può ricevere come parametri la dimensione dell'apertura (di default quella definita nel costruttore) e le classi custom da aggiungere (di default quelle definite nel costruttore).
+
+* **close()**
+
+Funzione che stampa i tag di chiusura del blocco.
+
+**Esempio utilizzo open() e close()**
+
+```erb
+<% block = view(:block).new(width: 'half') %>
+
+<%= block.open(width: third) %>
+My content
+<%= block.close() %>
+```

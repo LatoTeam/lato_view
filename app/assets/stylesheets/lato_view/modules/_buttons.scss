@@ -156,6 +156,10 @@ button {
   margin-right: 10px;
 }
 
+.button-no-radius {
+  border-radius: 0;
+}
+
 // Sizing
 .button-small {
   font-size: em(12px);

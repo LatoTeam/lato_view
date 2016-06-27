@@ -78,7 +78,7 @@ a {
 }
 
 p {
-  margin: 0 0 15px 0;
+  margin: 0 0 $paragraphs-margin-bottom 0;
 }
 
 hr {
@@ -100,8 +100,11 @@ em {
   font-style: italic;
 }
 
-strong {
-  font-weight: bold;
+strong, b {
+  font-family: $font-bold;
+  &.accent {
+    color: $text-accent-color;
+  }
 }
 
 @if settings('minor-typo') {

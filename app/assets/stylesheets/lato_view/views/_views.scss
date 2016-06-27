@@ -2,6 +2,10 @@
 
 @import "grid";
 
+main, section {
+  position: relative;
+}
+
 section {
   width: 100%;
   display: block;
@@ -9,12 +13,8 @@ section {
   @include clearfix();
 }
 
-main {
-  position: relative;
-}
-
 // Layout Utility classes
-.content {
+.content, .content-box {
   width: $main-max-width;
   margin: 0 auto;
   @include clearfix();
@@ -37,9 +37,11 @@ main {
 .text-right     { text-align: right !important; }
 .text-uppercase { text-transform: uppercase !important; }
 .go-right       { float: right !important; }
+.go-left        { float: left !important; }
 .full-width     { width: 100% !important; }
 .spacing        { padding: $base-padding 0; }
 .hidden         { display: none !important; }
+.no-radius      { border-radius: 0 }
 
 @import "admin";
 //@import "print";

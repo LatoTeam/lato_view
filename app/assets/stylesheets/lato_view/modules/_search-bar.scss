@@ -7,12 +7,12 @@
   width: 70%;
   border: 0;
   padding: 7px 17px;
-  background: white;
-  box-shadow: 0px 2px 6px rgba(black, 0.1);
+  background: $search-bar-bg;
+  box-shadow: $search-bar-shadow;
   transition: all 0.4s ease;
   &:focus {
     outline: none;
-    box-shadow: 0px 2px 8px rgba(black, 0.15);
+    box-shadow: $search-bar-focus-shadow;
   }
 }
 
@@ -21,13 +21,13 @@
   position: absolute;
   height: 100%;
   padding: 7px 12px;
-  background-color: $robin-blue;
-  color: white;
+  background-color: $search-button-bg;
+  color: $search-button-color;
   box-shadow: 0px 2px 6px rgba(black, 0.1);
   svg {
     @include size(15px);
     path {
-      fill: white;
+      fill: $search-button-color;
     }
   }
 }

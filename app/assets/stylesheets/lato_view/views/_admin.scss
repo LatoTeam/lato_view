@@ -19,3 +19,11 @@
   font-size: em(35px);
   margin-bottom: 0;
 }
+
+@include mq-max(766px) {
+  .main-content {
+    .content-wrapper {
+      margin-top: 35px;
+    }
+  }
+}

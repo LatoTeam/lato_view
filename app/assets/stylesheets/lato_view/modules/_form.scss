@@ -48,7 +48,7 @@ textarea {
       display: inline-block;
       padding-left: 4px;
       font-size: 12px;
-      color: $ship-cove;
+      color: $label-advise-color;
     }
   }
   .textarea {
@@ -105,25 +105,25 @@ textarea {
 .form-secondary-info {
   font-size: 12px;
   line-height: 1;
-  color: $ship-cove;
+  color: $label-advise-color;
   // FIXME - Forse metterei in Lato Light 
 }
 
 // Form states
 .form-error {
   .input, .textarea {
-    border-color: $scarlet;
+    border-color: $form-error-color;
     &:focus {
-      border-color: $scarlet;
+      border-color: $form-error-color;
     }
   }
   .label-control:before {
-    border-color: $scarlet;
+    border-color: $form-error-color;
   }
   .input-error-message {
     opacity: 1;
     visibility: visible;
-    color: $scarlet;
+    color: $form-error-color;
   }
   .password-reveal {
     bottom: 18px;
@@ -132,18 +132,18 @@ textarea {
 
 .form-required {
   .input, .textarea {
-    border-color: $yellow-sea;
+    border-color: $form-required-color;
     &:focus {
-      border-color: $yellow-sea;
+      border-color: $form-required-color;
     }
   }
   .label-control:before {
-    border-color: $yellow-sea;
+    border-color: $form-required-color;
   }
   .input-error-message {
     opacity: 1;
     visibility: visible;
-    color: $yellow-sea;
+    color: $form-required-color;
   }
   .password-reveal {
     bottom: 18px;
@@ -164,7 +164,7 @@ textarea {
     cursor: pointer;
     font-size: em(14px);
     color: white;
-    background-color: $ship-cove;
+    background-color: $input-file-bg;
     border-radius: 100px;
     padding: 13px 40px;
     font-size: em(14px);
@@ -195,12 +195,12 @@ textarea {
       top: -2px;
     }
     &:hover {
-      background-color: darken($ship-cove, 10%);
+      background-color: darken($input-file-bg, 10%);
     }
   }
   &:focus {
     + label {
-      background-color: darken($ship-cove, 10%);
+      background-color: darken($input-file-bg, 10%);
       outline: 1px dotted #000;
       outline: -webkit-focus-ring-color auto 5px;
     }
@@ -292,5 +292,5 @@ textarea {
   overflow: hidden;
 }
 .eac-sugg {
-  color: #999;
+  color: $form-autocomplete-color;
 }

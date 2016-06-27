@@ -2,7 +2,7 @@
   display: inline-block;
   font-size: em(18px);
   letter-spacing: 1px;
-  color: darken($ship-cove, 15%);
+  color: $arranger-text-color;
   &:after {
     content: "\/";
     margin: 0 5px;

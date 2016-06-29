@@ -32,7 +32,7 @@
 
   <div class="content-row">
 
-    <%= raw block.open(width: 'half') %>
+    <div class="column small-full medium-half content-block">
       <h2 class="content-block-title">Typography</h2>
       <h1>Hello</h1>
       <h2>Hello</h2>
@@ -51,15 +51,14 @@
         <li>Ordered List</li>
         <li>Ordered List</li>
       </ol>
+    </div>
      <!--  <form action="/file-upload" class="dropzone">
         <div class="fallback">
           <input name="file" type="file" multiple />
         </div>
       </form> -->
 
-    <%= raw block.close %>
-
-    <%= raw block.open(width: 'half') %>
+    <div class="column small-full medium-half content-block">
       <h2 class="form-title">Example form</h2>
       <form action="" class="lato-form">
         <div class="form-group">
@@ -161,7 +160,7 @@
           </div>
         </div>
       </form>
-    <%= raw block.close %>
+    </div>
   </div>
 
   <div class="action-bar">
@@ -179,7 +178,7 @@
   </div>
 
   <div class="content-row">
-    <%= raw block.open() %>
+    <div class="column content-block">
       <h2 class="content-block-title">Button</h2>
       <a href="" class="lato-button">
         <div class="button-icon"><%= put_svg('upload') %></div>
@@ -200,6 +199,18 @@
         <a href="" class="group-button">Group</a>
         <a href="" class="group-button">Group</a>
       </div>
-    <%= raw block.close %>
+    </div>
   </div>
+
+  <div class="content-row">
+    <div class="column small-full medium-half content-block">
+      <h5>Good Equal Height Shit Man</h5>
+      <div>Lorem ipsum dolor sit amet, consectetur.</div>
+    </div>
+    <div class="column small-full medium-half content-block">
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, laudantium. Natus provident sit, aliquam, cumque ducimus animi voluptatum est veritatis nisi minima dolorum error at sapiente inventore laboriosam maiores quam quis cum numquam similique nostrum repudiandae. Cupiditate doloribus distinctio amet! Impedit magni voluptatem repellendus, tempora animi error ratione sint sed cumque distinctio. Deserunt excepturi, maiores inventore, ab vitae neque maxime! Eos, natus, ullam. Sint, nam?</div>
+    </div>
+  </div>
+
+
 <%= raw block.close %>

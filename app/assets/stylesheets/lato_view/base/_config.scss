@@ -1,7 +1,7 @@
 // Project config map
 
 $_settings: (
-  'use-grid'        :     true,
+  'use-flex-grid'   :     true,
   'use-opentype'    :     false,
   'use-font-smooth' :     true,
   'minor-typo'      :     true
@@ -104,6 +104,12 @@ $selection-color   : $body-bg !default;
 $selection-bg      : $text-color !default;
 
 // MODULES
+
+// Grid System
+$flex-row-gap           : -1.5% !default;
+$flex-row-margin-bottom : 45px !default;
+$flex-gap               : 1.5% !default;
+$flex-col-gap           : 0.75% !default;
 
 // Content block
 $content-block-bg            : $white !default;
@@ -242,6 +248,12 @@ $desk-down     : 1023px !default;
 $desk          : 1024px !default;
 $large         : 1200px !default;
 $x-large       : 1600px !default;
+
+// Grid System breakpoints
+$grid-small-break   : $desk-down !default;
+$grid-medium-break  : $desk !default;
+$grid-large-break   : $large !default;
+$grid-x-large-break : $x-large !default;
 
 // UTILS
 

@@ -1,5 +1,5 @@
 <div class="form-control <%= @width %>" <%= required_data_input %>>
   <label class="form-label"><%= @label %></label>
-  <input type="text" class="input <%= @custom_class %>" name="<%= @name %>" <%= disabled_data_input %> placeholder="<%= @placeholder %>" value="<%= @value %>">
+  <input type="text" class="input <%= @custom_class %>" name="<%= @name %>" <%= disabled_data_input %> placeholder="<%=html_safe @placeholder %>" value="<%=html_safe @value %>">
   <div class="input-error-message"></div>
 </div>

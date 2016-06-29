@@ -10,7 +10,7 @@
   overflow: auto;
   .content-wrapper {
     margin-top: 25px;
-    padding: 0 30px;
+    padding: 0 15px 0 30px;
     @include clearfix();
   }
 }
@@ -24,6 +24,7 @@
   .main-content {
     .content-wrapper {
       margin-top: 35px;
+      padding: 0 20px;
     }
   }
 }

@@ -10,6 +10,7 @@
   box-shadow: $content-block-shadow;
   padding: $content-block-padding;
   margin-bottom: $content-block-margin-bottom;
+  // Le seguenti classi sono mantenute solo per retrocompatibilità:
   &.half {
     @include col(1/2);
   }

@@ -38,7 +38,7 @@ module LatoView
       # funzione
       # utilizza la dimensione prefissata in fase di inizializzazione)
       def open(width: @width, custom_class: @class)
-        "<div class='content-block #{width} #{custom_class}'>"
+        "<div class='content-block column #{width} #{custom_class}'>"
       end
 
       # Funzione per stampare la chiusura di un blocco

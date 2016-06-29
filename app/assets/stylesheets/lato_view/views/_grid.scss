@@ -1,19 +1,448 @@
 /* Basic grid system */
 
-@if settings('use-grid') {
-  .col-half {
-    @include col(1/2);
+@if settings('use-flex-grid') {
+
+  .content-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 $flex-row-gap $flex-row-margin-bottom $flex-row-gap;
+
+    // Align Row-level
+    &.align-top {
+      align-items: flex-start;
+    }
+    &.align-bottom {
+      align-items: flex-end;
+    }
+    &.align-center {
+      align-items: center;
+    }
+    &.no-gutter {
+      margin: 0;
+      > .column {
+        margin: 0 0 20px 0;
+      }
+    }
   }
-  .col-one-third {
-    @include col(1/3);
+
+  .column {
+    flex: 1;
+    flex-basis: 100%;
+    margin: 0 $flex-col-gap;
+
+    // Align Column-level
+    &.top {
+      align-self: flex-start;
+    }
+    &.bottom {
+      align-self: flex-end;
+    }
+    &.center {
+      align-self: center;
+    }
   }
-  .col-two-third {
-    @include col(2/3);
+
+  @include mq-max($grid-small-break) {
+    .small-1 {
+      flex: 0 0 (8.333333% - $flex-gap);
+    }
+
+    .small-2 {
+      flex: 0 0 (16.666667% - $flex-gap);
+    }
+
+    .small-3 {
+      flex: 0 0 (25% - $flex-gap);
+    }
+
+    .small-4 {
+      flex: 0 0 (33.333333% - $flex-gap);
+    }
+
+    .small-5 {
+      flex: 0 0 (41.666667% - $flex-gap);
+    }
+
+    .small-6, .small-half {
+      flex: 0 0 (50% - $flex-gap);
+    }
+
+    .small-7 {
+      flex: 0 0 (58.333333% - $flex-gap);
+    }
+
+    .small-8 {
+      flex: 0 0 (66.666667% - $flex-gap);
+    }
+
+    .small-9 {
+      flex: 0 0 (75% - $flex-gap);
+    }
+
+    .small-10 {
+      flex: 0 0 (83.333333% - $flex-gap);
+    }
+
+    .small-11 {
+      flex: 0 0 (91.666667% - $flex-gap);
+    }
+
+    .small-12, .small-full {
+      flex: 0 0 (100% - $flex-gap);
+    }
+
   }
-  .col-one-fourth {
-    @include col(1/4);
+
+  @include mq-min($grid-medium-break) {
+    .medium-1 {
+      flex: 0 0 (8.333333% - $flex-gap);
+    }
+
+    .medium-2 {
+      flex: 0 0 (16.666667% - $flex-gap);
+    }
+
+    .medium-3 {
+      flex: 0 0 (25% - $flex-gap);
+    }
+
+    .medium-4 {
+      flex: 0 0 (33.333333% - $flex-gap);
+    }
+
+    .medium-5 {
+      flex: 0 0 (41.666667% - $flex-gap);
+    }
+
+    .medium-6, .medium-half {
+      flex: 0 0 (50% - $flex-gap);
+    }
+
+    .medium-7 {
+      flex: 0 0 (58.333333% - $flex-gap);
+    }
+
+    .medium-8 {
+      flex: 0 0 (66.666667% - $flex-gap);
+    }
+
+    .medium-9 {
+      flex: 0 0 (75% - $flex-gap);
+    }
+
+    .medium-10 {
+      flex: 0 0 (83.333333% - $flex-gap);
+    }
+
+    .medium-11 {
+      flex: 0 0 (91.666667% - $flex-gap);
+    }
+
+    .medium-12, .medium-full {
+      flex: 0 0 (100% - $flex-gap);
+    }
   }
-  .col-three-fourth {
-    @include col(3/4);
+
+  @include mq-min($grid-large-break) {
+    .large-1 {
+      flex: 0 0 (8.333333% - $flex-gap);
+    }
+
+    .large-2 {
+      flex: 0 0 (16.666667% - $flex-gap);
+    }
+
+    .large-3 {
+      flex: 0 0 (25% - $flex-gap);
+    }
+
+    .large-4 {
+      flex: 0 0 (33.333333% - $flex-gap);
+    }
+
+    .large-5 {
+      flex: 0 0 (41.666667% - $flex-gap);
+    }
+
+    .large-6, .large-half {
+      flex: 0 0 (50% - $flex-gap);
+    }
+
+    .large-7 {
+      flex: 0 0 (58.333333% - $flex-gap);
+    }
+
+    .large-8 {
+      flex: 0 0 (66.666667% - $flex-gap);
+    }
+
+    .large-9 {
+      flex: 0 0 (75% - $flex-gap);
+    }
+
+    .large-10 {
+      flex: 0 0 (83.333333% - $flex-gap);
+    }
+
+    .large-11 {
+      flex: 0 0 (91.666667% - $flex-gap);
+    }
+
+    .large-12, .large-full {
+      flex: 0 0 (100% - $flex-gap);
+    }
+  }
+
+  @include mq-min($grid-x-large-break) {
+    .xlarge-1 {
+      flex: 0 0 (8.333333% - $flex-gap);
+    }
+
+    .xlarge-2 {
+      flex: 0 0 (16.666667% - $flex-gap);
+    }
+
+    .xlarge-3 {
+      flex: 0 0 (25% - $flex-gap);
+    }
+
+    .xlarge-4 {
+      flex: 0 0 (33.333333% - $flex-gap);
+    }
+
+    .xlarge-5 {
+      flex: 0 0 (41.666667% - $flex-gap);
+    }
+
+    .xlarge-6, .xlarge-half {
+      flex: 0 0 (50% - $flex-gap);
+    }
+
+    .xlarge-7 {
+      flex: 0 0 (58.333333% - $flex-gap);
+    }
+
+    .xlarge-8 {
+      flex: 0 0 (66.666667% - $flex-gap);
+    }
+
+    .xlarge-9 {
+      flex: 0 0 (75% - $flex-gap);
+    }
+
+    .xlarge-10 {
+      flex: 0 0 (83.333333% - $flex-gap);
+    }
+
+    .xlarge-11 {
+      flex: 0 0 (91.666667% - $flex-gap);
+    }
+
+    .xlarge-12, .xlarge-full {
+      flex: 0 0 (100% - $flex-gap);
+    }
+  }
+
+} @else {
+
+  @include mq-max($grid-small-break) {
+    .small-1 {
+      @include col(1/12);
+    }
+
+    .small-2 {
+      @include col(2/12);
+    }
+
+    .small-3 {
+      @include col(3/12);
+    }
+
+    .small-4 {
+      @include col(4/12);
+    }
+
+    .small-5 {
+      @include col(5/12);
+    }
+
+    .small-6, .small-half {
+     @include col(6/12);
+    }
+
+    .small-7 {
+      @include col(7/12);
+    }
+
+    .small-8 {
+      @include col(8/12);
+    }
+
+    .small-9 {
+      @include col(9/12);
+    }
+
+    .small-10 {
+      @include col(10/12);
+    }
+
+    .small-11 {
+      @include col(11/12);
+    }
+
+    .small-12, .small-full {
+      @include col(12/12);
+    }
+
+  }
+
+  @include mq-min($grid-medium-break) {
+    .medium-1 {
+      @include col(1/12);
+    }
+
+    .medium-2 {
+      @include col(2/12);
+    }
+
+    .medium-3 {
+      @include col(3/12);
+    }
+
+    .medium-4 {
+      @include col(4/12);
+    }
+
+    .medium-5 {
+      @include col(5/12);
+    }
+
+    .medium-6, .medium-half {
+      @include col(6/12);
+    }
+
+    .medium-7 {
+      @include col(7/12);
+    }
+
+    .medium-8 {
+      @include col(8/12);
+    }
+
+    .medium-9 {
+      @include col(9/12);
+    }
+
+    .medium-10 {
+      @include col(10/12);
+    }
+
+    .medium-11 {
+      @include col(11/12);
+    }
+
+    .medium-12, .medium-full {
+      @include col(12/12);
+    }
+  }
+
+  @include mq-min($grid-large-break) {
+    .large-1 {
+      @include col(1/12);
+    }
+
+    .large-2 {
+      @include col(2/12);
+    }
+
+    .large-3 {
+      @include col(3/12);
+    }
+
+    .large-4 {
+      @include col(4/12);
+    }
+
+    .large-5 {
+      @include col(5/12);
+    }
+
+    .large-6, .large-half {
+      @include col(6/12);
+    }
+
+    .large-7 {
+      @include col(7/12);
+    }
+
+    .large-8 {
+      @include col(8/12);
+    }
+
+    .large-9 {
+      @include col(9/12);
+    }
+
+    .large-10 {
+      @include col(10/12);
+    }
+
+    .large-11 {
+      @include col(11/12);
+    }
+
+    .large-12, .large-full {
+      @include col(12/12);
+    }
+  }
+
+  @include mq-min($grid-x-large-break) {
+    .xlarge-1 {
+      @include col(1/12);
+    }
+
+    .xlarge-2 {
+      @include col(2/12);
+    }
+
+    .xlarge-3 {
+      @include col(3/12);
+    }
+
+    .xlarge-4 {
+      @include col(4/12);
+    }
+
+    .xlarge-5 {
+      @include col(5/12);
+    }
+
+    .xlarge-6, .xlarge-half {
+      @include col(6/12);
+    }
+
+    .xlarge-7 {
+      @include col(7/12);
+    }
+
+    .xlarge-8 {
+      @include col(8/12);
+    }
+
+    .xlarge-9 {
+      @include col(9/12);
+    }
+
+    .xlarge-10 {
+      @include col(10/12);
+    }
+
+    .xlarge-11 {
+      @include col(11/12);
+    }
+
+    .xlarge-12, .xlarge-full {
+      @include col(12/12);
+    }
   }
 }

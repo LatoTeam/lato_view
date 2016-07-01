@@ -28,9 +28,9 @@ module LatoView
       # * *default*: nil
       attr_accessor :custom_class
 
-      def initialize(width: 'large', content: '', custom_class: '')
+      def initialize(width: 'small-12 medium-12 large-12 xlarge-12', content: '', custom_class: '')
         # eseguo brevi controlli sull'input
-        raise 'Block Concept: width value in not correct' unless @@widths.include? width.to_s
+        raise 'Block Concept: width value in not correct' unless (width.to_s.split(' ') - @@widths).empty?
         # assegno i valori alle variabili di istanza
         @width = width
         @content = content

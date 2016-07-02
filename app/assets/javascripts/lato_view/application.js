@@ -25,6 +25,7 @@
 //= require lato_view/build/FormManager
 //= require lato_view/build/Dropdown
 //= require lato_view/build/Navigation
+//= require lato_view/build/ActionBar
 //= require lato_view/build/Flash
 
 var Application = (function($) {
@@ -44,6 +45,7 @@ var Application = (function($) {
       // Init our modules
       Dropdown.init();
       Navigation.init();
+      //ActionBar.init();
       Flash.init();
       FormManager.init();
       $('.editor').trumbowyg({

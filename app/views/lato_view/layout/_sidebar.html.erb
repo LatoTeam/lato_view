@@ -1,9 +1,9 @@
 <% voices = core_getNavbarItems.sort_by { |hsh| hsh[:position] } %>
 <div class="main-navigation-sidebar">
   <% if(logo = core_getApplicationLogo) %>
-    <a href="" class="sidebar-logo"><%=raw logo %></a>
+    <a href="<%= lato_core.root_path %>" class="sidebar-logo"><%=raw logo %></a>
   <% else %>
-    <a href="" class="sidebar-logo  lato-logo"><%= put_svg('latologo') %></a>
+    <a href="<%= lato_core.root_path %>" class="sidebar-logo  lato-logo"><%= put_svg('latologo') %></a>
   <% end %>
   <nav class="sidebar-nav">
     <ul class="sidebar-list">
@@ -22,7 +22,7 @@
           <li><a href="">Sub-link</a></li>
         </ul>
       </li>-->
-      
+
     </ul>
   </nav>
 </div>

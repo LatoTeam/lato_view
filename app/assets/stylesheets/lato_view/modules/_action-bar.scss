@@ -29,3 +29,34 @@
     top: 12px;
   }
 }
+
+.action-nav-holder {
+  display: none;
+  float: right;
+  position: relative;
+  .action-menu-toggle {
+    padding-top: 13px;
+    cursor: pointer;
+  }
+  .action-nav-menu {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    min-width: 210px;
+    padding: 20px;
+    background-color: $white;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 9px -3px rgba(41, 59, 90, 0.25);
+    text-align: center;
+    z-index: 39;
+    > .action-remove {
+      display: block;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+  }
+  @include mq-max(1070px) {
+    //display: block;
+  }
+}

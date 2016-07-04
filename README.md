@@ -39,7 +39,14 @@ end
 
 ### Modificare il logo della sidebar
 
-Il logo standard del pannello di Lato può essere sostituito semplicemente inserendo nella directory /config/lato/ un file svg chiamato 'logo.svg'.
+Il logo standard del pannello di Lato può essere sostituito semplicemente inserendo nella directory /assets/images/lato/ un file chiamato 'sidebar_logo' in uno dei seguenti formati: .svg .png .jpg .gif
+
+NB: E' possibile impostare anche un logo globale (utilizzato in altre parti del pannello lato) inserendo nella
+stessa directory un file 'logo' in uno dei seguenti formati: .svg .png .jpg .gif
+
+### Aggiungere il logo nella pagina di login
+
+Il logo standard del pannello di Lato può essere sostituito semplicemente inserendo nella directory /assets/images/lato/ un file chiamato 'login_logo' in uno dei seguenti formati: .svg .png .jpg .gif
 
 ### Utilizzare le icone svg messe a disposizione da Lato view
 

@@ -1,0 +1,11 @@
+# Assets informations
+# -----------------------------------------------------------------------------
+
+# Add custom assets to the layout
+# assets:
+#   style:
+#     name: application
+#     type: css
+#   code:
+#     name: application
+#     type: js

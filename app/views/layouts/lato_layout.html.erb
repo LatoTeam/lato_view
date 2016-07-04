@@ -15,8 +15,14 @@
 
     <%= stylesheet_link_tag    "lato_view/application", media: "all" %>
     <% # LISTA DEGLI ASSETS CUSTOM %>
-    <% custom_assets = core_getAssetsItems %>
-    <% custom_assets.each do |asset| %>
+    <% custom__lato_assets = view_getLatoAssetsItems %>
+    <% custom__app_assets = view_getApplicationsAssetsItems %>
+    <% custom__lato_assets.each do |asset| %>
+      <% if asset[:type] === "css" %>
+        <%= stylesheet_link_tag asset[:name], media: "all" %>
+      <% end %>
+    <% end %>
+    <% custom__app_assets.each do |asset| %>
       <% if asset[:type] === "css" %>
         <%= stylesheet_link_tag "lato/#{asset[:name]}", media: "all" %>
       <% end %>
@@ -60,7 +66,12 @@
 
   <%= javascript_include_tag "lato_view/application" %>
   <% # LISTA DEGLI ASSETS CUSTOM %>
-  <% custom_assets.each do |asset| %>
+  <% custom__lato_assets.each do |asset| %>
+    <% if asset[:type] === "js" %>
+      <%= javascript_include_tag asset[:name] %>
+    <% end %>
+  <% end %>
+  <% custom__app_assets.each do |asset| %>
     <% if asset[:type] === "js" %>
       <%= javascript_include_tag "lato/#{asset[:name]}" %>
     <% end %>

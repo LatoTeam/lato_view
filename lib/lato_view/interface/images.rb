@@ -34,7 +34,7 @@ module LatoView
         dir = "#{Rails.root}/app/assets/images/lato/"
         if File.exist?("#{dir}/logo.svg") || File.exist?("#{dir}/logo.png") ||
            File.exist?("#{dir}/logo.jpg") || File.exist?("#{dir}/logo.gif")
-          return "lato/logologo"
+          return "lato/logo"
         end
         return false
       end

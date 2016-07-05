@@ -1,7 +1,7 @@
 <% voices = core_getNavbarItems.sort_by { |hsh| hsh[:position] } %>
 <div class="main-navigation-sidebar">
   <% if(sidebar_logo = view_getSidebarLogo) %>
-    <a href="<%= lato_core.root_path %>" class="sidebar-logo"><%= image_tag sidebar_logo %></a>
+    <a href="<%= lato_core.root_path %>" class="sidebar-logo"><%= image_tag 'logo.png' %></a>
   <% else %>
     <a href="<%= lato_core.root_path %>" class="sidebar-logo  lato-logo"><%= put_svg('latologo') %></a>
   <% end %>

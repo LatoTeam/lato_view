@@ -48,9 +48,17 @@ module LatoView
       def view_getApplicationLogo
         return VIEW_APPLOGO if defined? VIEW_APPLOGO
         dir = "#{Rails.root}/app/assets/images/lato/"
-        if File.exist?("#{dir}/logo.svg") || File.exist?("#{dir}/logo.png") ||
-           File.exist?("#{dir}/logo.jpg") || File.exist?("#{dir}/logo.gif")
-          return "lato/logo"
+        if File.exist?("#{dir}/logo.svg")
+          return "lato/logo.svg"
+        end
+        if File.exist?("#{dir}/logo.png")
+          return "lato/logo.png"
+        end
+        if File.exist?("#{dir}/logo.jpg")
+          return "lato/logo.jpg"
+        end
+        if File.exist?("#{dir}/logo.gif")
+          return "lato/logo.gif"
         end
         return false
       end

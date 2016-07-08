@@ -37,7 +37,7 @@ var ActionBar = (function($) {
               $(el).appendTo($elToRemove.eq(0));
             });
             $header.find('.nav-logo').after($elToRemove);
-          }    
+          }
         });
 
         resizing = false;

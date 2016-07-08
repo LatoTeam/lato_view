@@ -12,10 +12,16 @@
  *
  */
 
-@import 'jeet/_settings';
-@import 'jeet/_functions';
-@import 'jeet/_grid';
+// Jeet grid system
+@import "jeet/_settings";
+@import "jeet/_functions";
+@import "jeet/_grid";
 
+// Config files
+@import "config/config.scss";
+@import "config/templates/base-template.scss";
+
+// Main Styles
 @import "base/base.scss";
 @import "modules/modules.scss";
 @import "views/views.scss";

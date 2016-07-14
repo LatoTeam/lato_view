@@ -1,0 +1,155 @@
+// Base colors
+$black        :  #000000;
+$mine-shaft   :  #333333;
+$white        :  #ffffff;
+
+// Project specific colors
+$catskill-white : #edf3f7;
+$dusty-gray     : #999999;
+$rhino          : #293b5a;
+$ebony-clay     : #292f43;
+$ship-cove      : #7b96c4;
+$robin-blue     : #00c8e7;
+$jungle-green   : #26b75e;
+$scarlet        : #e32908;
+$radical-red    : #ff2f6c;
+$yellow-sea     : #ffae03;
+
+// Statuses colors
+$success-color : $jungle-green !default;
+$error-color   : $scarlet !default;
+$warning-color : $yellow-sea !default;
+
+// BASE
+
+$body-bg           : $catskill-white !default;
+$base-spacing      : $line-base * $font-size-base !default;
+$text-color        : $rhino !default;
+$text-accent-color : $robin-blue !default;
+$link-color        : $rhino !default;
+$base-padding      : $headings-margin-bottom;
+$selection-color   : $body-bg !default;
+$selection-bg      : $text-color !default;
+
+// MODULES
+
+// Content block
+$content-block-bg            : $white !default;
+$content-block-shadow        : 0 1px 4px rgba($text-color, 0.25) !default;
+$content-block-padding       : 20px !default;
+$content-block-margin-bottom : 30px !default;
+$content-block-title-size    : 30px !default;
+
+// Button colors.
+$button-bg    : $robin-blue !default;
+$button-color : $white !default;
+
+// Button-Group
+$button-group-color  : $ship-cove !default;
+$button-group-bg     : $white !default;
+$button-group-radius : 30px !default;
+
+// Navbar
+$nav-width                     : 85.3% !default;
+$nav-bg                        : $white !default;
+$nav-color                     : $text-color !default;
+$nav-shadow                    : 0 1px 4px rgba($text-color, 0.25) !default;
+$nav-padding-vertical          : 10px !default;
+$nav-base-padding              : $nav-padding-vertical 0 !default;
+$nav-actions-color             : $ship-cove !default;
+$nav-account-img-bg            : $ship-cove !default;
+$nav-account-drop-shadow       : $text-color !default;
+$nav-account-drop-border-color : $catskill-white !default;
+$nav-account-drop-left-stripe  : $robin-blue !default;
+$nav-account-drop-icon-color   : $ship-cove !default;
+
+// Sidebar
+$sidebar-width             : 200px !default;
+$sidebar-bg                : $ebony-clay !default;
+$sidebar-color             : $white !default;
+$sidebar-inactive-color    : $ship-cove !default;
+$sidebar-icon-active-color : $robin-blue !default;
+
+// Form
+$form-input-border-color       : darken($catskill-white, 10%) !default;
+$form-input-hover-border-color : $ship-cove !default;
+$form-input-padding            : 5px 10px !default;
+$form-control-margin           : 15px !default;
+$text-area-min-height          : 80px !default;
+$label-advise-color            : $ship-cove !default;
+$form-error-color              : $error-color !default;
+$form-required-color           : $warning-color !default;
+
+// Form controls
+$form-control-border-color    : $form-input-border-color !default;
+$form-control-checked-bg      : $ebony-clay !default;
+$form-control-checked-color   : $white !default;
+$form-autocomplete-color      : $dusty-gray !default;
+
+// Input file
+$input-file-bg : $ship-cove !default;
+
+// Password-reveal submodule
+$psw-reveal-width  : 45px !default;
+$psw-reveal-height : 35px !default;
+$psw-eye-bg        : $form-input-border-color !default;
+$psw-eye-size      : 20px !default;
+$psw-inner-size    : $psw-eye-size / 2 !default;
+$psw-active        : $ebony-clay !default;
+
+// Datepicker - Overrides external
+$pd-font-family          : $font-stack;
+$pd-text-color           : $mine-shaft !default;
+$pd-title-color          : $mine-shaft !default;
+$pd-title-bg             : $white !default;
+$pd-picker-bg            : $white !default;
+$pd-picker-border        : #ccc !default;
+$pd-picker-border-bottom : #bbb !default;
+$pd-picker-shadow        : rgba($black, 0.5) !default;
+$pd-th-color             : $ship-cove !default;
+$pd-day-color            : $ebony-clay !default;
+$pd-day-bg               : #f5f5f5 !default;
+$pd-day-hover-color      : $white !default;
+$pd-day-hover-bg         : $radical-red !default;
+$pd-day-today-color      : $robin-blue !default;
+$pd-day-selected-color   : $white !default;
+$pd-day-selected-bg      : $robin-blue !default;
+$pd-day-selected-shadow  : #178fe5 !default;
+$pd-day-disabled-color   : #999 !default;
+$pd-week-color           : #999 !default;
+
+// Select
+$select-border-color       : $form-input-border-color !default;
+$select-focus-border-color : $form-input-hover-border-color !default;
+$select-dropdown-shadow    : 0 1px 4px rgba($text-color, 0.25) !default;
+$select-dropdown-active-bg : rgba($form-input-hover-border-color, 0.67) !default;
+
+// Arranger
+$arranger-text-color : darken($ship-cove, 15%) !default;
+
+// Dropdown
+$drop-bg                           : $ebony-clay !default;
+$drop-links-bg                     : $ebony-clay !default;
+$drop-links-hover-color            : $robin-blue !default;
+$drop-active-voice-color           : $ebony-clay !default;
+$drop-active-voice-underline-color : $robin-blue !default;
+$drop-icon-bg                      : $ebony-clay !default;
+
+// Flashes
+$flash-default-bg : $ebony-clay !default;
+$flash-danger-bg  : $error-color !default;
+$flash-success-bg : $success-color !default;
+$flash-info-bg    : $robin-blue !default;
+$flash-warning-bg : $warning-color !default;
+$flash-shadow     : 0 1px 4px rgba(41, 59, 90, 0.25) !default;
+
+// Pagination
+$pagination-current-bg    : $rhino !default;
+$pagination-current-color : $white !default;
+
+// Search Bar
+$search-bar-bg           : $white !default;
+$search-bar-shadow       : 0px 2px 6px rgba(black, 0.1) !default;
+$search-bar-focus-shadow : 0px 2px 8px rgba(black, 0.15) !default;
+$search-button-bg        : $robin-blue !default;
+$search-button-color     : $white !default;

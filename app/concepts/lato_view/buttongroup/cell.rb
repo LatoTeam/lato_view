@@ -4,8 +4,8 @@ module LatoView
     # Cella Buttongroup
     class Cell < Cell
       # Lista stili possibili per il bottongroup
-      @@styles = %w(normal)
-      
+      @@styles = VIEW_CELLSSTYLES
+
       # Lista di links da mostrare nella Actionbar secondo la
       # struttura [['Nome link', 'url'], ['Nome link', 'url']]
       # * *default*: nil
@@ -43,7 +43,7 @@ module LatoView
           raise 'Bottongroup Concept: links content must have two value' if link.length != 2
         end
       end
-      
+
     end
     # Fine cella
   end

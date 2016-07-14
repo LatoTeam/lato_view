@@ -9,3 +9,9 @@
 #   code:
 #     name: application
 #     type: js
+
+# Template informations
+# -----------------------------------------------------------------------------
+
+# Set current template
+# template: base

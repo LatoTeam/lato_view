@@ -19,7 +19,12 @@
 
 // Config files
 @import "config/config.scss";
-@import "config/templates/base-template.scss";
+
+<% if view_getCurrentTemplateName %>
+  @import "config/templates/<%= view_getCurrentTemplateName %>-template.scss";
+<% else %>
+  @import "config/templates/base-template.scss";
+<% end %>
 
 // Main Styles
 @import "base/base.scss";

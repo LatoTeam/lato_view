@@ -4,10 +4,9 @@ module LatoView
     # Cella Input
     class Cell < Cell
       # Lista di tipologie di input accettate
-      @@types = %w(text number select password email editor checkbox radio
-                   textarea file date)
+      @@types = VIEW_INPUTTYPES
      # Lista dei parametri accettati per l'attributo width
-     @@widths = %w(large half third fourth two-third three-fourth)
+     @@widths = VIEW_INPUTWIDTH
 
       # Tipologia di input da inizializzare
       # (text, number, select, password, email, multiple-select, date,
@@ -143,7 +142,7 @@ module LatoView
         end
         rows
       end
-      
+
     end
     # Fine cella
   end

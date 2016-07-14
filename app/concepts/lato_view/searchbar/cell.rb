@@ -8,7 +8,7 @@ module LatoView
       include Ransack::Helpers::FormHelper
 
       # Lista stili possibili per la searchbar
-      @@styles = %w(normal rounded)
+      @@styles = VIEW_CELLSSTYLES
 
       # Nome dell'istanza del database da utilizzare nella ricerca
       # * *default*: nil
@@ -35,8 +35,12 @@ module LatoView
       # * *default*: false
       attr_accessor :remote
 
+      # Stringa contenente classi custom da aggiungere alla searchbar
+      # * *default*: nil
+      attr_accessor :custom_class
+
       def initialize(elements: nil, filter: nil, url: nil, method: 'get',
-                     style: 'normal', remote: false)
+                     style: 'normal', remote: false, custom_class: '')
        # eseguo brevi controlli sull'input
        raise 'Searchbar Concept: style value in not correct' unless @@styles.include? style.to_s
        # assegno i valori alle variabili di istanza
@@ -46,12 +50,13 @@ module LatoView
         @method = method
         @style = style
         @remote = remote
+        @custom_class = custom_class
       end
 
       def show
         render 'show.html'
       end
-      
+
     end
     # Fine cella
   end

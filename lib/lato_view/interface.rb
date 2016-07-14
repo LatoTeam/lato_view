@@ -11,6 +11,9 @@ module LatoView
     # Richiamo il modulo con le funzioni di gestione immagini pannello
     require 'lato_view/interface/images'
     include LatoView::Interface::Images
+    # Richiamo il modulo con le funzioni di gestione tema pannello
+    require 'lato_view/interface/themes'
+    include LatoView::Interface::Themes
 
   end
 end

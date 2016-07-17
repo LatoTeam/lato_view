@@ -44,7 +44,7 @@ Il logo standard del pannello di Lato può essere sostituito semplicemente inser
 NB: E' possibile impostare anche un logo globale (utilizzato in altre parti del pannello lato) inserendo nella
 stessa directory un file 'logo' in uno dei seguenti formati: .svg .png .jpg .gif
 
-### Aggiungere il logo nella pagina di login
+### Aggiungere il logo della pagina di login
 
 Il logo standard del pannello di Lato può essere sostituito semplicemente inserendo nella directory /assets/images/lato/ un file chiamato 'login_logo' in uno dei seguenti formati: .svg .png .jpg .gif
 

@@ -6,10 +6,10 @@ $white        :  #ffffff;
 // Project specific colors
 $catskill-white : #edf3f7;
 $dusty-gray     : #999999;
-$rhino          : #293b5a;
-$ebony-clay     : #292f43;
-$ship-cove      : #7b96c4; 
-$robin-blue     : #00c8e7;
+$rhino          : #040303;
+$ebony-clay     : #262626;
+$ship-cove      : #040303;
+$robin-blue     : #fff;
 $jungle-green   : #26b75e;
 $scarlet        : #e32908;
 $radical-red    : #ff2f6c;
@@ -22,7 +22,7 @@ $warning-color : $yellow-sea !default;
 
 // BASE
 
-$body-bg           : $catskill-white !default;
+$body-bg           : #EEE !default;
 $base-spacing      : $line-base * $font-size-base !default;
 $text-color        : $rhino !default;
 $text-accent-color : $robin-blue !default;
@@ -41,7 +41,7 @@ $content-block-margin-bottom : 30px !default;
 $content-block-title-size    : 30px !default;
 
 // Button colors.
-$button-bg    : $robin-blue !default;
+$button-bg    : #00c8e7 !default;
 $button-color : $white !default;
 
 // Button-Group
@@ -67,7 +67,7 @@ $nav-account-drop-icon-color   : $ship-cove !default;
 $sidebar-width             : 200px !default;
 $sidebar-bg                : $ebony-clay !default;
 $sidebar-color             : $white !default;
-$sidebar-inactive-color    : $ship-cove !default;
+$sidebar-inactive-color    : #BFBEBE !default;
 $sidebar-icon-active-color : $robin-blue !default;
 
 // Form

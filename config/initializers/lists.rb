@@ -31,4 +31,4 @@ VIEW_CELLSSTYLES = %w(normal rounded)
 # ------------------------------------------------------------------------------
 
 # Nomi dei possibili templates pronti supportati da lavo view
-VIEW_TEMPLATES = %w(base yellow)
+VIEW_TEMPLATES = %w(base black)

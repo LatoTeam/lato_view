@@ -4,7 +4,7 @@ var FormManager = (function($) {
   // Activate selectize.js module
   var _manageSelect = function() {
     $('.select').selectize({
-      hideSelected: 'true'
+      hideSelected: 'true' // for multiple-select working
     });
   };
 

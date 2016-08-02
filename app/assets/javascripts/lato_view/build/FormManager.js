@@ -4,10 +4,8 @@ var FormManager = (function($) {
   // Activate selectize.js module
   var _manageSelect = function() {
     $('.select').selectize({
-      hideSelected: 'true',
-      delimiter: ','
+      hideSelected: 'true'
     });
-
   };
 
   // Activate pikaday.js module

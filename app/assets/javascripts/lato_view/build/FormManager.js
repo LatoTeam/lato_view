@@ -3,7 +3,9 @@ var FormManager = (function($) {
 
   // Activate selectize.js module
   var _manageSelect = function() {
-    $('.select').selectize();
+    $('.select').selectize({
+      hideSelected: 'true'
+    });
   };
 
   // Activate pikaday.js module
@@ -31,7 +33,7 @@ var FormManager = (function($) {
     $dropZone.dropzone({ url: parentForm.attr('action') });
   };
 
-  // Manage input type="file" component. 
+  // Manage input type="file" component.
   // Replaces the label text depending on the uploaded files.
   var _manageInputFile = function() {
     if($('.input-file').length) {
@@ -96,9 +98,9 @@ var FormManager = (function($) {
     $('.lato-form').on('submit', function(event) {
 
       var tests = {
-        "number": Validator.controlNumber('.input-number'), 
-        "required": Validator.controlRequired('data-input="required"'), 
-        "email": Validator.controlEmail('.input-email'), 
+        "number": Validator.controlNumber('.input-number'),
+        "required": Validator.controlRequired('data-input="required"'),
+        "email": Validator.controlEmail('.input-email'),
         "password": Validator.controlPasswordEquality('.input-password', '.confirm-password'),
         "length": Validator.controlInputLength('.input-length'),
         "radiobox": Validator.controlRadiobox('data-input="radio"')
@@ -125,7 +127,7 @@ var FormManager = (function($) {
       if($('.eac-input-wrap').length) {
         Validator.controlEmail('.input-email');
       }
-      
+
       // Get input desired className.
       var tester = '.' + $(this).attr('class').split(' ')[1];
 

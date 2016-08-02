@@ -1,6 +1,6 @@
 <div class="form-control <%= @width %>" <%= required_data_input %>>
   <label class="form-label"><%= @label %></label>
-  <select class="select <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= disabled_data_input %> multiple>
+  <select class="select <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= disabled_data_input %> multiple="multiple">
     <% if(@option_blank) %>
       <option></option>
     <% end %>

@@ -116,7 +116,7 @@ module LatoView
       protected def selected_value(option)
         value = option_value(option)
         return "checked" if value === @value && @type === 'radio'
-        return "selected='selected'" if @type === 'multiple-select' && @value.is_a? Array && @value.include?(value)
+        return "selected='selected'" if (@type === 'multiple-select' && @value.is_a?(Array) && @value.include?(value))
         return "selected='selected'" if value === @value
       end
 
@@ -134,7 +134,7 @@ module LatoView
 
       # Funzione che prende in input un activerecords, il nome dell'attributo
       # da usare come valore e il nome dell'attributo da usare come nome e
-      # ritorna un array da usare come options per un input select
+      # ritorna un array da usare come options per un input select o un radio buttons
       def self.generate_options_from_activerecords(activerecords, value, name)
         rows = []
         activerecords.each do |row|

@@ -116,7 +116,7 @@ module LatoView
       protected def selected_value(option)
         value = option_value(option)
         return "checked" if value === @value && @type === 'radio'
-        return "selected='selected'" if value.is_a? Array && @value.include? value && @type === 'multiple-select'
+        return "selected='selected'" if value.is_a? Array && @value.include?(value) && @type === 'multiple-select'
         return "selected='selected'" if value === @value
       end
 

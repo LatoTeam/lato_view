@@ -101,22 +101,22 @@ module LatoView
       # Funzione usata solo per i select e i radio button
       protected def option_value(option)
         return option.first if option.is_a? Array
-        option
+        return option
       end
 
       # Ritorna il name di un opzione di un select di un select ricevuta
       # come parametro. Funzione usata solo per i select e i radio button
       protected def option_name(option)
         return option.last if option.is_a? Array
-        option
+        return option
       end
 
       # Ritorna una stringa 'selected' se il valore dell'option ricevuto
       # come parametro e' uguale al value inizializzato all'input
       protected def selected_value(option)
         value = option_value(option)
-        return "checked" if value === @value &&
-                                      @type === 'radio'
+        return "checked" if value === @value && @type === 'radio'
+        return "selected='selected'" if value.is_a? Array && @value.include? value && @tyoe === 'multiple-select'
         return "selected='selected'" if value === @value
       end
 

@@ -1,0 +1,19 @@
+input:
+  required: This field is required
+  choose_file: Select file
+  selected_files: Selected files
+
+index:
+  actions: Actions
+  show: View
+  edit: Modify
+  delete: Delete
+  search: Search
+
+form_validation:
+  number: This value must be a number.
+  required: This value is required.
+  email: Insert a valid email address.
+  char : Wrong number of char.
+  pass_same: These fields must match.
+  check: Field can't be empty.

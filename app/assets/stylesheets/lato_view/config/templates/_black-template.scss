@@ -98,25 +98,28 @@ $psw-inner-size    : $psw-eye-size / 2 !default;
 $psw-active        : $ebony-clay !default;
 
 // Datepicker - Overrides external
-$pd-font-family          : $font-stack;
-$pd-text-color           : $mine-shaft !default;
-$pd-title-color          : $mine-shaft !default;
-$pd-title-bg             : $white !default;
-$pd-picker-bg            : $white !default;
-$pd-picker-border        : #ccc !default;
-$pd-picker-border-bottom : #bbb !default;
-$pd-picker-shadow        : rgba($black, 0.5) !default;
-$pd-th-color             : $ship-cove !default;
-$pd-day-color            : $ebony-clay !default;
-$pd-day-bg               : #f5f5f5 !default;
-$pd-day-hover-color      : $white !default;
-$pd-day-hover-bg         : $radical-red !default;
-$pd-day-today-color      : $robin-blue !default;
-$pd-day-selected-color   : $white !default;
-$pd-day-selected-bg      : $robin-blue !default;
-$pd-day-selected-shadow  : #178fe5 !default;
-$pd-day-disabled-color   : #999 !default;
-$pd-week-color           : #999 !default;
+// $pd-font-family          : $font-stack;
+// $pd-text-color           : $mine-shaft !default;
+// $pd-title-color          : $mine-shaft !default;
+// $pd-title-bg             : $white !default;
+// $pd-picker-bg            : $white !default;
+// $pd-picker-border        : #ccc !default;
+// $pd-picker-border-bottom : #bbb !default;
+// $pd-picker-shadow        : rgba($black, 0.5) !default;
+// $pd-th-color             : $ship-cove !default;
+// $pd-day-color            : $ebony-clay !default;
+// $pd-day-bg               : #f5f5f5 !default;
+// $pd-day-hover-color      : $white !default;
+// $pd-day-hover-bg         : $radical-red !default;
+// $pd-day-today-color      : $robin-blue !default;
+// $pd-day-selected-color   : $white !default;
+// $pd-day-selected-bg      : $robin-blue !default;
+// $pd-day-selected-shadow  : #178fe5 !default;
+// $pd-day-disabled-color   : #999 !default;
+// $pd-week-color           : #999 !default;
+$picker-selected         :  $mine-shaft;
+$picker-date-today       :  $radical-red;
+$picker-item-hover-color :  $white;
 
 // Select
 $select-border-color       : $form-input-border-color !default;

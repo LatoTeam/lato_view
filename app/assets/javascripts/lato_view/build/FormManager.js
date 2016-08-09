@@ -10,20 +10,16 @@ var FormManager = (function($) {
 
   // Activate pikaday.js module
   var _manageDatePicker = function() {
-    var $datepicker = $('.date-picker').pikaday({
+    var $datepicker = $('.date-picker').pickadate({
       firstDay: 1,
-      minDate: new Date(1900, 0, 1),
-      maxDate: new Date(3000, 12, 31),
-      format: 'DD/MM/YYYY',
-      yearRange: [1900, 3000],
-      i18n: {
-        previousMonth : 'Mese precedente',
-        nextMonth     : 'Mese successivo',
-        months        : ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
-        weekdays      : ['Domenica','Lunedi','Martedi','Mercoledi','Giovedi','Venerdi','Sabato'],
-        weekdaysShort : ['Dom','Lun','Mar','Mar','Gio','Ven','Sab']
-      }
+      min: new Date(1900, 0, 1),
+      max: new Date(3000, 12, 31),
+      format: 'dd/mm/yyyy'
     });
+  };
+
+  var _manageTimePicker = function() {
+    var $timePicker = $('.time-picker').pickatime();
   };
 
   var _manageFileUploader = function() {
@@ -147,6 +143,7 @@ var FormManager = (function($) {
   var init = function() {
     _manageSelect();
     _manageDatePicker();
+    _manageTimePicker();
     // _manageFileUploader();
     _manageInputFile();
     _manageInputPassword();

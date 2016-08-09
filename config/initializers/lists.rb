@@ -19,7 +19,7 @@ VIEW_GRIDCLASS = %w(small-1 small-2 small-3 small-4 small-5 small-6
 
 # Lista possibili tipi di input utilizzabili con la cella input
 VIEW_INPUTTYPES = %w(text number select password email editor checkbox radio
-                     textarea file date multiple-select)
+                     textarea file date multiple-select time)
 
 # Lista possibili lunghezze elementi della cella input
 VIEW_INPUTWIDTH = %w(large half third fourth two-third three-fourth)

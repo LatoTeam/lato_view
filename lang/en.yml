@@ -2,6 +2,7 @@ input:
   required: This field is required
   choose_file: Select file
   selected_files: Selected files
+  confirm_delete: Are you sure?
 
 index:
   actions: Actions

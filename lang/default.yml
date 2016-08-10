@@ -2,6 +2,7 @@ input:
   required: Campo obbligatorio
   choose_file: Seleziona file
   selected_files: Files selezionati
+  confirm_delete: Sei sicuro di eseguire l'eliminazione?
 
 index:
   actions: Azioni

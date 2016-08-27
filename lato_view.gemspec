@@ -3,12 +3,12 @@ $:.push File.expand_path("../lib", __FILE__)
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "lato_view"
-  s.version     = "0.1.0"
+  s.version     = "1.0"
   s.authors     = ["Gregorio Galante, Antonio Dal Cin, Riccardo Zanutta"]
   s.email       = ["gregogalante@gmail.com"]
   s.homepage    = "http://www.gregoriogalante.com"
-  s.summary     = "Starter kit for new Lato module"
-  s.description = "Starter kit for new Lato module"
+  s.summary     = "Lato module for view elements"
+  s.description = "Lato module for view elements"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
 
   # Search dependencies
   s.add_dependency "ransack"
+  
   # Pagination
   s.add_dependency "will_paginate"
 

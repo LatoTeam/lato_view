@@ -5,9 +5,13 @@ module LatoView
 
     # Funzione usata per stampare i vari concepts gestiti e forniti da lato view.
     # Richiede il nome del concept come parametro
-    def view(name)
-      class_string = "LatoView::#{name.capitalize}::Cell"
-      class_string.constantize
+    def view(*names)
+      cell_class = "LatoView::"
+      names.each do |name|
+        cell_class = "#{cell_class}#{name.capitalize}::"
+      end
+      cell_class = "#{cell_class}Cell".constantize
+      return cell_class
     end
 
     # Funzione che stampa una icona svg

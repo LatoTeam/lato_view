@@ -1,0 +1,17 @@
+<div class="form-control <%= @width %>" <%= required_data_input %>>
+
+  <div class="form-block">
+
+    <input type="hidden" name="<%= @name %>" value="0">
+
+    <input type="checkbox" class="check <%= @custom_class %>" name="<%= @name %>"
+           id="<%= @name %>" value="1" <%= checked_data_input %>
+           <%= disabled_data_input %>>
+
+    <label class="label-control" for="<%= @name %>"><%= @label%></label>
+
+  </div>
+
+  <div class="input-error-message"></div>
+  
+</div>

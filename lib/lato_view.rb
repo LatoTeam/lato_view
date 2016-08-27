@@ -16,5 +16,5 @@ module LatoView
   # Moduli della gemma
   require 'lato_view/engine'
   require 'lato_view/interface'
-  require 'lato_view/concepts'
+  require 'lato_view/cells'
 end

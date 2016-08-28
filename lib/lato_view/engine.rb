@@ -1,10 +1,8 @@
 module LatoView
-  # Classe che gestisce l'inizializzazione del modulo. Principalemente
-  # aggiunge il supporto ai routes di lato_view e agli helper.
   class Engine < ::Rails::Engine
     isolate_namespace LatoView
 
-    # Aggiunta del supporto ai routes
+    # Add routes support
     initializer 'Add gem routes to application',
                 before: :load_config_initializers do
       Rails.application.routes.append do
@@ -13,7 +11,7 @@ module LatoView
       end
     end
 
-    # Imposto tutt gli helper disponibili di default
+    # Set helper to application
     initializer 'Add helpers to application' do
       ActiveSupport.on_load :action_controller do
         helper LatoView::ApplicationHelper

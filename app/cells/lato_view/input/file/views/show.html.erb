@@ -1,0 +1,18 @@
+<div class="form-control <%= @width %>" <%= required_data_input %>>
+
+  <input type="file" class="input-file <%= @custom_class %>" id="<%= @name %>"
+         name="<%= @name %>" placeholder="<%= @placeholder %>" value="<%= @value %>"
+         data-multiple-caption="{count} <%= VIEW_LANG['input']['selected_files'] %>"
+         <%= multiple_data_input %>  <%= disabled_data_input %>>
+
+  <label for="<%= @name %>">
+    <div class="upload-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M189.9 126.9v57.6c0 6-4.5 10.5-10.5 10.5H19.2c-6 0-10.5-4.5-10.5-10.5v-57.6c0-6 4.5-10.5 10.5-10.5s10.5 4.5 10.5 10.5v46.5h139.1v-46.5c0-6 4.5-10.5 10.5-10.5s10.6 4.5 10.6 10.5zm-125.2-61l24-24.5v91.1c0 6 4.5 10.5 10.5 10.5s10.5-4.5 10.5-10.5V41.3l24 24.5c2 2 5 3 7.5 3s5.5-1 7.5-3c4-4 4-10.5 0-15l-42-43c-2-2-5-3-7.5-3s-5.5 1-7.5 3l-42 43c-4 4-4 10.5 0 15 4.5 4.6 11 4.1 15 .1z"/></svg>
+    </div>
+    <!--<span><%= VIEW_LANG['input']['choose_file'] %></span>-->
+    <span><%= @label %></span>
+  </label>
+
+  <div class="input-error-message"></div>
+
+</div>

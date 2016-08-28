@@ -1,18 +1,15 @@
 module LatoView
-  # Sopraclasse di tutte le Celle. Include tutte quelle componenti usate
-  # dalle celle che generano l'interfaccia grafica.
+  # Cells superclass
   class Cell < Cell::Concept
 
-    # Imposto la directory che contiene i vari concepts
+    # Set cells directory
     view_paths << "#{LatoView::Engine.root}/app/cells"
 
-    # Includo tutte le funzioni necessarie al corretto funzionamento dei
-    # concepts
+    # Include cells dependencies
     include ActionView::Helpers::FormHelper
     include ActionView::Helpers::UrlHelper
+    include ActionView::Helpers::CaptureHelper
     include ERB::Util
-
-    # Funzioni per usare files .erb nelle celle
     include ::Cell::Erb
 
   end

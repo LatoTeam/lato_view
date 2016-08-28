@@ -1,0 +1,49 @@
+<% if(@elements) %>
+  <tbody>
+    <% @elements.each do |element| %>
+    <tr>
+      <% @attributes.each_with_index do |attribute, index| %>
+        <% value = element.send(attribute) %>
+
+        <% # se e' un booleano %>
+        <% if(!!value == value) %>
+
+          <td data-label="<%= @head[index] %>">
+            <% if value %>
+              <div class="general-status">
+                <div class="status round-status true"></div>
+              </div>
+            <% else %>
+              <div class="general-status">
+                <div class="status round-status false"></div>
+              </div>
+            <% end %>
+          </td>
+
+        <% else %>
+
+          <td data-label="<%= @head[index] %>"><%= value %></td>
+
+        <% end %>
+
+      <% end %>
+
+      <% if @show_link || @edit_link || @delete_link %>
+        <td class="actions">
+          <% if(@show_link) %>
+            <%= link_to VIEW_LANG['index']['show'], self.show_link(element.id), class: 'lato-button button-small' %>
+          <% end %>
+          <% if(@edit_link) %>
+            <%= link_to VIEW_LANG['index']['edit'], self.edit_link(element.id), class: 'lato-button button-yellow button-small' %>
+          <% end %>
+          <% if(@delete_link) %>
+            <%= link_to VIEW_LANG['index']['delete'], self.delete_link(element.id), method: :delete, remote: @remote_delete,
+                                                                                    class: 'lato-button button-red button-small',
+                                                                                    data: {confirm: VIEW_LANG['input']['confirm_delete']} %>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+<% end %>

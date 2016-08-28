@@ -1,13 +1,14 @@
 module LatoView
-  class Input::Checkbox::Cell < Cell
+  class Input::Password::Cell < Cell
 
     @@widths = VIEW_INPUTWIDTH
 
     attr_accessor :name, :placeholder, :value, :label, :width, :required,
-                  :disabled, :custom_class
+                  :disabled, :custom_class, :visible
 
     def initialize(name: 'input', placeholder: '', value: '', label: '',
-                   width: 'large', required: false, disabled: false)
+                   width: 'large', required: false, disabled: false,
+                   custom_class: '', visible: false)
       # save params
       @name = name
       @placeholder = placeholder
@@ -16,6 +17,8 @@ module LatoView
       @width = width
       @required = required
       @disabled = disabled
+      @custom_class = custom_class
+      @visible = visible
       # check params
       check_params
     end
@@ -32,11 +35,6 @@ module LatoView
     # return disabled string to input
     protected def disabled_data_input
       return "disabled='disabled'" if @disabled
-    end
-
-    # return checked string to input
-    protected def checked_data_input
-      return "checked" if @value
     end
 
     # check params

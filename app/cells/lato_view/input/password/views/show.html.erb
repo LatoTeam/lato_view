@@ -1,0 +1,15 @@
+<div class="form-control <%= @width %>" <%= required_data_input %>>
+
+  <label class="form-label"><%= @label %></label>
+
+  <input type="password" class="input input-password <%= @custom_class %>"
+         name="<%= @name %>" placeholder="<%= @placeholder %>" value="<%= @value %>"
+         <%= disabled_data_input %>>
+
+  <% if @visible %>
+    <div class="password-reveal"></div>
+  <% end %>
+
+  <div class="input-error-message"></div>
+
+</div>

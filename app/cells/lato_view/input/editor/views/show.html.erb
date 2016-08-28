@@ -1,0 +1,12 @@
+<div class="form-control <%= @width %>" <%= required_data_input %>>
+
+  <label class="form-label"><%= @label %></label>
+
+  <textarea class="editor <%= @custom_class %>" name="<%= @name %>"
+            placeholder="<%= @placeholder %>">
+  	<%= @value %>
+  </textarea>
+
+  <div class="input-error-message"></div>
+
+</div>

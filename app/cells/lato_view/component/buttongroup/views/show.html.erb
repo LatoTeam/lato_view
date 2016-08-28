@@ -1,0 +1,13 @@
+<div class="button-group group-<%= @size %> <%= @style %>">
+
+  <% if @links %>
+
+    <% @links.each do |link| %>
+
+      <%= link_to link[:url], link[:name], class: 'group-button' %>
+      
+    <% end %>
+
+  <% end %>
+
+</div>

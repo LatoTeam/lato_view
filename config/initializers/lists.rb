@@ -17,16 +17,11 @@ VIEW_GRIDCLASS = %w(small-1 small-2 small-3 small-4 small-5 small-6
                     xlarge-6 xlarge-7 xlarge-8 xlarge-9 xlarge-10 xlarge-11
                     xlarge-12 xlarge-half xlarge-full)
 
-# TODO: Rimuovere una volta concluso aggiornamento celle input
-# Lista possibili tipi di input utilizzabili con la cella input
-VIEW_INPUTTYPES = %w(text number select password email editor checkbox radio
-                     textarea file date multiple-select time)
-
 # Lista possibili lunghezze elementi della cella input
 VIEW_INPUTWIDTH = %w(large half third fourth two-third three-fourth)
 
-# Insieme di valori di stile per elementi vari delle celle
-VIEW_CELLSSTYLES = %w(normal rounded)
+# Insieme di valori di stile per elementi vari delle componenti
+VIEW_COMPONENTSTYLES = %w(normal rounded)
 
 # Valori per i templates
 # ------------------------------------------------------------------------------

@@ -1,0 +1,20 @@
+<div class="form-control <%= @width %>" <%= required_data_input %>>
+
+  <label class="form-label"><%= @label %></label>
+
+	<% @options.each_with_index do |option, index| %>
+  	<div class="form-block">
+  		<input type="radio" class="radio <%= @custom_class %>" name="<%= @name %>"
+             value="<%= option[:value] %>" id="<%= @name %>-<%= index %>"
+             <%= selected_value(option) %> <%= disabled_data_input %>>
+
+  		<label class="label-control" for="<%= @name %>-<%= index %>">
+        <%= option[:name] %>
+      </label>
+
+  	</div>
+	<% end %>
+
+  <div class="input-error-message"></div>
+
+</div>

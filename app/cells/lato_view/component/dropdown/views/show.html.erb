@@ -1,0 +1,43 @@
+<div class="arranger">
+
+  <% if @title %>
+
+    <div class="arrange-voice"><%= @title %></div>
+
+  <% end %>
+
+  <div class="dropdown">
+
+    <% if @open_text %>
+
+      <div class="active-voice">
+        <span class="voice-text"><%= @open_text %></span>
+        <span class="drop-icon"></span>
+      </div>
+
+    <% else %>
+
+      <div class="active-voice">
+        <span class="voice-text"><%= @links[:name] %></span>
+        <span class="drop-icon"></span>
+      </div>
+
+    <% end %>
+
+    <div class="the-drop">
+      <ul>
+
+        <% @links.each do |link| %>
+
+          <li>
+            <a href="<%= link[:url] %>"><%= link[:name] %></a>
+          </li>
+
+        <% end %>
+
+      </ul>
+    </div>
+
+  </div>
+  
+</div>

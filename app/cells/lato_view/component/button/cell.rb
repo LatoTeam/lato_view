@@ -6,7 +6,7 @@ module LatoView
 
     attr_accessor :title, :url, :color, :size
 
-    def initialize(title: '', url: 'nil', color: 'normal', size: 'normal')
+    def initialize(title: '', url: '', color: 'normal', size: 'normal')
      # save params
       @title = title
       @url = url

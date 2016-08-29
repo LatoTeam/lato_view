@@ -1,5 +1,5 @@
 module LatoView
-  class CellsV1::Index::Cell < Cell
+  class Layout::Index::Cell < Cell
 
     attr_accessor :elements, :head, :attributes, :link, :show_link, :edit_link,
                   :delete_link, :remote_delete, :custom_class

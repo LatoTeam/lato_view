@@ -21,7 +21,7 @@ module LatoView
     private def check_params
       raise 'Actionbar Cell: widgets must be an array' unless @widgets.is_a? Array
       widgets.each do |widget|
-        raise 'Actionbar Cell: widget align is not a correct value' unless @@widget_align.include? widget[:align]
+        raise 'Actionbar Cell: widget align is not a correct value' unless @@widget_align.include? widget[:align].to_s
       end
     end
 

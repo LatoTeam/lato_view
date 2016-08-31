@@ -9,7 +9,7 @@ module LatoView
 
     def initialize(name: 'input', placeholder: '', value: '', label: '',
                    width: 'large', required: false, disabled: false,
-                   custom_class: '', options: [], option_blank: true
+                   custom_class: '', options: [], option_blank: true,
                    multiple: false)
       # save params
       @name = name

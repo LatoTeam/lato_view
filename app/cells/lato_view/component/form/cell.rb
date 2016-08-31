@@ -3,7 +3,7 @@ module LatoView
 
     attr_accessor :url, :method, :remote, :multipart, :custom_class
 
-    def initialize(url: '', method: :post, remote: false, multipart: false, :custom_class: '')
+    def initialize(url: '', method: :post, remote: false, multipart: false, custom_class: '')
      # save params
       @url = url
       @method = method

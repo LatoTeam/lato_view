@@ -14,7 +14,9 @@ var FormManager = (function($) {
       firstDay: 1,
       min: new Date(1900, 0, 1),
       max: new Date(3000, 12, 31),
-      format: 'dd/mm/yyyy'
+      format: 'dd/mm/yyyy',
+      hiddenSuffix: undefined,
+      hiddenPrefix: undefined
     });
   };
 

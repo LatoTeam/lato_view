@@ -22,7 +22,7 @@ var FormManager = (function($) {
 
   var _manageTimePicker = function() {
     var $timePicker = $('.time-picker').pickatime({
-      format: 'h:i A',
+      format: 'H:i',
       hiddenPrefix: '',
       hiddenSuffix: ''
     });

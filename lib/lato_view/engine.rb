@@ -6,7 +6,6 @@ module LatoView
     initializer 'Add gem routes to application',
                 before: :load_config_initializers do
       Rails.application.routes.append do
-        # modificare "/lato/starter" con l'url di base dei routes del modulo
         mount LatoView::Engine, at: '/lato/view'
       end
     end

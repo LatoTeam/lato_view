@@ -1,9 +1,7 @@
-# Lato View e' il modulo del progetto Lato che si occupa di fornire tutti gli
-# elementi utili a definire l'interfaccia grafica. Questo modulo, anche se
-# non esplicitamente definito, e' una dipendenza obbligatoria per qualsiasi
-# altro modulo Lato.
+# TODO: Write here Module presentation
 module LatoView
-  # Gemme di dipendenza
+
+  # include external gems
   require 'sass-rails'
   require 'autoprefixer-rails'
   require 'jeet'
@@ -13,8 +11,9 @@ module LatoView
   require 'ransack'
   require 'will_paginate'
 
-  # Moduli della gemma
+  # include engine and interface
   require 'lato_view/engine'
   require 'lato_view/interface'
   require 'lato_view/cells'
+
 end

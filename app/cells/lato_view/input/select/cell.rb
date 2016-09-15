@@ -48,7 +48,13 @@ module LatoView
 
     # return true or false to show if option is selected
     protected def selected_value(option)
-      return "selected='selected'" if option[:value] === @value
+      if @multiple
+        @value.each do |value|
+          return "selected='selected'" and break if option[:value] === value
+        end
+      else
+        return "selected='selected'" if option[:value] === @value
+      end
     end
 
     # check params

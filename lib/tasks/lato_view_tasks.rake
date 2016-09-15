@@ -1,3 +1,5 @@
+include LatoCore::Interface
+
 # Initialize module on project
 desc 'Create view.yml file for Lato configuration'
 task :lato_view_initialize do

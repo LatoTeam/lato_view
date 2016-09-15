@@ -50,7 +50,7 @@ module LatoView
     protected def selected_value(option)
       if @multiple
         @value.each do |value|
-          return "selected='selected'" and break if option[:value] === value
+          return "selected='selected'" if option[:value] === value
         end
       else
         return "selected='selected'" if option[:value] === @value

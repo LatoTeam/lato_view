@@ -9,7 +9,7 @@
       <option></option>
     <% end %>
     <% @options.each do |option| %>
-      <option value="<%= option[:value] %>"<%= selected_value(option) %>>
+      <option value="<%= option[:value] %>" <%= selected_value(option) %>>
         <%= option[:name]%>
       </option>
     <% end %>

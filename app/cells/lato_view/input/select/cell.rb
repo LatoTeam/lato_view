@@ -67,5 +67,15 @@ module LatoView
       return rows
     end
 
+    # take in input an array list, return
+    # an array that can be used with select
+    def self.generate_options_from_array(array)
+      rows = []
+      array.each do |row|
+        rows.push({name: row, value: row})
+      end
+      return rows
+    end
+
   end
 end

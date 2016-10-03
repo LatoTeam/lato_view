@@ -18,6 +18,14 @@ module LatoView
       render 'show.html'
     end
 
+    def open
+      render 'open.html'
+    end
+
+    def close
+      '</form>'
+    end
+
     # check params
     private def check_params
       # TODO: Check values

@@ -16,5 +16,9 @@ module LatoView
         helper LatoView::ApplicationHelper
       end
     end
+
+    # Add interface
+    config.autoload_paths << LatoView::Engine.root.join('lib/interface')
+
   end
 end

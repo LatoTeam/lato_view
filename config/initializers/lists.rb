@@ -3,7 +3,7 @@
 # supprotati ecc.
 
 # Valori per celle
-# ------------------------------------------------------------------------------
+################################################################################
 
 # Lista dimensioni griglia della cella block
 VIEW_GRIDCLASS = %w(small-1 small-2 small-3 small-4 small-5 small-6
@@ -24,7 +24,7 @@ VIEW_INPUTWIDTH = %w(large half third fourth two-third three-fourth)
 VIEW_COMPONENTSTYLES = %w(normal rounded)
 
 # Valori per i templates
-# ------------------------------------------------------------------------------
+################################################################################
 
 # Nomi dei possibili templates pronti supportati da lavo view
 VIEW_TEMPLATES = %w(base black)

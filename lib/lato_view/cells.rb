@@ -1,5 +1,5 @@
 module LatoView
-  # Cells superclass
+  # This class is the main class for cells.
   class Cell < Cell::Concept
 
     # Set cells directory

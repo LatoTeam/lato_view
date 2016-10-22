@@ -1,7 +1,8 @@
 module LatoView
+  # This module contain default lato_view application.
   module ApplicationHelper
 
-    # puts a view cell
+    # This function render a cell set with params.
     def view(*names)
       # mantain compatibility with old cells (lato_view 1.0)
       if names.length === 1
@@ -18,7 +19,7 @@ module LatoView
       return cell_class
     end
 
-    # puts an svg icon
+    # This function render an icon set as params.
     def put_svg(icon)
       # check params
       raise 'You must send an icon value as parameter' if !icon || icon.nil? || icon.blank?

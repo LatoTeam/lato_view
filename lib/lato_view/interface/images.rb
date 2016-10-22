@@ -1,8 +1,8 @@
 module LatoView
+  # This module contains function for images.
   module Interface::Images
 
-    # Ritorna l'url del logo da visualizzare nella sidebar. L'url puo' essere
-    # utilizzato per usare l'helper image_tag.
+    # This function return the url of sidebar logo.
     def view_getSidebarLogo
       return VIEW_SIDEBARLOGO if defined? VIEW_SIDEBARLOGO
       dir = "#{Rails.root}/app/assets/images/lato/"
@@ -21,8 +21,7 @@ module LatoView
       return view_getApplicationLogo
     end
 
-    # Ritorna l'url del logo da visualizzare nella pagina di login. L'url puo' essere
-    # utilizzato per usare l'helper image_tag.
+    # This function return the url of login logo.
     def view_getLoginLogo
       return VIEW_LOGINLOGO if defined? VIEW_LOGINLOGO
       dir = "#{Rails.root}/app/assets/images/lato/"
@@ -41,8 +40,7 @@ module LatoView
       return view_getApplicationLogo
     end
 
-    # Ritorna l'url del logo dell'applicazione. L'url puo' essere
-    # utilizzato per usare l'helper image_tag.
+    # This function return the url of application logo.
     def view_getApplicationLogo
       return VIEW_APPLOGO if defined? VIEW_APPLOGO
       dir = "#{Rails.root}/app/assets/images/lato/"

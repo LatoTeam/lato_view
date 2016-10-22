@@ -1,8 +1,8 @@
 module LatoView
+  # This module contain functions for assest management.
   module Interface::Assets
 
-    # Funzione che ritorna un array contenente gli url relativi degli assets
-    # delle gemme lato da usare nel layout di lato
+    # This function return an array of url of assets from lato gems.
     def view_getLatoAssetsItems
       return VIEW_LATOASSETS if defined? VIEW_LATOASSETS
       # inizializzo la lista degli assets
@@ -31,8 +31,7 @@ module LatoView
       return assets
     end
 
-    # Funzione che ritorna un array contenente gli url relativi degli assets
-    # della applicazione principale da usare nel layout di lato
+    # This function return an array of url of assets from the main application.
     def view_getApplicationsAssetsItems
       return VIEW_APPASSETS if defined? VIEW_APPASSETS
       # inizializzo la lista delle voci della navbar
@@ -54,8 +53,7 @@ module LatoView
       return assets
     end
 
-    # Estrae i dati relativi agli assets dal file config.yml di una
-    # applicazione controllando che la struttura del file sia corretta
+    # This function return an array of url from the config file of a lamo module.
     private def getConfigAssets(config)
       # inizializzo la lista di dati
       results = []

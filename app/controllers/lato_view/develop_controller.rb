@@ -1,14 +1,14 @@
 module LatoView
-  # Classe base usata per le view di sviluppo dell'interfaccia
+  # This class is used to show develop pages on development environment.
   class DevelopController < ActionController::Base
-    
-    # Imposto layout di base dal lato_view
+
+    # set lato_view layout
     layout "lato_layout"
 
-    # Attivo il controllo delle credenziali
+    # check user is logged before actions
     before_action :core_controlUser
 
-    # Pagina di visualizzazione degli elementi statici dell'interfaccia
+    # This function render the develop page for lato_view.
     def home
       redirect_to lato_core.root_path if Rails.env.production?
     end

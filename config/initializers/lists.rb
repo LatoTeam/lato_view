@@ -1,11 +1,5 @@
-# Definisce una serie di liste di valori usati su lato_view.
-# per controllare i valori corretti delle classi delle celle, dei temi
-# supprotati ecc.
+# This file contain lists of values for the application.
 
-# Valori per celle
-################################################################################
-
-# Lista dimensioni griglia della cella block
 VIEW_GRIDCLASS = %w(small-1 small-2 small-3 small-4 small-5 small-6
                     small-7 small-8 small-9 small-10 small-11 small-12
                     small-half small-full medium-1 medium-2 medium-3
@@ -17,14 +11,8 @@ VIEW_GRIDCLASS = %w(small-1 small-2 small-3 small-4 small-5 small-6
                     xlarge-6 xlarge-7 xlarge-8 xlarge-9 xlarge-10 xlarge-11
                     xlarge-12 xlarge-half xlarge-full)
 
-# Lista possibili lunghezze elementi della cella input
 VIEW_INPUTWIDTH = %w(large half third fourth two-third three-fourth)
 
-# Insieme di valori di stile per elementi vari delle componenti
 VIEW_COMPONENTSTYLES = %w(normal rounded)
 
-# Valori per i templates
-################################################################################
-
-# Nomi dei possibili templates pronti supportati da lavo view
 VIEW_TEMPLATES = %w(base black)

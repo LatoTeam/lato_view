@@ -1,8 +1,9 @@
 module LatoView
+  # This module contain functions used to manage themes.
   module Interface::Themes
 
-    # Funzione che ritorna il nome del tema settato dal file di configurazione.
-    # Se non è stato settato alcun tema ritorna false.
+    # This function return the name of the current theme used for the
+    # application.
     def view_getCurrentTemplateName
       return VIEW_CURRENTTEMPLATENAME if defined? VIEW_CURRENTTEMPLATENAME
       directory = core_getCacheDirectory

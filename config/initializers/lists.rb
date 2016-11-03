@@ -15,4 +15,4 @@ VIEW_INPUTWIDTH = %w(large half third fourth two-third three-fourth)
 
 VIEW_COMPONENTSTYLES = %w(normal rounded)
 
-VIEW_TEMPLATES = %w(base black)
+VIEW_TEMPLATES = %w(base black Mauve)

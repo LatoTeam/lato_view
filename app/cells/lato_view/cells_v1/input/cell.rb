@@ -96,7 +96,7 @@ module LatoView
         @option_blank = option_blank
         @disabled = disabled
         @multiple_files = multiple_files
-        @datepicker_class = if birthdate ? 'birthdate-picker' : 'date-picker'
+        @datepicker_class = birthdate ? 'birthdate-picker' : 'date-picker'
       end
 
       def show

@@ -40,6 +40,10 @@ module LatoView
       # * *default*: false
       attr_accessor :required
 
+      # Valore booleano usato per indicare se il datepicker è un birthdatepicker
+      # * *default*: false
+      attr_accessor :birthdate
+
       # Valore booleano che indica (nel caso di input password) se mostrare
       # il pulsante per vedere la password
       # * *default*: true

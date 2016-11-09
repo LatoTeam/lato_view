@@ -73,7 +73,7 @@ module LatoView
                      value: '', label: '', width: 'large', required: false,
                      password_visible: true, custom_class: '', options: [],
                      option_blank: false, disabled: false,
-                     multiple_files: false)
+                     multiple_files: false, birthdate: false)
         # eseguo brevi controlli sull'input
         raise 'Input Concept: type has not a correct value' unless @@types.include? type
         raise 'Input Concept: width has not a correct value' unless @@widths.include? width
@@ -92,6 +92,7 @@ module LatoView
         @option_blank = option_blank
         @disabled = disabled
         @multiple_files = multiple_files
+        @datepicker_class = if birthdate ? 'birthdate-picker' : 'date-picker'
       end
 
       def show

@@ -18,6 +18,17 @@ var FormManager = (function($) {
       format: 'dd/mm/yyyy',
       hiddenPrefix: '',
       hiddenSuffix: '',
+      selectMonths: true
+    });
+
+    var $datepicker = $('.birthdate-picker').pickadate({
+      firstDay: 1,
+      min: new Date(1900, 0, 1),
+      max: new Date(3000, 12, 31),
+      selectYears: true,
+      format: 'dd/mm/yyyy',
+      hiddenPrefix: '',
+      hiddenSuffix: '',
       selectMonths: true,
       selectYears: 80,
       max: true

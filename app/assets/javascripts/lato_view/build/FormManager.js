@@ -17,7 +17,9 @@ var FormManager = (function($) {
       selectYears: true,
       format: 'dd/mm/yyyy',
       hiddenPrefix: '',
-      hiddenSuffix: ''
+      hiddenSuffix: '',
+      selectYears: 80,
+      max: true
     });
   };
 

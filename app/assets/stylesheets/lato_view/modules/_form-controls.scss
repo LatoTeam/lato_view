@@ -76,7 +76,7 @@
   &[data-input="radio"] {
     .form-block:hover {
       .label-control:before {
-        border-color: darken($robin-blue, 5%);
+        border-color: $form-control-check-hover;
       }
     }
   }

@@ -161,4 +161,4 @@ $search-button-color     : $white !default;
 // VIEWS
 $login-view-base-bg            :  $catskill-white !default;
 $login-view-first-gradient-bg  :  $catskill-white !default;
-$login-view-second-gradient-bg :  $lighten($ship-cove, 22%) !default;
+$login-view-second-gradient-bg :  lighten($ship-cove, 22%) !default;

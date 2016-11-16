@@ -85,6 +85,7 @@ $form-control-border-color    : $form-input-border-color !default;
 $form-control-checked-bg      : $ebony-clay !default;
 $form-control-checked-color   : $white !default;
 $form-autocomplete-color      : $dusty-gray !default;
+$form-control-check-hover     : $robin-blue !default;
 
 // Input file
 $input-file-bg : $ship-cove !default;
@@ -156,3 +157,8 @@ $search-bar-shadow       : 0px 2px 6px rgba(black, 0.1) !default;
 $search-bar-focus-shadow : 0px 2px 8px rgba(black, 0.15) !default;
 $search-button-bg        : $robin-blue !default;
 $search-button-color     : $white !default;
+
+// VIEWS
+$login-view-base-bg            :  $catskill-white !default;
+$login-view-first-gradient-bg  :  $catskill-white !default;
+$login-view-second-gradient-bg :  lighten($ship-cove, 22%) !default;

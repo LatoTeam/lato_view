@@ -7,10 +7,10 @@
   &.login {
     position: relative;
     overflow: hidden;
-    background: #50a3a2;
-    background: -webkit-linear-gradient(top left, $catskill-white 0%, lighten($ship-cove, 22%) 100%);
-    background: linear-gradient(to bottom right, $catskill-white 0%, lighten($ship-cove, 22%) 100%);
-    .flashes-container{
+    background: $login-view-base-bg;
+    background: -webkit-linear-gradient(top left, $login-view-first-gradient-bg 0%, $login-view-second-gradient-bg 100%);
+    background: linear-gradient(to bottom right, $login-view-first-gradient-bg 0%, $login-view-second-gradient-bg 100%);
+    .flashes-container {
       top: 0;
     }
     .link-back-login {
@@ -149,4 +149,5 @@
   text-align: center;
   max-width: 190px;
   margin: auto;
+  margin-bottom: 25px;
 }

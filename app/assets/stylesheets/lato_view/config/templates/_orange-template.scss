@@ -15,6 +15,12 @@ $scarlet        : #e32908;
 $radical-red    : #ff2f6c;
 $yellow-sea     : #ffae03;
 
+// Orange specifics
+$flamingo       : #ef6121;
+$tundora        : #474747;
+$boulder        : #797979;
+$gallery        : #eee;
+
 // Statuses colors
 $success-color : $jungle-green !default;
 $error-color   : $scarlet !default;
@@ -22,11 +28,11 @@ $warning-color : $yellow-sea !default;
 
 // BASE
 
-$body-bg           : $catskill-white !default;
+$body-bg           : $gallery !default;
 $base-spacing      : $line-base * $font-size-base !default;
-$text-color        : $rhino !default;
-$text-accent-color : $robin-blue !default;
-$link-color        : $rhino !default;
+$text-color        : $tundora !default;
+$text-accent-color : $flamingo !default;
+$link-color        : $tundora !default;
 $base-padding      : $headings-margin-bottom;
 $selection-color   : $body-bg !default;
 $selection-bg      : $text-color !default;
@@ -41,11 +47,11 @@ $content-block-margin-bottom : 30px !default;
 $content-block-title-size    : 30px !default;
 
 // Button colors.
-$button-bg    : $robin-blue !default;
+$button-bg    : $flamingo !default;
 $button-color : $white !default;
 
 // Button-Group
-$button-group-color  : $ship-cove !default;
+$button-group-color  : $boulder !default;
 $button-group-bg     : $white !default;
 $button-group-radius : 30px !default;
 
@@ -56,39 +62,39 @@ $nav-color                     : $text-color !default;
 $nav-shadow                    : 0 1px 4px rgba($text-color, 0.25) !default;
 $nav-padding-vertical          : 10px !default;
 $nav-base-padding              : $nav-padding-vertical 0 !default;
-$nav-actions-color             : $ship-cove !default;
-$nav-account-img-bg            : $ship-cove !default;
+$nav-actions-color             : $boulder !default;
+$nav-account-img-bg            : mix($flamingo, $white, 75%) !default;
 $nav-account-drop-shadow       : $text-color !default;
 $nav-account-drop-border-color : $catskill-white !default;
-$nav-account-drop-left-stripe  : $robin-blue !default;
-$nav-account-drop-icon-color   : $ship-cove !default;
+$nav-account-drop-left-stripe  : $flamingo !default;
+$nav-account-drop-icon-color   : $boulder !default;
 
 // Sidebar
 $sidebar-width             : 200px !default;
-$sidebar-bg                : $ebony-clay !default;
+$sidebar-bg                : mix($flamingo, $black, 88%) !default;
 $sidebar-color             : $white !default;
-$sidebar-inactive-color    : $ship-cove !default;
-$sidebar-icon-active-color : $robin-blue !default;
+$sidebar-inactive-color    : $catskill-white !default;
+$sidebar-icon-active-color : $white !default;
 
 // Form
-$form-input-border-color       : darken($catskill-white, 10%) !default;
-$form-input-hover-border-color : $ship-cove !default;
+$form-input-border-color       : darken($gallery, 10%) !default;
+$form-input-hover-border-color : mix($flamingo, $white, 75%) !default;
 $form-input-padding            : 5px 10px !default;
 $form-control-margin           : 15px !default;
 $text-area-min-height          : 80px !default;
-$label-advise-color            : $ship-cove !default;
+$label-advise-color            : mix($flamingo, $white, 75%) !default;
 $form-error-color              : $error-color !default;
 $form-required-color           : $warning-color !default;
 
 // Form controls
 $form-control-border-color    : $form-input-border-color !default;
-$form-control-checked-bg      : $ebony-clay !default;
+$form-control-checked-bg      : $tundora !default;
 $form-control-checked-color   : $white !default;
-$form-autocomplete-color      : $dusty-gray !default;
-$form-control-check-hover     : $robin-blue !default;
+$form-autocomplete-color      : darken($gallery, 20%) !default;
+$form-control-check-hover     : $flamingo !default;
 
 // Input file
-$input-file-bg : $ship-cove !default;
+$input-file-bg : mix($flamingo, $white, 75%) !default;
 
 // Password-reveal submodule
 $psw-reveal-width  : 45px !default;
@@ -96,7 +102,7 @@ $psw-reveal-height : 35px !default;
 $psw-eye-bg        : $form-input-border-color !default;
 $psw-eye-size      : 20px !default;
 $psw-inner-size    : $psw-eye-size / 2 !default;
-$psw-active        : $ebony-clay !default;
+$psw-active        : $tundora !default;
 
 // Datepicker - Overrides external
 // $pd-font-family          : $font-stack;
@@ -118,8 +124,8 @@ $psw-active        : $ebony-clay !default;
 // $pd-day-selected-shadow  : #178fe5 !default;
 // $pd-day-disabled-color   : #999 !default;
 // $pd-week-color           : #999 !default;
-$picker-selected         :  $ship-cove;
-$picker-date-today       :  $radical-red;
+$picker-selected         :  mix($flamingo, $white, 75%);
+$picker-date-today       :  $flamingo;
 $picker-item-hover-color :  $white;
 
 // Select
@@ -129,36 +135,36 @@ $select-dropdown-shadow    : 0 1px 4px rgba($text-color, 0.25) !default;
 $select-dropdown-active-bg : rgba($form-input-hover-border-color, 0.67) !default;
 
 // Arranger
-$arranger-text-color : darken($ship-cove, 15%) !default;
+$arranger-text-color : $boulder !default;
 
 // Dropdown
-$drop-bg                           : $ebony-clay !default;
-$drop-links-bg                     : $ebony-clay !default;
-$drop-links-hover-color            : $robin-blue !default;
-$drop-active-voice-color           : $ebony-clay !default;
-$drop-active-voice-underline-color : $robin-blue !default;
-$drop-icon-bg                      : $ebony-clay !default;
+$drop-bg                           : $flamingo !default;
+$drop-links-bg                     : $flamingo !default;
+$drop-links-hover-color            : $white !default;
+$drop-active-voice-color           : $tundora !default;
+$drop-active-voice-underline-color : $flamingo !default;
+$drop-icon-bg                      : $tundora !default;
 
 // Flashes
-$flash-default-bg : $ebony-clay !default;
+$flash-default-bg : $flamingo !default;
 $flash-danger-bg  : $error-color !default;
 $flash-success-bg : $success-color !default;
-$flash-info-bg    : $robin-blue !default;
+$flash-info-bg    : mix($flamingo, $white, 75%) !default;
 $flash-warning-bg : $warning-color !default;
 $flash-shadow     : 0 1px 4px rgba(41, 59, 90, 0.25) !default;
 
 // Pagination
-$pagination-current-bg    : $rhino !default;
+$pagination-current-bg    : $tundora !default;
 $pagination-current-color : $white !default;
 
 // Search Bar
 $search-bar-bg           : $white !default;
 $search-bar-shadow       : 0px 2px 6px rgba(black, 0.1) !default;
 $search-bar-focus-shadow : 0px 2px 8px rgba(black, 0.15) !default;
-$search-button-bg        : $robin-blue !default;
+$search-button-bg        : $flamingo !default;
 $search-button-color     : $white !default;
 
 // VIEWS
-$login-view-base-bg            :  $catskill-white !default;
-$login-view-first-gradient-bg  :  $catskill-white !default;
-$login-view-second-gradient-bg :  lighten($ship-cove, 22%) !default;
+$login-view-base-bg            :  $gallery !default;
+$login-view-first-gradient-bg  :  mix($flamingo, $white, 85%) !default;
+$login-view-second-gradient-bg :  $flamingo !default;

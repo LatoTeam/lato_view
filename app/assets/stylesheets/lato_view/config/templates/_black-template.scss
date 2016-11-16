@@ -10,10 +10,10 @@ $rhino          : #040303;
 $ebony-clay     : #262626;
 $ship-cove      : #040303;
 $robin-blue     : #fff;
-$jungle-green   : #26b75e;
-$scarlet        : #e32908;
-$radical-red    : #ff2f6c;
-$yellow-sea     : #ffae03;
+$jungle-green   : darken(#26b75e, 15%);
+$scarlet        : darken(#e32908, 10%);
+$radical-red    : darken(#ff2f6c, 20%);
+$yellow-sea     : darken(#ffae03, 5%);
 
 // Statuses colors
 $success-color : $jungle-green !default;
@@ -41,7 +41,7 @@ $content-block-margin-bottom : 30px !default;
 $content-block-title-size    : 30px !default;
 
 // Button colors.
-$button-bg    : #00c8e7 !default;
+$button-bg    : lighten($ebony-clay , 20%) !default;
 $button-color : $white !default;
 
 // Button-Group
@@ -57,7 +57,7 @@ $nav-shadow                    : 0 1px 4px rgba($text-color, 0.25) !default;
 $nav-padding-vertical          : 10px !default;
 $nav-base-padding              : $nav-padding-vertical 0 !default;
 $nav-actions-color             : $ship-cove !default;
-$nav-account-img-bg            : $ship-cove !default;
+$nav-account-img-bg            : lighten($ebony-clay, 20%) !default;
 $nav-account-drop-shadow       : $text-color !default;
 $nav-account-drop-border-color : $catskill-white !default;
 $nav-account-drop-left-stripe  : $robin-blue !default;
@@ -85,6 +85,7 @@ $form-control-border-color    : $form-input-border-color !default;
 $form-control-checked-bg      : $ebony-clay !default;
 $form-control-checked-color   : $white !default;
 $form-autocomplete-color      : $dusty-gray !default;
+$form-control-check-hover     : $ebony-clay !default;
 
 // Input file
 $input-file-bg : $ship-cove !default;
@@ -156,3 +157,8 @@ $search-bar-shadow       : 0px 2px 6px rgba(black, 0.1) !default;
 $search-bar-focus-shadow : 0px 2px 8px rgba(black, 0.15) !default;
 $search-button-bg        : $robin-blue !default;
 $search-button-color     : $white !default;
+
+// VIEWS
+$login-view-base-bg            :  $ebony-clay !default;
+$login-view-first-gradient-bg  :  lighten($ebony-clay , 15%) !default;
+$login-view-second-gradient-bg :  lighten($ebony-clay , 22%) !default;

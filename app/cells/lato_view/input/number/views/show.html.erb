@@ -1,11 +1,9 @@
 <div class="form-control <%= @width %>" data-control="number" <%= required_data_input %>>
-
   <label class="form-label"><%= @label %></label>
-
   <input type="number" class="input input-number <%= @custom_class %>"
-         name="<%= @name %>" placeholder="<%= @placeholder %>" value="<%= @value %>"
-         <%= disabled_data_input %>>
-
+        name="<%= @name %>" placeholder="<%= @placeholder %>" value="<%= @value %>" 
+        <% if !@min.nil? %> min="<%=@min%>" <% end %>
+        <% if !@max.nil? %> max="<%=@max%>" <% end %>
+        <%= disabled_data_input %>>
   <div class="input-error-message"></div>
-
 </div>

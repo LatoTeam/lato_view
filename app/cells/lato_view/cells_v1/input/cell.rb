@@ -68,6 +68,14 @@ module LatoView
       # * *default*: false
       attr_accessor :disabled
 
+      # Valore che indica il minimo nel caso di input number
+      # * *default*: nil
+      attr_accessor :min
+
+      # Valore che indica il massimo nel caso di input number
+      # * *default*: nil
+      attr_accessor :max
+
       # Valore che indica (nel caso di input file) se accettare piu' file o
       # uno singolarmente
       # * *default*: false
@@ -77,7 +85,7 @@ module LatoView
                      value: '', label: '', width: 'large', required: false,
                      password_visible: true, custom_class: '', options: [],
                      option_blank: false, disabled: false,
-                     multiple_files: false, birthdate: false)
+                     multiple_files: false, birthdate: false, min: nil, max: nil)
         # eseguo brevi controlli sull'input
         raise 'Input Concept: type has not a correct value' unless @@types.include? type
         raise 'Input Concept: width has not a correct value' unless @@widths.include? width
@@ -96,6 +104,8 @@ module LatoView
         @option_blank = option_blank
         @disabled = disabled
         @multiple_files = multiple_files
+        @min = min 
+        @max = max
         @datepicker_class = birthdate ? 'birthdate-picker' : 'date-picker'
       end
 

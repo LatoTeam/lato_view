@@ -753,3 +753,7 @@ $transition-duration: 150ms;
   min-height: 100px;
   max-height: 200px;
 }
+
+.trumbowyg-fullscreen, .trumbowyg-editor {
+  max-height: none;
+}

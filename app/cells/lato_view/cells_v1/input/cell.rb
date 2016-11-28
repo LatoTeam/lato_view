@@ -76,7 +76,7 @@ module LatoView
       # * *default*: nil
       attr_accessor :max
 
-      # Valore che indica il massimo se il create è attivo nel caso di input select
+      # Valore che indica se il create è attivo nel caso di input select
       # * *default*: nil
       attr_accessor :create
 

@@ -1,6 +1,6 @@
 <div class="form-control <%= @width %>" <%= required_data_input %>>
   <label class="form-label"><%= @label %></label>
-  <select class="select <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>">
+  <select class="<%= @select_class %> <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>">
     <% if(@option_blank) %>
       <option></option>
     <% end %>

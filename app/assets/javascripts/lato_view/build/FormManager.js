@@ -3,8 +3,19 @@ var FormManager = (function($) {
 
   // Activate selectize.js module
   var _manageSelect = function() {
+  
     $('.select').selectize({
       hideSelected: 'true' // for multiple-select working
+    });
+
+    $('.select-create').selectize({
+      hideSelected: 'true', // for multiple-select working
+      create: function(input) {
+          return {
+              value: input,
+              text: input
+          }
+      }
     });
   };
 

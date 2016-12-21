@@ -5,12 +5,12 @@ module LatoView
 
     # NB: options must be an array of hash {name: 'name', value: 'value'}
     attr_accessor :name, :placeholder, :value, :label, :width, :required,
-                  :disabled, :custom_class, :options, :option_blank, :multiple
+                  :disabled, :custom_class, :options, :option_blank, :multiple, :create
 
     def initialize(name: 'input', placeholder: '', value: '', label: '',
                    width: 'large', required: false, disabled: false,
                    custom_class: '', options: [], option_blank: true,
-                   multiple: false)
+                   multiple: false, create: false)
       # save params
       @name = name
       @placeholder = placeholder
@@ -20,6 +20,7 @@ module LatoView
       @required = required
       @disabled = disabled
       @custom_class = custom_class
+      @select_class = (create ? 'select-create' : 'select')
       @options = options
       @option_blank = option_blank
       @multiple = multiple

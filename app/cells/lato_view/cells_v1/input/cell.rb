@@ -76,6 +76,10 @@ module LatoView
       # * *default*: nil
       attr_accessor :max
 
+      # Valore che indica se il create è attivo nel caso di input select
+      # * *default*: nil
+      attr_accessor :create
+
       # Valore che indica (nel caso di input file) se accettare piu' file o
       # uno singolarmente
       # * *default*: false
@@ -85,7 +89,7 @@ module LatoView
                      value: '', label: '', width: 'large', required: false,
                      password_visible: true, custom_class: '', options: [],
                      option_blank: false, disabled: false,
-                     multiple_files: false, birthdate: false, min: nil, max: nil)
+                     multiple_files: false, birthdate: false, min: nil, max: nil, create: nil)
         # eseguo brevi controlli sull'input
         raise 'Input Concept: type has not a correct value' unless @@types.include? type
         raise 'Input Concept: width has not a correct value' unless @@widths.include? width
@@ -101,6 +105,7 @@ module LatoView
         @password_visible = password_visible
         @options = options
         @custom_class = custom_class
+        @select_class = create == true ? 'select-create' : 'select'
         @option_blank = option_blank
         @disabled = disabled
         @multiple_files = multiple_files

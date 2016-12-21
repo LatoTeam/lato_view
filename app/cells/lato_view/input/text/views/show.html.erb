@@ -4,7 +4,7 @@
 
   <input type="text" class="input <%= @custom_class %>"
          name="<%= @name %>" placeholder="<%= @placeholder %>"
-         value="<%=h @value %>" <%= disabled_data_input %>>
+         value="<%=h @value %>" <%= @disabled ? "disabled='disabled'" : nil %>>
 
   <div class="input-error-message"></div>
 

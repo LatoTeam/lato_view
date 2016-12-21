@@ -81,8 +81,8 @@
     }
   }
 
-  &:disabled {
-    + .label-control {
+  &[data-input="disabled"] {
+     .form-label {
       color: mix($text-color, white, 50%);
       &:before {
         border-color: lighten($form-control-border-color, 10%);

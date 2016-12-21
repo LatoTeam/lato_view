@@ -80,4 +80,13 @@
       }
     }
   }
+
+  &:disabled {
+    + .label-control {
+      color: mix($text-color, white, 50%);
+      &:before {
+        border-color: lighten($form-control-border-color, 10%);
+      }
+    }
+  }
 }

@@ -2,8 +2,7 @@
 
   <label class="form-label"><%= @label %></label>
 
-  <select class="select <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>"
-          <%= multiple_data_input %>>
+  <select class="<%= @custom_class %> select" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= multiple_data_input %>>
 
     <% if(@option_blank) %>
       <option></option>

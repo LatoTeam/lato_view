@@ -3,12 +3,12 @@ var Util = (function($) {
 
   /*
   * Debounce any function
-  * @params: 
+  * @params:
   * func: function to test.
   * wait: the time interval for the next function execution.
   * immediate: triggers the function on the leading edge, instead of the trailing.
   * @return: a function, that, as long as it continues to be invoked, will not be triggered.
-  */ 
+  */
   var debounce = function(func, wait, immediate) {
     var timeout;
     return function() {
@@ -26,7 +26,7 @@ var Util = (function($) {
 
   /*
   * Check if the value given is a number.
-  * @params: 
+  * @params:
   * value: value to test
   * @return: boolean
   */
@@ -36,7 +36,7 @@ var Util = (function($) {
 
   /*
   * Check if two strings have the same value.
-  * @params: 
+  * @params:
   * firstValue: value to test.
   * secondValue: value to compare to.
   * @return: boolean
@@ -47,7 +47,7 @@ var Util = (function($) {
 
   /*
   * Check if a string is empty
-  * @params: 
+  * @params:
   * value: value to test
   * @return: boolean
   */
@@ -57,7 +57,7 @@ var Util = (function($) {
 
   /*
   * Check if the lenght of a given value respects the limit given.
-  * @params: 
+  * @params:
   * el: element to test
   * limit: limit to give. Ex: max, min, between
   * minValue: minimum value to respect
@@ -80,12 +80,28 @@ var Util = (function($) {
     }
   };
 
+  /*
+  * Goes through each item in the array and ask "Will you work?"
+  * @params:
+  * properties: properties to test
+  * @return: boolean
+  */
+  var getSupportedPropertyName = function(properties) {
+    for (var i = 0; i < properties.length; i++) {
+      if (typeof document.body.style[properties[i]] !== 'undefined') {
+        return properties[i];
+      }
+    }
+    return null;
+  }
+
   return {
     debounce: debounce,
     isNumber: isNumber,
     isEqual: isEqual,
     isEmptyString: isEmptyString,
-    checkLength: checkLength
+    checkLength: checkLength,
+    getSupportedPropertyName: getSupportedPropertyName
   };
-  
+
 })(jQuery);

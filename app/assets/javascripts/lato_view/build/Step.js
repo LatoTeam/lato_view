@@ -39,12 +39,14 @@ var Step = (function($) {
     $(stepNavigatorSelector).find('.step-paginate').append(fragment);
   };
 
-  var _validateStep = function() {
-
-  };
-
   var _setActiveStep = function(currentStepElement, id) {
+    var stepElementid = $(currentStepElement).data('step-id');
     var $step = $(currentStepElement).find('.step');
+    var stepNavigatorSelector = '[data-step-id=' + stepElementid + ']';
+    var $stepPaginateIndex = $(stepNavigatorSelector).find('.step-paginate-index');
+
+    $stepPaginateIndex.removeClass('active');
+    $stepPaginateIndex.eq(id).addClass('active');
 
     $step.removeClass('active');
     $step.eq(id).addClass('active');
@@ -56,19 +58,25 @@ var Step = (function($) {
     var transform = ['transform', 'msTransform', 'webkitTransform', 'mozTransform', 'oTransform'];
     var transformProperty = Util.getSupportedPropertyName(transform);
     var stepScroller = $(currentStepElement).find('.step-scroller')[0];
-    var width = $(currentStepElement).outerWidth();
-    var currentIndex = $(currentStepElement).find('.step.active').index() + 1;
-
-    _setActiveStep(currentStepElement, currentIndex);
+    var muchScroll = $(currentStepElement).outerWidth();
+    var stepCount = parseInt($(currentStepElement).find('.step').length);
+    var currentIndex = parseInt($(currentStepElement).find('.step.active').index() + 1);
 
     if (transformProperty) {
       if (typeof direction === 'string') {
         switch (direction) {
           case 'prev':
-            stepScroller.style[transformProperty] = 'translateX(-' + (width * currentIndex) + 'px)';
+            if (currentIndex !== 1) {
+              _setActiveStep(currentStepElement, currentIndex-2);
+              stepScroller.style[transformProperty] = 'translateX(-' + (muchScroll * (currentIndex - 2)) + 'px)';
+            }
             break;
           case 'next':
-            stepScroller.style[transformProperty] = 'translateX(-' + (width * currentIndex) + 'px)';
+            if (currentIndex !== stepCount) {
+              console.log('mi muovo di '+ currentIndex + 'volte verso dx');
+              stepScroller.style[transformProperty] = 'translateX(-' + (muchScroll * currentIndex) + 'px)';
+              _setActiveStep(currentStepElement, currentIndex);
+            }
             break;
           case 'initial':
 

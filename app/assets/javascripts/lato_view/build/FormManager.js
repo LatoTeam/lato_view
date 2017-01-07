@@ -3,18 +3,18 @@ var FormManager = (function($) {
 
   // Activate selectize.js module
   var _manageSelect = function() {
-  
+
     $('.select').selectize({
-      hideSelected: 'true' // for multiple-select working
+      hideSelected: 'true'
     });
 
     $('.select-create').selectize({
-      hideSelected: 'true', // for multiple-select working
+      hideSelected: 'true',
       create: function(input) {
-          return {
-              value: input,
-              text: input
-          }
+        return {
+          value: input,
+          text: input
+        }
       }
     });
   };
@@ -82,13 +82,12 @@ var FormManager = (function($) {
           } else {
             $label.html(labelVal);
           }
-
         });
 
         // Firefox bug fix
         $input
-        .on('focus', function(){ $input.addClass( 'has-focus' ); })
-        .on('blur', function(){ $input.removeClass( 'has-focus' ); });
+        .on('focus', function() { $input.addClass( 'has-focus' ); })
+        .on('blur', function() { $input.removeClass( 'has-focus' ); });
       });
     }
   };
@@ -107,7 +106,7 @@ var FormManager = (function($) {
 
   // Activate email data-list autocomplete
   var _insertSuggestions = function() {
-    if($('.email-suggestion').length) {
+    if ($('.email-suggestion').length) {
       var domains = ['yahoo.com', 'gmail.com', 'google.com', 'hotmail.com', 'me.com', 'libero.it', 'live.it', 'live.com'];
 
       $('.email-suggestion').emailautocomplete({
@@ -117,29 +116,32 @@ var FormManager = (function($) {
   };
 
   /*
-  * Manage form submission/validation
+  * Manage form elements' submit
   * @return: undefined or boolean
   */
   var _manageFormSubmit = function() {
-    $('.lato-form').on('submit', function(event) {
+    $('.lato-form').each(function(i, el) {
+      $(el).on('submit', function(event) {
 
-      var tests = {
-        "number": Validator.controlNumber('.input-number'),
-        "required": Validator.controlRequired('data-input="required"'),
-        "email": Validator.controlEmail('.input-email'),
-        "password": Validator.controlPasswordEquality('.input-password', '.confirm-password'),
-        "length": Validator.controlInputLength('.input-length'),
-        "radiobox": Validator.controlRadiobox('data-input="radio"')
-      };
+        var $requiredControls = $(el).find('.form-control[data-input="required"]');
 
-      // Basta che uno dei test fallisca per generare un errore
-      $.each(tests, function(index, val) {
-        if(val === false) {
-          event.preventDefault();
-          return false;
-        }
+        var tests = {
+          "number": Validator.controlNumber('.input-number'),
+          "required": Validator.controlRequired($requiredControls),
+          "email": Validator.controlEmail('.input-email'),
+          "password": Validator.controlPasswordEquality('.input-password', '.confirm-password'),
+          "length": Validator.controlInputLength('.input-length'),
+          "radiobox": Validator.controlRadiobox('data-input="radio"')
+        };
+
+        // Basta che uno dei test fallisca per generare un errore
+        $.each(tests, function(index, val) {
+          if(val === false) {
+            event.preventDefault();
+            return false;
+          }
+        });
       });
-
     });
   }
 

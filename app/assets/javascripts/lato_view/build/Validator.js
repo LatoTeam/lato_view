@@ -48,28 +48,41 @@ var Validator = (function($) {
   * attribute: data-attribute of form-control
   * @return: boolean
   */
-  var isInputRequired = function(attribute) {
-    if($('.form-control[' + attribute + ']').length) {
+  var isInputRequired = function(inputs) {
+    if (inputs !== null && inputs.length) {
       var passed = false;
-      var $requiredInputs = '';
+      var results = [];
+      $.each(inputs, function(i, el) {
+        var passed = false;
+        var $requiredInputs = '';
 
-      var isTextarea = $('.form-control[' + attribute + ']').find('.textarea').length;
-      var $allInputs = $('.form-control[' + attribute + ']').find('.input, .textarea');
-      var $onlyInput = $('.form-control[' + attribute + ']').find('.input');
+        var isTextarea = $(el).find('.textarea').length;
+        var $allInputs = $(el).find('.input, .textarea');
+        var $onlyInput = $(el).find('.input');
 
-      var errorMessage = $('.required-hidden-message').text();
+        var errorMessage = $('.required-hidden-message').text();
+        $requiredInputs = isTextarea ? $allInputs : $onlyInput;
 
-      $requiredInputs = isTextarea ? $allInputs : $onlyInput;
+        $requiredInputs.each(function(i, el) {
+          if ($(this).val() === '') {
+            passed = false;
+            $(this).parent('.form-control').addClass('form-required');
+            $requiredInputs.next('.input-error-message').text(errorMessage);
+          } else {
+            $(this).parent('.form-control').removeClass('form-required');
+            $requiredInputs.next('.input-error-message').text();
+          }
+        });
 
-      $requiredInputs.each(function() {
-        if($(this).val() === '') {
+        results.push(passed);
+      });
+
+      $.each(results, function(i, val) {
+        if (!val) {
           passed = false;
-          $(this).parent('.form-control').addClass('form-required');
-          $requiredInputs.next('.input-error-message').text(errorMessage);
+          return false
         } else {
           passed = true;
-          $(this).parent('.form-control').removeClass('form-required');
-          $requiredInputs.next('.input-error-message').text();
         }
       });
 
@@ -145,7 +158,7 @@ var Validator = (function($) {
         } else {
           $(input).next('.input-error-message').text(errorMessage);
         }
-        
+
       } else {
 
         $formControl.removeClass('form-error');
@@ -164,7 +177,7 @@ var Validator = (function($) {
 
   /*
   * Check if two password inputs have the same value.
-  * @params: 
+  * @params:
   * firstInput: first input to test
   * secondInput: second input to test
   * @return: boolean

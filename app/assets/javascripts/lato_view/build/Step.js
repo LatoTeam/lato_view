@@ -24,7 +24,7 @@ var Step = (function($) {
 
   var _buildNavigation = function(currentStepElement, currentSteps) {
     var stepElementid = $(currentStepElement).data('step-id');
-    var stepNavigatorSelector = '[data-step-id=' + stepElementid + ']';
+    var stepNavigatorSelector = '.step-navigator[data-step-id=' + stepElementid + ']';
     var fragment = $(document.createDocumentFragment());
 
     $.each(currentSteps, function(i, el) {
@@ -36,13 +36,24 @@ var Step = (function($) {
       fragment.append(li);
     });
 
+    _disableNavigation('.step-prev', stepElementid);
     $(stepNavigatorSelector).find('.step-paginate').append(fragment);
+  };
+
+  var _disableNavigation = function($navEl, stepId) {
+    var selector = '.step-navigator[data-step-id="' + stepId + '"]';
+    $(selector).find($navEl).addClass('step-disabled');
+  };
+
+  var _enableNavigation = function($navEl, stepId) {
+    var selector = '.step-navigator[data-step-id="' + stepId + '"]';
+    $(selector).find($navEl).removeClass('step-disabled');
   };
 
   var _setActiveStep = function(currentStepElement, id) {
     var stepElementid = $(currentStepElement).data('step-id');
     var $step = $(currentStepElement).find('.step');
-    var stepNavigatorSelector = '[data-step-id=' + stepElementid + ']';
+    var stepNavigatorSelector = '.step-navigator[data-step-id=' + stepElementid + ']';
     var $stepPaginateIndex = $(stepNavigatorSelector).find('.step-paginate-index');
 
     $stepPaginateIndex.removeClass('active');
@@ -61,6 +72,7 @@ var Step = (function($) {
     var muchScroll = $(currentStepElement).outerWidth();
     var stepCount = parseInt($(currentStepElement).find('.step').length);
     var currentIndex = parseInt($(currentStepElement).find('.step.active').index() + 1);
+    var stepElementid = $(currentStepElement).data('step-id');
 
     if (transformProperty) {
       if (typeof direction === 'string') {
@@ -73,7 +85,6 @@ var Step = (function($) {
             break;
           case 'next':
             if (currentIndex !== stepCount) {
-              console.log('mi muovo di '+ currentIndex + 'volte verso dx');
               stepScroller.style[transformProperty] = 'translateX(-' + (muchScroll * currentIndex) + 'px)';
               _setActiveStep(currentStepElement, currentIndex);
             }
@@ -83,8 +94,12 @@ var Step = (function($) {
             break;
           default:
         }
-      } else if (typeof direction === 'number') {
 
+      } else if (typeof direction === 'number') {
+        var index = direction-1;
+        stepScroller.style[transformProperty] = 'translateX(-' + (muchScroll * index) + 'px)';
+        _setActiveStep(currentStepElement, index);
+        //_updateNavigationControl(currentIndex, stepElementid, stepCount);
       } else {
         return false;
       }
@@ -109,6 +124,17 @@ var Step = (function($) {
     });
   };
 
+  var _indexNavigation = function() {
+    $(document).on('click', '.step-paginate-index', function() {
+      var stepElementid = $(this).parents('.step-navigator').data('step-id');
+      var paginateId = parseInt($(this).text());
+      var currentStepElementSelector = '.element-step[data-step-id=' + stepElementid + ']';
+      var $currentStepElement = $(currentStepElementSelector);
+
+      moveStep($currentStepElement, paginateId);
+    });
+  };
+
   var updateStepsSize = function() {
     if (_stepExists()) {
       $.each($stepElements, function(i, el) {
@@ -126,6 +152,7 @@ var Step = (function($) {
         nextStep(el);
         _setStepsSize(el);
         _buildNavigation(el, $elSteps);
+        _indexNavigation();
       });
     }
   };

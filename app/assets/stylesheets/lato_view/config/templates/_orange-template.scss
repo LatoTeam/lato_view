@@ -157,6 +157,15 @@ $flash-shadow     : 0 1px 4px rgba(41, 59, 90, 0.25) !default;
 $pagination-current-bg    : $tundora !default;
 $pagination-current-color : $white !default;
 
+// Step
+$step-paginate-spacing     : 35px !default;
+$step-index-base-color     : $boulder !default;
+$step-index-active-color   : $flamingo !default;
+$step-index-base-size      : 40px !default;
+$step-index-base-spacing   : 25px !default;
+$step-index-shadow         : 0px 4px 14px rgba($text-color, 0.2) !default;
+$step-index-active-shadow  : 0px 8px 18px rgba($text-color, 0.3) !default;
+
 // Search Bar
 $search-bar-bg           : $white !default;
 $search-bar-shadow       : 0px 2px 6px rgba(black, 0.1) !default;

@@ -1,0 +1,91 @@
+
+<% @random_id = (1000..30000).sample %> 
+<div class="form-control <%= @width %>" <%= required_data_input %>>
+	<label class="form-label"><%= @label %></label>
+	<div class="form-control">
+		<div class="form-control half">
+			<input type="text" id="searchInput_<%= @random_id %>" name="<%= @name_address %>" placeholder="<%= @placeholder %>" class="input" value="<%= @value_address %>" <%= disabled_data_input %>/>
+			<input type="hidden" id="lat_<%= @random_id %>" name="<%= @name_lat %>" value="<%=h @value_lat %>" <%= disabled_data_input %>/>
+			<input type="hidden" id="lng_<%= @random_id %>" name="<%= @name_lng %>" value="<%=h @value_lng %>" <%= disabled_data_input %>/>
+		</div>
+		<div class="form-control half">
+			<button id="geosearch_<%= @random_id %>" class="btn lato-button button-small">Search</button>
+		</div>	
+	</div>
+    <div class="form-control">
+    	<div id="map_canvas_<%= @random_id %>" style="width:500px;height: 400px;"></div>
+    </div>
+</div>
+
+
+
+
+<style>
+	#map_canvas_<%= @random_id %>{
+		width: 100%!important;
+        overflow: hidden;
+	}
+</style>
+
+<script>
+setTimeout(function() {
+	$(document).ready(function(){
+			
+
+            $('#geosearch_<%= @random_id %>').click(function(e) {
+                e.preventDefault();
+
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({
+                        address : $('#searchInput_<%= @random_id %>').val(),
+                        region: 'no'
+
+                    },
+                    function(results, status) {
+                    	if (status.toLowerCase() == 'ok') {
+                    	    // Get center
+                    	    google.maps.event.trigger(map, 'resize');
+                    	    map.setZoom( map.getZoom() );
+
+                    	    var coords = new google.maps.LatLng(
+                    	        results[0]['geometry']['location'].lat(),
+                    	        results[0]['geometry']['location'].lng()
+                    	    );
+                    	    $('#lat_<%= @random_id %>').val(coords.lat());
+                    	    $('#lng_<%= @random_id %>').val(coords.lng());
+
+                    	    map.setCenter(coords);
+                    	    map.setZoom(13);
+
+                    	    // Set marker also
+                    	    marker = new google.maps.Marker({
+                    	        position: coords,
+                    	        map: map,
+                    	        title: jQuery('#searchInput_<%= @random_id %>').val(),
+                    	    });
+                    	}
+                    }
+                );
+            });
+
+            var myOptions = {
+                center: new google.maps.LatLng(46.2259177,13.1033),
+                zoom:4,
+                streetViewControl: false,
+                mapTypeControl: false,
+                scrollwheel: false,
+                styles: [{"featureType":"administrative.locality","elementType":"all","stylers":[{"hue":"#2c2e33"},{"saturation":7},{"lightness":19},{"visibility":"on"}]},{"featureType":"administrative.locality","elementType":"labels.text","stylers":[{"visibility":"on"},{"saturation":"-3"}]},{"featureType":"administrative.locality","elementType":"labels.text.fill","stylers":[{"color":"#000000"}]},{"featureType":"landscape","elementType":"all","stylers":[{"hue":"#ffffff"},{"saturation":-100},{"lightness":100},{"visibility":"simplified"}]},{"featureType":"poi","elementType":"all","stylers":[{"hue":"#ffffff"},{"saturation":-100},{"lightness":100},{"visibility":"off"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#c6c6c6"},{"saturation":"0"},{"visibility":"on"}]},{"featureType":"road","elementType":"geometry","stylers":[{"hue":"#c6c6c6"},{"saturation":"100"},{"lightness":31},{"visibility":"simplified"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#c6c6c6"},{"saturation":"0"}]},{"featureType":"road","elementType":"labels","stylers":[{"hue":"#008eff"},{"saturation":-93},{"lightness":31},{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#c6c6c6"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#f3dbc8"},{"saturation":"0"}]},{"featureType":"road.arterial","elementType":"labels","stylers":[{"hue":"#bbc0c4"},{"saturation":-93},{"lightness":-2},{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"hue":"#e9ebed"},{"saturation":-90},{"lightness":-8},{"visibility":"simplified"}]},{"featureType":"transit","elementType":"all","stylers":[{"hue":"#e9ebed"},{"saturation":10},{"lightness":69},{"visibility":"on"}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#e9ebed"},{"saturation":-78},{"lightness":67},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#e9e9e9"}]}]
+
+            };
+
+
+            var map;
+
+            map = new google.maps.Map(document.getElementById("map_canvas_<%= @random_id %>"), myOptions);
+
+
+
+
+        });
+}, 1000);
+</script>

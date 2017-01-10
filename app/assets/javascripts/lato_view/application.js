@@ -29,6 +29,7 @@
 //= require lato_view/build/Navigation
 //= require lato_view/build/ActionBar
 //= require lato_view/build/Flash
+//= require lato_view/build/Step
 
 var Application = (function($) {
 
@@ -49,6 +50,7 @@ var Application = (function($) {
       Navigation.init();
       //ActionBar.init();
       Flash.init();
+      Step.init();
       FormManager.init();
       $('.editor').trumbowyg({
         svgPath: '/ui/icons.svg'

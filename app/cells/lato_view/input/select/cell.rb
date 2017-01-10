@@ -10,7 +10,7 @@ module LatoView
     def initialize(name: 'input', placeholder: '', value: '', label: '',
                    width: 'large', required: false, disabled: false,
                    custom_class: '', options: [], option_blank: true,
-                   multiple: false, create: nil)
+                   multiple: false, create: false)
       # save params
       @name = name
       @placeholder = placeholder
@@ -20,7 +20,7 @@ module LatoView
       @required = required
       @disabled = disabled
       @custom_class = custom_class
-      @select_class = create == true ? 'select-create' : 'select'
+      @select_class = (create ? 'select-create' : 'select')
       @options = options
       @option_blank = option_blank
       @multiple = multiple

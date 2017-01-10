@@ -2,8 +2,8 @@
 
   <label class="form-label"><%= @label %></label>
 
-  <select class="<%= @select_class %> <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>"
-          <%= multiple_data_input %>>
+  <% # The point on class is used to have space between select_class and custom_class when select is render %>
+  <select class="<%= @select_class %> . <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= multiple_data_input %>>
 
     <% if(@option_blank) %>
       <option></option>

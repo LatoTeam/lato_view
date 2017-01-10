@@ -33,7 +33,7 @@ module LatoView
 
     # return disabled string to input
     protected def disabled_data_input
-      return "disabled='disabled'" if @disabled
+      return "data-input='disabled'" if @disabled
     end
 
     # check params

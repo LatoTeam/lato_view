@@ -36,6 +36,7 @@ $selection-bg      : $text-color !default;
 // Content block
 $content-block-bg            : $white !default;
 $content-block-shadow        : 0 1px 4px rgba($text-color, 0.25) !default;
+$content-block-shadow        : 0px 11px 20px rgba($text-color, 0.08);
 $content-block-padding       : 20px !default;
 $content-block-margin-bottom : 30px !default;
 $content-block-title-size    : 30px !default;
@@ -54,6 +55,7 @@ $nav-width                     : 85.3% !default;
 $nav-bg                        : $white !default;
 $nav-color                     : $text-color !default;
 $nav-shadow                    : 0 1px 4px rgba($text-color, 0.25) !default;
+$nav-shadow                    : 0px 11px 20px rgba($text-color, 0.04);
 $nav-padding-vertical          : 10px !default;
 $nav-base-padding              : $nav-padding-vertical 0 !default;
 $nav-actions-color             : $ship-cove !default;

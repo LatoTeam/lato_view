@@ -84,7 +84,14 @@ setTimeout(function() {
             map = new google.maps.Map(document.getElementById("map_canvas_<%= @random_id %>"), myOptions);
 
 
-
+			<% if @value_lat != "" && @value_lng %>
+				var coords = new google.maps.LatLng(
+				  	<%=h @value_lat %>,
+				    <%=h @value_lng %>
+				);
+				map.setCenter(coords);
+				map.setZoom(13);
+			<% end %>
 
         });
 }, 1000);

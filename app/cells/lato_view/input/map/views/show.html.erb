@@ -2,7 +2,7 @@
 <% @random_id = (1000..30000).to_a.sample %> 
 <div class="form-control <%= @width %>" <%= required_data_input %>>
 	<label class="form-label"><%= @label %></label>
-	<div class="form-control">
+	<div class="form-control" style="height: 36px;">
 		<div class="form-control half">
 			<input type="text" id="searchInput_<%= @random_id %>" name="<%= @name_address %>" placeholder="<%= @placeholder %>" class="input" value="<%= @value_address %>" <%= disabled_data_input %>/>
 			<input type="hidden" id="lat_<%= @random_id %>" name="<%= @name_lat %>" value="<%=h @value_lat %>" <%= disabled_data_input %>/>

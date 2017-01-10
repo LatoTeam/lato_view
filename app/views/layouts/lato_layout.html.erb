@@ -12,10 +12,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
     <meta name="apple-mobile-web-app-title" content=<%= core_getApplicationName %>>
-    <%= #Assets aggiuntivo per la cella mappa%>
+    <% #Assets aggiuntivo per la cella mappa %>
     <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false&key=#{view_getLatoGMapsKey}" %>
 
-    <%= stylesheet_link_tag    "lato_view/application", media: "all" %>
+    <%= stylesheet_link_tag "lato_view/application", media: "all" %>
     <% # LISTA DEGLI ASSETS CUSTOM %>
     <% custom__lato_assets = view_getLatoAssetsItems %>
     <% custom__app_assets = view_getApplicationsAssetsItems %>

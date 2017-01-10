@@ -91,6 +91,11 @@ setTimeout(function() {
 				);
 				map.setCenter(coords);
 				map.setZoom(13);
+				marker = new google.maps.Marker({
+				    position: coords,
+				    map: map,
+				    title: jQuery('#searchInput_<%= @random_id %>').val(),
+				});
 			<% end %>
 
         });

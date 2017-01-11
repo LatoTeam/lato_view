@@ -6,14 +6,17 @@ module LatoView
     attr_accessor :first_select_name, :first_select_label, :width, :required,
                   :disabled, :custom_class, :token, :second_select_label, :second_select_name,
                   :first_select_endpoint_url, :second_select_endpoint_url, :first_select_val,
-                  :second_select_val
+                  :second_select_val, :second_select_value_field, :first_select_label_field,
+                  :first_select_value_field, :second_select_label_field
 
     def initialize(first_select_name: 'input',
-    			   second_select_name: '', first_select_label: '',
+    			         second_select_name: '', first_select_label: '',
                    width: 'large', required: false, disabled: false,
                    custom_class: '', token:'', second_select_label: '',
                    first_select_endpoint_url: '', second_select_endpoint_url: '',
-                   first_select_val: '', second_select_val: ''
+                   first_select_val: '', second_select_val: '',
+                   first_select_label_field: 'name', second_select_label_field: 'name',
+                   first_select_value_field: 'id', second_select_value_field: 'id'
                    )
       # save params
       @width = width
@@ -29,6 +32,10 @@ module LatoView
       @second_select_name = second_select_name
       @first_select_val = first_select_val
       @second_select_val = second_select_val
+      @first_select_label_field = first_select_label_field
+      @second_select_label_field = second_select_label_field
+      @first_select_value_field = first_select_value_field
+      @second_select_value_field = second_select_value_field
       @token = token
 
       # check params

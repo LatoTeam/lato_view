@@ -1,0 +1,87 @@
+<% random = SecureRandom.hex %>
+
+<div class="form-control <% @width %>" <% required_data_input %>>
+	<div class="form-control" style="min-height: 36px;">
+		<div class="form-control half">
+			<label class="form-label"><%= @first_select_label %></label>
+			<input type="text" id="first_select_<%=random%>" name="<%=@first_select_name%>" value="<%=@first_select_val%>">
+		</div>
+		<div class="form-control half">
+			<label class="form-label"><%= @second_select_label %></label>
+			<input type="text" id="second_select_<%=random%>" name="<%=@second_select_name%>" value="<%=@second_select_val%>">
+		</div>	
+	</div>
+</div>
+
+
+
+<script>
+	setTimeout(function() {
+		var getRegionsUrl = "<%= @first_select_endpoint_url %>"
+		var getTownsUrl = "<%= @second_select_endpoint_url %>"
+		var token = "<%= @token %>"
+
+		$.ajax({
+		  url: getRegionsUrl,
+		  data: { 
+		        token: token,
+		  },
+		  cache: false,
+		  success: function (first_response) {
+		  	$.ajax({
+		  	  url: getTownsUrl,
+		  	  data: { 
+		  	        token: token,
+		  	        filter_id: 0
+		  	  },
+		  	  cache: false,
+		  	  success: function (second_response) {
+					    $first_select = $('#first_select_<%=random%>').selectize({
+					    	maxItems: 1,
+				    	    valueField: 'id',
+				    	    labelField: 'name',
+				    	    searchField: 'name',
+					    	options: first_response['selectize_data'],
+					        onChange: function(value) {
+					            if (!value.length) return;
+					            second_select.disable();
+					            second_select.clearOptions();
+					            second_select.load(function(callback) {
+					                console.log('value',value);
+					                $.ajax({
+					                  url: getTownsUrl,
+					                  data: { 
+					                        token: token,
+					                        filter_id: value,
+					                  },
+					                  cache: false,
+					                  success: function (response) {
+					                  	console.log('response',response);
+					                  	second_select.enable();
+					                  	callback(response['selectize_data']);
+					                  }
+					              	});
+					            });
+					        },
+					    });
+					    $second_select = $('#second_select_<%=random%>').selectize({
+					    	options: second_response['selectize_data'],
+					    	maxItems: 1,
+					        valueField: 'id',
+					        labelField: 'name',
+					        searchField: ['name']
+					    });
+
+					    second_select  = $second_select[0].selectize;
+					    first_select = $first_select[0].selectize;
+
+					    second_select.disable();
+		  	  }
+		  	});
+
+		  }
+		});
+
+
+	}, 500);
+</script>

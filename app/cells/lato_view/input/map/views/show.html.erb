@@ -1,19 +1,18 @@
-
-<% @random_id = (1000..30000).to_a.sample %> 
+<% random = (1000..30000).to_a.sample %> 
 <div class="form-control <%= @width %>" <%= required_data_input %>>
 	<label class="form-label"><%= @label %></label>
 	<div class="form-control" style="min-height: 36px;">
 		<div class="form-control half">
-			<input type="text" id="searchInput_<%= @random_id %>" name="<%= @name_address %>" placeholder="<%= @placeholder %>" class="input" value="<%= @value_address %>" <%= disabled_data_input %>/>
-			<input type="hidden" id="lat_<%= @random_id %>" name="<%= @name_lat %>" value="<%=h @value_lat %>" <%= disabled_data_input %>/>
-			<input type="hidden" id="lng_<%= @random_id %>" name="<%= @name_lng %>" value="<%=h @value_lng %>" <%= disabled_data_input %>/>
+			<input type="text" id="searchInput_<%= random %>" name="<%= @name_address %>" placeholder="<%= @placeholder %>" class="input" value="<%= @value_address %>" <%= disabled_data_input %>/>
+			<input type="hidden" id="lat_<%= random %>" name="<%= @name_lat %>" value="<%=h @value_lat %>" <%= disabled_data_input %>/>
+			<input type="hidden" id="lng_<%= random %>" name="<%= @name_lng %>" value="<%=h @value_lng %>" <%= disabled_data_input %>/>
 		</div>
 		<div class="form-control half">
-			<button id="geosearch_<%= @random_id %>" class="btn lato-button button-small">Search</button>
+			<button id="geosearch_<%= random %>" class="btn lato-button button-small">Search</button>
 		</div>	
 	</div>
     <div class="form-control">
-    	<div id="map_canvas_<%= @random_id %>" style="width:500px;height: 400px;"></div>
+    	<div id="map_canvas_<%= random %>" style="width:500px;height: 400px;"></div>
     </div>
 </div>
 
@@ -21,7 +20,7 @@
 
 
 <style>
-	#map_canvas_<%= @random_id %>{
+	#map_canvas_<%= random %>{
 		width: 100%!important;
         overflow: hidden;
 	}
@@ -32,12 +31,12 @@ setTimeout(function() {
 	$(document).ready(function(){
 			
 
-            $('#geosearch_<%= @random_id %>').click(function(e) {
+            $('#geosearch_<%= random %>').click(function(e) {
                 e.preventDefault();
 
                 var geocoder = new google.maps.Geocoder();
                 geocoder.geocode({
-                        address : $('#searchInput_<%= @random_id %>').val(),
+                        address : $('#searchInput_<%= random %>').val(),
                         region: 'no'
 
                     },
@@ -51,8 +50,8 @@ setTimeout(function() {
                     	        results[0]['geometry']['location'].lat(),
                     	        results[0]['geometry']['location'].lng()
                     	    );
-                    	    $('#lat_<%= @random_id %>').val(coords.lat());
-                    	    $('#lng_<%= @random_id %>').val(coords.lng());
+                    	    $('#lat_<%= random %>').val(coords.lat());
+                    	    $('#lng_<%= random %>').val(coords.lng());
 
                     	    map.setCenter(coords);
                     	    map.setZoom(13);
@@ -61,7 +60,7 @@ setTimeout(function() {
                     	    marker = new google.maps.Marker({
                     	        position: coords,
                     	        map: map,
-                    	        title: jQuery('#searchInput_<%= @random_id %>').val(),
+                    	        title: jQuery('#searchInput_<%= random %>').val(),
                     	    });
                     	}
                     }
@@ -81,7 +80,7 @@ setTimeout(function() {
 
             var map;
 
-            map = new google.maps.Map(document.getElementById("map_canvas_<%= @random_id %>"), myOptions);
+            map = new google.maps.Map(document.getElementById("map_canvas_<%= random %>"), myOptions);
 
 
 			<% if @value_lat != "" && @value_lng %>
@@ -94,7 +93,7 @@ setTimeout(function() {
 				marker = new google.maps.Marker({
 				    position: coords,
 				    map: map,
-				    title: jQuery('#searchInput_<%= @random_id %>').val(),
+				    title: jQuery('#searchInput_<%= random %>').val(),
 				});
 			<% end %>
 

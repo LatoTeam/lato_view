@@ -31,6 +31,22 @@ module LatoView
       return assets
     end
 
+    # This function return an array of url of assets from lato gems.
+    def view_getLatoGMapsKey
+      return VIEW_LATOGMAPSKEY if defined? VIEW_LATOGMAPSKEY
+      key = ''
+      directory = core_getCacheDirectory
+      if File.exist? "#{directory}/view.yml"
+        # accedo al view.yml
+        config = YAML.load(
+          File.read(File.expand_path("#{directory}/view.yml", __FILE__))
+        )
+        key = config['google_maps_key']
+      end
+      # ritorno il risultato
+      return key
+    end
+
     # This function return an array of url of assets from the main application.
     def view_getApplicationsAssetsItems
       return VIEW_APPASSETS if defined? VIEW_APPASSETS

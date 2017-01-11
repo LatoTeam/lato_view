@@ -1,5 +1,5 @@
 module LatoView
-  class Input::DoubleSelect::Cell < Cell
+  class Input::Doubleselect::Cell < Cell
 
     @@widths = VIEW_INPUTWIDTH
 

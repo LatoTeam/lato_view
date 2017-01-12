@@ -1,6 +1,5 @@
-
 <%  
-	n_select = @select_inputs.length
+	n_select = @select_inputs.length 
 	randoms = [] 
 	labels = []
 	names = []
@@ -8,10 +7,8 @@
 	values = []
 	value_fields = []
 	label_fields = []
-%>
 
-<%
-	(0..(n_select-1)).each do |i|
+	for i in 0..n_select - 1 do
 		randoms[i] = SecureRandom.hex 
 		labels[i] = @select_inputs[i][:label]
 		names[i] = @select_inputs[i][:name]
@@ -24,7 +21,7 @@
 
 <div class="form-control <% @width %>">
 	<div class="form-control" style="min-height: 36px;">
-		<% (0..(n_select-1)).each do |i| %>
+		<% for i in 0..n_select - 1 do %>
 			<div class="form-control <% if n_select % 3 == 0 %> third <% else %> half <% end %>">
 				<label class="form-label"><%= labels[i] %></label>
 				<input type="text" id="select_<%=randoms[i]%>" name="<%=names[i]%>" value="<%=values[i]%>">
@@ -46,31 +43,28 @@
 		var Jselects = []
 		var selects = []
 
-		<% (0..(n_select-1)).each do |i|  %> 
+		<% for i in 0..n_select - 1 do  %> 
 		randoms[<%=i%>] = "<%= randoms[i] %>"
 		api_urls[<%=i%>] = "<%= api_urls[i] %>"
 		value_fields[<%=i%>] = "<%= value_fields[i] %>"
 		label_fields[<%=i%>] = "<%= label_fields[i] %>"
 		values[<%=i%>] = "<%= values[i] %>"
-		<% end %>
-		
-		<% (0..(n_select-1)).each do |i|  %> 
-			$.ajax({
-			  url: api_urls[<%=i%>],
-			  cache: false,
-			  <% if i > 0 && values[i-1] %> data: { filter_id: values[<%=i-1%>], },<% end %>
-			  success: function (response) {
-			  	options[<%=i%>] = response['selectize_data']
-			  	console.log( response['selectize_data'] )
-			  	<% if i == n_select - 1 %> _startAllSelectizes(); <% end %>
-			  }
-			});
+		$.ajax({
+		  url: api_urls[<%=i%>],
+		  cache: false,
+		  <% if i > 0 && values[i-1] %> data: { filter_id: values[<%=i-1%>], },<% end %>
+		  success: function (response) {
+		  	options[<%=i%>] = response['selectize_data']
+		  	console.log( response['selectize_data'] )
+		  	<% if i == n_select - 1 %> _startAllSelectizes(); <% end %>
+		  }
+		});
 		<% end %>
 		
 
 		var _startAllSelectizes = function(){
 
-			<% (0..(n_select-1)).each do |i|  %> 
+			<% for i in 0..n_select - 1 do %> 
 			    Jselects[<%=i%>] = $('#select_<%=randoms[i]%>').selectize({
 			    	maxItems: 1,
 		    	    valueField: value_fields[<%=i%>],

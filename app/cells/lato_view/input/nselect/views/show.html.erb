@@ -1,0 +1,44 @@
+<%  
+	n_select = @select_inputs.length
+	randoms = [] 
+
+	labels = []
+	names = []
+	api_urls = []
+	values = []
+	value_fields = []
+	label_fields = []
+	
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts n_select
+		puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+
+	(0..n_select).each do |i|
+		puts "@@@@@@@@@@"
+		puts "@@@@@@@@@@"
+		puts "@@@@@@@@@@"
+		puts "@@@@@@@@@@"
+		puts "CICLO"
+		puts i
+			puts "@@@@@@@@@@"
+		puts "@@@@@@@@@@"
+		puts "@@@@@@@@@@"
+		puts "@@@@@@@@@@"
+		puts "@@@@@@@@@@"
+
+		randoms[i] = SecureRandom.hex 
+		labels[i] = @select_inputs[i][:label]
+		names[i] = @select_inputs[i][:name]
+		api_urls[i] = @select_inputs[i][:api_url]
+		values[i] = @select_inputs[i][:value]
+		value_fields[i] = @select_inputs[i][:value_field]
+		label_fields[i] = @select_inputs[i][:label_field]
+	end
+%>

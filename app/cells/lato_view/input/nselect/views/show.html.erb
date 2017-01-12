@@ -19,6 +19,12 @@
 	puts "@@@@@@@@@@"
 	puts "@@@@@@@@@@"
 	puts "@@@@@@@@@@"
+	puts @select_inputs.as_json
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
+	puts "@@@@@@@@@@"
 
 	(0..(n_select-1)).each do |i|
 		puts "@@@@@@@@@@"
@@ -27,14 +33,5 @@
 		puts "@@@@@@@@@@"
 		puts "CICLO"
 		puts i
-		puts @select_inputs.as_json
-			puts "@@@@@@@@@@"
-		puts "@@@@@@@@@@"
-		puts "@@@@@@@@@@"
-		puts "@@@@@@@@@@"
-		puts "@@@@@@@@@@"
-
-		randoms[i] = SecureRandom.hex 
-
 	end
 %>

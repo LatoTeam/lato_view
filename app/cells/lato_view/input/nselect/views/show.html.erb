@@ -27,6 +27,7 @@
 		puts "@@@@@@@@@@"
 		puts "CICLO"
 		puts i
+		puts @select_inputs.as_json
 			puts "@@@@@@@@@@"
 		puts "@@@@@@@@@@"
 		puts "@@@@@@@@@@"
@@ -34,11 +35,6 @@
 		puts "@@@@@@@@@@"
 
 		randoms[i] = SecureRandom.hex 
-		labels[i] = @select_inputs[i][:label]
-		names[i] = @select_inputs[i][:name]
-		api_urls[i] = @select_inputs[i][:api_url]
-		values[i] = @select_inputs[i][:value]
-		value_fields[i] = @select_inputs[i][:value_field]
-		label_fields[i] = @select_inputs[i][:label_field]
+
 	end
 %>

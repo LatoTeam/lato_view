@@ -8,7 +8,7 @@ module LatoView
                   :select_inputs
                
     def initialize(width: 'large', required: false, disabled: false,
-                   custom_class: '', select_inputs:[] )
+                   custom_class: '', select_inputs: '' )
 
       # save params
       @width = width

@@ -1,0 +1,106 @@
+<%  
+	n_select = @select_inputs.length
+	randoms = [] 
+
+	labels = []
+	names = []
+	api_urls = []
+	values = []
+	value_fields = []
+	label_fields = []
+
+	(0..n_select).each do |i|
+		randoms[i] = SecureRandom.hex 
+		labels[i] = @select_inputs[i][:label]
+		names[i] = @select_inputs[i][:name]
+		api_urls[i] = @select_inputs[i][:api_url]
+		values[i] = @select_inputs[i][:value]
+		value_fields[i] = @select_inputs[i][:value_field]
+		label_fields[i] = @select_inputs[i][:label_field]
+	end
+%>
+
+<div class="form-control <% @width %>" <% required_data_input %>>
+	<div class="form-control" style="min-height: 36px;">
+		<% (0..n_select).each do |i| %>
+			<div class="form-control <% if n_select % 3 == 0 %> third <% else %> half <% end %>">
+				<label class="form-label"><%= labels[i] %></label>
+				<input type="text" id="select_<%=randoms[i]%>" name="<%=names[i]%>" value="<%=values[i]%>">
+			</div>
+		<% end %>
+	</div>
+</div>
+
+
+
+<script>
+	setTimeout(function() {
+		var randoms[]
+		var api_urls[]
+		var value_fields[]
+		var label_fields[]
+		var options[]
+		var values[]
+		var $selects[]
+		var selects[]
+
+		<% (0..n_select).each do |i|  %> 
+		randoms[<%=i%>] = "<%= randoms[i] %>"
+		api_urls[<%=i%>] = "<%= api_urls[i] %>"
+		value_fields[<%=i%>] = "<%= value_fields[i] %>"
+		label_fields[<%=i%>] = "<%= label_fields[i] %>"
+		values[<%=i%>] = <%= values[i] %>
+		<% end %>
+		
+		<% (0..n_select).each do |i|  %> 
+			$.ajax({
+			  url: api_urls[<%=i%>],
+			  cache: false,
+			  <% if i > 0 %> data: { filter_id: values[<%i%>], },<% end %>
+			  success: function (response) {
+			  	options[<%=i%>] = response['selectize_data']
+			  	<% if i == n_select %> _startAllSelectizes(); <% end %>
+			  }
+			});
+		<% end %>
+		
+
+		var _startAllSelectizes = function(){
+
+			<% (0..n_select).each do |i|  %> 
+			    $selects[<%=i%>] = $('#select_<%=random[i]%>').selectize({
+			    	maxItems: 1,
+		    	    valueField: value_fields[<%=i%>],
+		    	    labelField: label_fields[<%=i%>],
+		    	    searchField: label_fields[<%=i%>],
+			    	options: options[<%=i%>],
+			        onChange: function(value) {
+			            if (!value.length) return;
+			            selects[<%=i+1%>].disable();
+			            selects[<%=i+1%>].clearOptions();
+			            selects[<%=i+1%>].load(function(callback) {
+			                $.ajax({
+			                  url: api_urls[<%=i+1%>],
+			                  data: { 
+			                        filter_id: value,
+			                  },
+			                  cache: false,
+			                  success: function (response) {
+			                  	console.log('response',response);
+			                  	selects[<%=i+1%>].enable();
+			                  	callback(response['selectize_data']);
+			                  }
+			              	});
+			            });
+			        },
+			    });
+			    selects[<%=i%>] = $selects[<%=i%>][0].selectize;
+			    <% if i > 0 %>
+			    	selects[<%=i%>].disable();
+			    <% end %>
+			<% end %>
+		  }
+
+
+	}, 500);
+</script>

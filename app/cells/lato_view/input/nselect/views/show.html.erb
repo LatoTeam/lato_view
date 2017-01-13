@@ -29,30 +29,6 @@
 	var manageInputNSelect = function(inputNSelect) {
 		var selectInputs = $(inputNSelect).find('.form-control')
 
-		selectInputs.each(function (index, selectInput) {
-			var input = $(selectInput).find('.select-nselect')
-			var valueField = $(selectInput).attr('data-value-field')
-			var labelField = $(selectInput).attr('data-label-field')
-			var id = $(selectInput).attr('data-value-id')
-			var initialVal = $(input).val()
-
-			var selectize = input.selectize({
-				maxItems: 1,
-				valueField: valueField,
-				labelField: labelField,
-				searchField: labelField,
-				onChange: function (value) {
-					initSelect(value, parseInt(id) + 1, selectInputs)
-				},
-				onInitialize: function() {
-					if (initialVal) {
-						this.setValue(initialVal)
-						initSelect(initialVal, parseInt(id) + 1, selectInputs)
-					}
-	      }
-			})
-		})
-
 		// init first select
 		initSelect(null, 0, selectInputs)
 	}
@@ -78,14 +54,43 @@
 	var updateSelectize = function (options, selectInputPosition, selectInputs) {
 		var selectInput = selectInputs[selectInputPosition]
 		var input = $(selectInput).find('.select-nselect')
+		var valueField = $(selectInput).attr('data-value-field')
+		var labelField = $(selectInput).attr('data-label-field')
+		var id = $(selectInput).attr('data-value-id')
+		var initialVal = $(input).val()
 
 		var selectize = $(input)[0].selectize
 
-		selectize.clear()
-		selectize.clearOptions()
-		selectize.load(function(callback) {
-		    callback(options)
-		})
+		console.log('selectize for ' + id, selectize)
+
+		if (selectize) {
+			selectize.clear()
+			selectize.clearOptions()
+			selectize.load(function(callback) {
+			    callback(options)
+			})
+			if (initialVal) {
+				selectize.setValue(initialVal)
+				initSelect(initialVal, parseInt(id) + 1, selectInputs)
+			}
+		} else {
+			input.selectize({
+				maxItems: 1,
+				valueField: valueField,
+				labelField: labelField,
+				searchField: labelField,
+				options: options,
+				onChange: function (value) {
+					initSelect(value, parseInt(id) + 1, selectInputs)
+				},
+				onInitialize: function() {
+					if (initialVal) {
+						this.setValue(initialVal)
+						initSelect(initialVal, parseInt(id) + 1, selectInputs)
+					}
+	      }
+			})
+		}
 	}
 
 </script>

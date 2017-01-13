@@ -46,6 +46,7 @@
 			data: (filterId ? {filter_id: filterId} : null),
 			success: function (response) {
 				initSelectize(response, selectInputPosition, selectInputs)
+
 			}
 		})
 	}
@@ -72,7 +73,6 @@
 				if (initialVal) {
 					this.setValue(parseInt(initialVal))
 					initSelect(initialVal, parseInt(id) + 1, selectInputs)
-					if (selectInputPosition > 0){this.disable();}
 				}
       }
 		})

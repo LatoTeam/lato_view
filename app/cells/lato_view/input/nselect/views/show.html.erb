@@ -63,13 +63,14 @@
 			maxItems: 1,
 			valueField: valueField,
 			labelField: labelField,
+			searchField: searchField,
 			options: options,
 			onChange: function (value) {
 				initSelect(value, parseInt(id) + 1, selectInputs)
 			},
 			onInitialize: function() {
 				if (initialVal) {
-					this.setValue(initialVal)
+					this.setValue(parseInt(initialVal))
 					initSelect(initialVal, parseInt(id) + 1, selectInputs)
 				}
       }

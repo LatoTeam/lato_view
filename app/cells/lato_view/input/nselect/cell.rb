@@ -3,20 +3,15 @@ module LatoView
 
     @@widths = VIEW_INPUTWIDTH
 
-    attr_accessor :width, :required,
-                  :disabled, :custom_class,
-                  :select_inputs
-               
-    def initialize(width: 'large', required: false, disabled: false,
-                   custom_class: '', select_inputs: '' )
+    attr_accessor :width, :custom_class, :select_inputs
+
+    # Select input structure: {name: '', label: '', api_url: '', value: '', value_field: '', label_field: '', width: ''}
+
+    def initialize(width: 'large', custom_class: '', select_inputs: [])
 
       # save params
       @width = width
-      @required = required
-      @disabled = disabled
       @custom_class = custom_class
-
-      # for each inputs we will have: name, label, api_url, value, value_field, label_field
       @select_inputs = select_inputs
 
 
@@ -36,6 +31,11 @@ module LatoView
     # return disabled string to input
     protected def disabled_data_input
       return "data-input='disabled'" if @disabled
+    end
+
+    protected def get_select_width(select_input)
+      return select_input[:width] if select_input[:width] && (@@widths.include? select_input[:width])
+      return 'large'
     end
 
     # check params

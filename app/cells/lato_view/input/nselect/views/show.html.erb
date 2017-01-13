@@ -6,7 +6,7 @@
 		data-label-field="<%= select_input[:label_field] %>" data-value-id="<%= index %>">
 
 		<label class="form-label"><%= select_input[:label] %></label>
-		<input class="select select-nselect" type="text" name="<%= select_input[:name] %>"
+		<input class="select-nselect" type="text" name="<%= select_input[:name] %>"
 		value="<%= select_input[:value] %>">
 
 	</div>
@@ -29,6 +29,30 @@
 	var manageInputNSelect = function(inputNSelect) {
 		var selectInputs = $(inputNSelect).find('.form-control')
 
+		selectInputs.each(function (index, selectInput) {
+			var input = $(selectInput).find('.select-nselect')
+			var valueField = $(selectInput).attr('data-value-field')
+			var labelField = $(selectInput).attr('data-label-field')
+			var id = $(selectInput).attr('data-value-id')
+			var initialVal = $(input).val()
+
+			var selectize = input.selectize({
+				maxItems: 1,
+				valueField: valueField,
+				labelField: labelField,
+				searchField: labelField,
+				onChange: function (value) {
+					initSelect(value, parseInt(id) + 1, selectInputs)
+				},
+				onInitialize: function() {
+					if (initialVal) {
+						this.setValue(initialVal)
+						initSelect(initialVal, parseInt(id) + 1, selectInputs)
+					}
+	      }
+			})
+		})
+
 		// init first select
 		initSelect(null, 0, selectInputs)
 	}
@@ -45,34 +69,22 @@
 			cache: false,
 			data: (filterId ? {filter_id: filterId} : null),
 			success: function (response) {
-				initSelectize(response, selectInputPosition, selectInputs)
+				updateSelectize(response, selectInputPosition, selectInputs)
 			}
 		})
 	}
 
 	// Function to init a selectize with correct options
-	var initSelectize = function (options, selectInputPosition, selectInputs) {
+	var updateSelectize = function (options, selectInputPosition, selectInputs) {
 		var selectInput = selectInputs[selectInputPosition]
 		var input = $(selectInput).find('.select-nselect')
-		var valueField = $(selectInput).attr('data-value-field')
-		var labelField = $(selectInput).attr('data-label-field')
-		var id = $(selectInput).attr('data-value-id')
-		var initialVal = $(input).val()
 
-		var selectize = input.selectize({
-			maxItems: 1,
-			valueField: valueField,
-			labelField: labelField,
-			options: options,
-			onChange: function (value) {
-				initSelect(value, parseInt(id) + 1, selectInputs)
-			},
-			onInitialize: function() {
-				if (initialVal) {
-					this.setValue(initialVal)
-					initSelect(initialVal, parseInt(id) + 1, selectInputs)
-				}
-      }
+		var selectize = $(input)[0].selectize
+
+		selectize.clear()
+		selectize.clearOptions()
+		selectize.load(function(callback) {
+		    callback(options)
 		})
 	}
 

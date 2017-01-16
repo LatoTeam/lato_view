@@ -1,7 +1,7 @@
 <div class="form-control input-nselect <% @width %>">
 	<% @select_inputs.each_with_index do |select_input, index| %>
 
-	<div class="form-control <%= get_select_width(select_input) %>  <% if @select_inputs.length % 3 == 0 %> third <% else %> half <% end %>"
+	<div class="form-control <%= get_select_width(select_input) %>"
 		data-api-url="<%= select_input[:api_url] %>" data-value-field="<%= select_input[:value_field] %>"
 		data-label-field="<%= select_input[:label_field] %>" data-value-id="<%= index %>">
 
@@ -33,7 +33,7 @@
 		selectInputs.each(function(index) {
 			initSelectize(index, selectInputs)
 		})
-		
+
 		// load options for first selectize
 		loadOptions(null, 0, selectInputs)
 	}

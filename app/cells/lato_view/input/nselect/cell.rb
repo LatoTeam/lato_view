@@ -35,7 +35,7 @@ module LatoView
 
     protected def get_select_width(select_input)
       return select_input[:width] if select_input[:width] && (@@widths.include? select_input[:width])
-      return 'large'
+      return ((@select_inputs.length % 3 === 0) ? 'third' : 'half')
     end
 
     # check params

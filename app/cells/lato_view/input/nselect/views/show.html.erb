@@ -16,6 +16,7 @@
 
 
 <script>
+
 	// TODO: Port it on separated js
 	setTimeout(function () {
 		var inputNSelects = $('.input-nselect')
@@ -23,14 +24,22 @@
 			manageInputNSelect(inputNSelect)
 		})
 	}, 1000)
+
 	// Main function for each cell
 	var manageInputNSelect = function(inputNSelect) {
 		var selectInputs = $(inputNSelect).find('.form-control')
-		// init first select
-		initSelect(null, 0, selectInputs)
+
+		// init selectize
+		selectInputs.each(function(index) {
+			initSelectize(index, selectInputs)
+		})
+		
+		// load options for first selectize
+		loadOptions(null, 0, selectInputs)
 	}
+
 	// Function to init a select with the call of the api
-	var initSelect = function (filterId, selectInputPosition, selectInputs) {
+	var loadOptions = function (filterId, selectInputPosition, selectInputs) {
 		var selectInput = selectInputs[selectInputPosition]
 		if (!selectInput) { return }
 		var apiUrl = $(selectInput).attr('data-api-url')
@@ -43,16 +52,43 @@
 			}
 		})
 	}
-	// Function to init a selectize with correct options
-	var updateSelectize = function (options, selectInputPosition, selectInputs) {
+
+	// Function to init an empty input to become a selectize
+	var initSelectize = function (selectInputPosition, selectInputs) {
 		var selectInput = selectInputs[selectInputPosition]
 		var input = $(selectInput).find('.select-nselect')
 		var valueField = $(selectInput).attr('data-value-field')
 		var labelField = $(selectInput).attr('data-label-field')
+		var initialVal = $(input).val()
+		var id = $(selectInput).attr('data-value-id')
+
+		input.selectize({
+			maxItems: 1,
+			valueField: valueField,
+			labelField: labelField,
+			searchField: labelField,
+			options: [],
+			onChange: function (value) {
+				loadOptions(value, parseInt(id) + 1, selectInputs)
+			},
+			onInitialize: function() {
+				if (initialVal) {
+					this.setValue(initialVal)
+					loadOptions(initialVal, parseInt(id) + 1, selectInputs)
+				}
+			}
+		})
+	}
+
+	// Function to update a selectize with correct options
+	var updateSelectize = function (options, selectInputPosition, selectInputs) {
+		var selectInput = selectInputs[selectInputPosition]
+		var input = $(selectInput).find('.select-nselect')
 		var id = $(selectInput).attr('data-value-id')
 		var initialVal = $(input).val()
+
 		var selectize = $(input)[0].selectize
-		console.log('selectize for ' + id, selectize)
+
 		if (selectize) {
 			selectize.clear()
 			selectize.clearOptions()
@@ -61,25 +97,8 @@
 			})
 			if (initialVal) {
 				selectize.setValue(initialVal)
-				initSelect(initialVal, parseInt(id) + 1, selectInputs)
+				loadOptions(initialVal, parseInt(id) + 1, selectInputs)
 			}
-		} else {
-			input.selectize({
-				maxItems: 1,
-				valueField: valueField,
-				labelField: labelField,
-				searchField: labelField,
-				options: options,
-				onChange: function (value) {
-					initSelect(value, parseInt(id) + 1, selectInputs)
-				},
-				onInitialize: function() {
-					if (initialVal) {
-						this.setValue(initialVal)
-						initSelect(initialVal, parseInt(id) + 1, selectInputs)
-					}
-	      }
-			})
 		}
 	}
 </script>

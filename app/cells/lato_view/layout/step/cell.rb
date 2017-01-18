@@ -38,7 +38,7 @@ module LatoView
 
     # close step container
     def close
-      "<div class='step-navigator' data-step-id='#{@random}'><button class='lato-button step-button step-prev'>#{@prev_name}</button><div class='step-paginate-container'><ul class='step-paginate'></ul></div><button class='lato-button step-button step-next'>#{@next_name}</button></div></div></div>"
+      "</div><div class='step-navigator' data-step-id='#{@random}'><button class='lato-button step-button step-prev'>#{@prev_name}</button><div class='step-paginate-container'><ul class='step-paginate'></ul></div><button class='lato-button step-button step-next'>#{@next_name}</button></div></div></div>"
     end
 
     # check params

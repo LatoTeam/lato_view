@@ -124,52 +124,57 @@ var FormManager = (function($) {
       $(el).on('submit', function(event) {
 
         var $requiredControls = $(el).find('.form-control[data-input="required"]');
+        var $emailControls = $(el).find('.input-email');
 
         var tests = {
-          "number": Validator.controlNumber('.input-number'),
+          //"number": Validator.controlNumber('.input-number'),
           "required": Validator.controlRequired($requiredControls),
-          "email": Validator.controlEmail('.input-email'),
-          "password": Validator.controlPasswordEquality('.input-password', '.confirm-password'),
-          "length": Validator.controlInputLength('.input-length'),
-          "radiobox": Validator.controlRadiobox('data-input="radio"')
+          "email": Validator.controlEmail($emailControls)
+          //"password": Validator.controlPasswordEquality('.input-password', '.confirm-password'),
+          //"length": Validator.controlInputLength('.input-length'),
+          //"radiobox": Validator.controlRadiobox('data-input="radio"')
         };
 
         // Basta che uno dei test fallisca per generare un errore
         $.each(tests, function(index, val) {
-          if(val === false) {
+          console.log(val);
+          if(!val) {
+            console.log('event preventDefault');
             event.preventDefault();
             return false;
           }
         });
+
+        console.log(event);
       });
     });
   }
 
   // Manage form validation in semi-real-time.
   var _manageBlurValidation = function() {
-    $('.lato-form').on('blur', '.input', function(event) {
-      var type = $(this).parent('.form-control').data('input');
-      var controlType = $(this).parent('.form-control').data('control');
-
-      // Email suggestion case
-      if($('.eac-input-wrap').length) {
-        Validator.controlEmail('.input-email');
-      }
-
-      // Get input desired className.
-      var tester = '.' + $(this).attr('class').split(' ')[1];
-
-      // Manage data-control type
-      switch(controlType) {
-        case 'number':
-          Validator.controlNumber(tester);
-          break;
-        case 'email':
-          Validator.controlEmail(tester);
-          break;
-      }
-
-    });
+    // $('.lato-form').on('blur', '.input', function(event) {
+    //   var type = $(this).parent('.form-control').data('input');
+    //   var controlType = $(this).parent('.form-control').data('control');
+    //
+    //   // Email suggestion case
+    //   if($('.eac-input-wrap').length) {
+    //     Validator.controlEmail('.input-email');
+    //   }
+    //
+    //   // Get input desired className.
+    //   var tester = '.' + $(this).attr('class').split(' ')[1];
+    //
+    //   // Manage data-control type
+    //   switch(controlType) {
+    //     case 'number':
+    //       Validator.controlNumber(tester);
+    //       break;
+    //     case 'email':
+    //       Validator.controlEmail(tester);
+    //       break;
+    //   }
+    //
+    // });
   };
 
   var init = function() {

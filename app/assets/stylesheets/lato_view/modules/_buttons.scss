@@ -161,6 +161,12 @@ button {
 }
 
 // Sizing
+
+.button-xsmall {
+  font-size: em(9px);
+  padding: 5px 10px;
+}
+
 .button-small {
   font-size: em(12px);
   padding: 8px 20px;

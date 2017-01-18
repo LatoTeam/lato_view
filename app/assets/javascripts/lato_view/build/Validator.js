@@ -8,7 +8,7 @@ var Validator = (function($) {
   * @return: boolean
   */
   var _isEmail = function(value) {
-    return !/[0-9\-\.\_a-z]+@[0-9\-\.a-z]+\.[a-z]+/.test(value) ? true : false;
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value) ? true : false;
   };
 
   /*
@@ -127,49 +127,58 @@ var Validator = (function($) {
   * input: input to control
   * @return: undefined
   */
-  var isInputEmail = function(input) {
-    if ($(input).length) {
+  var isInputEmail = function(inputs) {
+
+    if (inputs !== null && inputs.length) {
       var passed = false;
       var results = [];
-      var isSuggestion = $(input).parent('.eac-input-wrap').length;
-      var $suggestionControl = $(input).parent('.eac-input-wrap').parent('.form-control');
-      var $baseControl = $(input).parent('.form-control');
+      $.each($(inputs), function(i, el) {
+        var isSuggestion = $(el).parent('.eac-input-wrap').length;
+        var $suggestionControl = $(el).parent('.eac-input-wrap').parent('.form-control');
+        var $baseControl = $(el).parent('.form-control');
 
-      // Distinguish when we have email suggestion or not
-      var $formControl = isSuggestion ? $suggestionControl : $baseControl;
+        // Distinguish when we have email suggestion or not
+        var $formControl = isSuggestion ? $suggestionControl : $baseControl;
+        var errorMessage = $('.email-hidden-message').text();
 
-      var errorMessage = $('.email-hidden-message').text();
+        var value = $(el).val();
 
-      $(input).each(function () {
-        var $value = $(this).val();
-        passed = _isEmail($value) && !Util.isEmptyString($value);
-        results[results.length] = passed;
+        if (_isEmail(value) && !Util.isEmptyString(value)) {
+          passed = true;
+
+          $formControl.removeClass('form-error');
+
+          // Distinguish when we have email suggestion or not
+          if ($(el).parent('.eac-input-wrap').length) {
+            $(el).parent('.eac-input-wrap').next('.input-error-message').text('');
+          } else {
+            $(el).next('.input-error-message').text('');
+          }
+        } else {
+          passed = false;
+          $formControl.addClass('form-error');
+
+          // Distinguish when we have email suggestion or not
+          if ($(el).parent('.eac-input-wrap').length) {
+            $(el).parent('.eac-input-wrap').next('.input-error-message').text(errorMessage);
+          } else {
+            $(el).next('.input-error-message').text(errorMessage);
+          }
+        }
+
+        results.push(passed);
       });
 
-      passed = results.indexOf(false);
+      console.log(results);
 
-      if(passed === -1) {
-
-        $formControl.addClass('form-error');
-
-        // Distinguish when we have email suggestion or not
-        if ($(input).parent('.eac-input-wrap').length) {
-          $(input).parent('.eac-input-wrap').next('.input-error-message').text(errorMessage);
+      $.each(results, function(i, val) {
+        if (!val) {
+          passed = false;
+          return false
         } else {
-          $(input).next('.input-error-message').text(errorMessage);
+          passed = true;
         }
-
-      } else {
-
-        $formControl.removeClass('form-error');
-
-        // Distinguish when we have email suggestion or not
-        if ($(input).parent('.eac-input-wrap').length) {
-          $(input).parent('.eac-input-wrap').next('.input-error-message').text('');
-        } else {
-          $(input).next('.input-error-message').text('');
-        }
-      }
+      });
 
       return passed;
     }

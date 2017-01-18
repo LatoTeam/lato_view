@@ -4,11 +4,15 @@ var FormManager = (function($) {
   // Activate selectize.js module
   var _manageSelect = function() {
 
-    $('.select').selectize({
+    var $inputNSelects = $('.input-nselect');
+    var $select = $('.select');
+    var $selectCreate = $('.select-create');
+
+    $select.selectize({
       hideSelected: 'true'
     });
 
-    $('.select-create').selectize({
+    $selectCreate.selectize({
       hideSelected: 'true',
       create: function(input) {
         return {
@@ -17,7 +21,88 @@ var FormManager = (function($) {
         }
       }
     });
+
+		$inputNSelects.each(function (index, inputNSelect) {
+			_manageInputNSelect(inputNSelect);
+		});
   };
+
+  // Main function for each cell
+	var _manageInputNSelect = function(inputNSelect) {
+		var selectInputs = $(inputNSelect).find('.form-control');
+
+		// init selectize
+		selectInputs.each(function(index) {
+			_initSelectize(index, selectInputs);
+		});
+
+		// load options for first selectize
+		_loadOptions(null, 0, selectInputs);
+	};
+
+  // Function to init a select with the call of the api
+	var _loadOptions = function (filterId, selectInputPosition, selectInputs) {
+    var selectInput = selectInputs[selectInputPosition];
+    if (!selectInput) { return }
+    var apiUrl = $(selectInput).attr('data-api-url');
+		$.ajax({
+			url: apiUrl,
+			cache: false,
+			data: (filterId ? {filter_id: filterId} : null),
+			success: function (response) {
+				_updateSelectize(response, selectInputPosition, selectInputs);
+			}
+		});
+	};
+
+  // Function to init an empty input to become a selectize
+	var _initSelectize = function (selectInputPosition, selectInputs) {
+		var selectInput = selectInputs[selectInputPosition];
+		var input = $(selectInput).find('.select-nselect');
+		var valueField = $(selectInput).attr('data-value-field');
+		var labelField = $(selectInput).attr('data-label-field');
+		var initialVal = $(input).val();
+		var id = $(selectInput).attr('data-value-id');
+
+		input.selectize({
+			maxItems: 1,
+			valueField: valueField,
+			labelField: labelField,
+			searchField: labelField,
+			options: [],
+			onChange: function (value) {
+				_loadOptions(value, parseInt(id) + 1, selectInputs);
+			},
+			onInitialize: function() {
+				if (initialVal) {
+					this.setValue(initialVal);
+					_loadOptions(initialVal, parseInt(id) + 1, selectInputs);
+				}
+			}
+		});
+	};
+
+  // Function to update a selectize with correct options
+	var _updateSelectize = function (options, selectInputPosition, selectInputs) {
+		var selectInput = selectInputs[selectInputPosition];
+		var input = $(selectInput).find('.select-nselect');
+		var id = $(selectInput).attr('data-value-id');
+		var initialVal = $(input).val();
+
+		var selectize = $(input)[0].selectize;
+
+		if (selectize) {
+			selectize.clear();
+			selectize.clearOptions();
+			selectize.load(function(callback) {
+			  callback(options);
+			});
+			if (initialVal) {
+				selectize.setValue(initialVal);
+				_loadOptions(initialVal, parseInt(id) + 1, selectInputs);
+			}
+		}
+	};
 
   // Activate pikaday.js module
   var _manageDatePicker = function() {

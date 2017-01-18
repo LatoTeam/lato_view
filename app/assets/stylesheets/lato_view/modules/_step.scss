@@ -24,7 +24,7 @@
 
 .step-paginate-container {
   display: inline-block;
-  padding: 0 35px;
+  padding: 0 $step-paginate-spacing;
 }
 
 .step-paginate {
@@ -35,23 +35,19 @@
 
 .step-paginate-index {
   display: inline-block;
-  @include size(40px);
-  line-height: 40px;
+  @include size($step-index-base-size);
+  line-height: $step-index-base-size;
   cursor: pointer;
-  margin-right: 25px;
+  margin-right: $step-index-base-spacing;
   border-radius: 50%;
-  box-shadow: 0px 4px 14px rgba($text-color, 0.2);
-  color: $ship-cove;
+  box-shadow: $step-index-shadow;
+  color: $step-index-base-color;
   transition: all 0.3s;
   &:last-child {
     margin-right: 0;
   }
-  &.active {
-    color: $text-color;
-    box-shadow: 0px 8px 18px rgba($text-color, 0.3);
-  }
-  &:hover {
-    color: $text-color;
-    box-shadow: 0px 8px 18px rgba($text-color, 0.3);
+  &.active, &:hover {
+    color: $step-index-active-color;
+    box-shadow: $step-index-active-shadow;
   }
 }

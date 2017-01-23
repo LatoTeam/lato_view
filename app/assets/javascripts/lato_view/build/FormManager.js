@@ -205,7 +205,7 @@ var FormManager = (function($) {
   * @return: undefined or boolean
   */
   var _manageFormSubmit = function() {
-    $('.lato-form').each(function(i, el) {
+    $('.lato-form').not('.login-form').each(function(i, el) {
       $(el).on('submit', function(event) {
 
         var $requiredControls = $(el).find('.form-control[data-input="required"]');

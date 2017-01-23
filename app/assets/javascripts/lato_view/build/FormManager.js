@@ -210,24 +210,27 @@ var FormManager = (function($) {
 
         var $requiredControls = $(el).find('.form-control[data-input="required"]');
         var $emailControls = $(el).find('.input-email');
+        var $lengthControls = $(el).find('.input-length');
+        var $radioControls = $(el).find('.form-control[data-input="radio"]');
+        var $passwordControl = $(el).find('.input-password');
+        var $passwordConfirm = $(el).find('.confirm-password');
+        var $numberControls = $(el).find('.input-number');
 
         var tests = {
-          //"number": Validator.controlNumber('.input-number'),
-          "required": Validator.controlRequired($requiredControls),
-          "email": Validator.controlEmail($emailControls)
-          //"password": Validator.controlPasswordEquality('.input-password', '.confirm-password'),
-          //"length": Validator.controlInputLength('.input-length'),
-          //"radiobox": Validator.controlRadiobox('data-input="radio"')
+          //"number": Validator.controlNumber($numberControls),
+          // "required": Validator.controlRequired($requiredControls),
+          // "email": Validator.controlEmail($emailControls),
+          //"password": Validator.controlPasswordEquality($passwordControl, $passwordConfirm)
+          //"length": Validator.controlInputLength($lengthControls),
+          //"radiobox": Validator.controlRadiobox($radioControls)
         };
 
         // Basta che uno dei test fallisca per generare un errore
         $.each(tests, function(index, val) {
-          console.log(val);
-          if(!val) {
-            console.log('event preventDefault');
-            event.preventDefault();
-            return false;
-          }
+          // if(!val) {
+          //   event.preventDefault();
+          //   return false;
+          // }
         });
 
         console.log(event);

@@ -29,15 +29,14 @@
 //= require lato_view/build/Navigation
 //= require lato_view/build/ActionBar
 //= require lato_view/build/Flash
+//= require lato_view/build/ConfirmationPopup
 //= require lato_view/build/Step
 
 var Application = (function($) {
 
-  var onResize = function() {
-    $(window).on('resize', function() {
-      Navigation.manageSidebarDropdown();
-    });
-  };
+  var onResize = Util.debounce(function() {
+    Navigation.manageSidebarDropdown();
+  }, 250);
 
   var init = function() {
     $(document).on('ready', function() {
@@ -52,12 +51,13 @@ var Application = (function($) {
       Flash.init();
       Step.init();
       FormManager.init();
+      ConfirmationPopup.init();
       $('.editor').trumbowyg({
         svgPath: '/ui/icons.svg'
       });
 
       // Functions executed on resize
-      onResize();
+      $(window).on('resize', onResize());
     });
   };
 

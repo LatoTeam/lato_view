@@ -44,7 +44,7 @@ button {
   letter-spacing: 2px;
   text-transform: uppercase;
   transform: translateY(0);
-  transition: background-color 0.3s ease, transform 0.25s $snappy;
+  transition: all 0.3s;
   + .lato-button {
     margin-left: 5px;
   }
@@ -95,9 +95,9 @@ button {
 }
 
 .button-green {
-  background-color: $jungle-green;
+  background-color: $success-color;
   &:hover {
-    background-color: darken($jungle-green, 5%);
+    background-color: darken($success-color, 5%);
   }
   &:active {
     box-shadow: 0 3px 13px rgba($button-bg, 0.30);
@@ -108,9 +108,9 @@ button {
 }
 
 .button-yellow {
-  background-color: $yellow-sea;
+  background-color: $warning-color;
   &:hover {
-    background-color: darken($yellow-sea, 5%);
+    background-color: darken($warning-color, 5%);
   }
   &:active {
     box-shadow: 0 3px 13px rgba($yellow-sea, 0.30);
@@ -121,9 +121,9 @@ button {
 }
 
 .button-red {
-  background-color: $scarlet;
+  background-color: darken($error-color, 10%);
   &:hover {
-    background-color: darken($scarlet, 5%);
+    background-color: darken($error-color, 15%);
   }
   &:active {
     box-shadow: 0 3px 13px rgba($scarlet, 0.30);

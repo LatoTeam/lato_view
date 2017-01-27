@@ -21,7 +21,7 @@
   position: fixed;
   padding: 30px;
   background-color: $confirmation-popup-bg;
-  max-width: 550px;
+  max-width: $confirmation-popup-max-width;
   box-shadow: $content-block-shadow;
   visibility: hidden;
   opacity: 0;

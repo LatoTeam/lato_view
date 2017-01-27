@@ -136,6 +136,7 @@ $arranger-text-color : darken($ship-cove, 15%) !default;
 // Confirmation Popup
 $confirmation-popup-container-bg : transparent !default;
 $confirmation-popup-bg           : $white !default;
+$confirmation-popup-max-width    : 550px !default;
 
 // Dropdown
 $drop-bg                           : $ebony-clay !default;

@@ -133,6 +133,10 @@ $select-dropdown-active-bg : rgba($form-input-hover-border-color, 0.67) !default
 // Arranger
 $arranger-text-color : darken($ship-cove, 15%) !default;
 
+// Confirmation Popup
+$confirmation-popup-container-bg : transparent !default;
+$confirmation-popup-bg           : $white !default;
+
 // Dropdown
 $drop-bg                           : $ebony-clay !default;
 $drop-links-bg                     : $ebony-clay !default;

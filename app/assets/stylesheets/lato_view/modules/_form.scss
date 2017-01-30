@@ -35,6 +35,10 @@ textarea {
     padding: $form-input-padding;
     border: 1px solid $form-input-border-color;
     transition: border-color 0.3s ease;
+    &:-webkit-autofill {
+      color: $white;
+      -webkit-box-shadow: 0 0 0px 1000px $white inset;
+    }
     &:focus {
       outline: none;
       border-color: $form-input-hover-border-color;

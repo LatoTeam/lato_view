@@ -217,9 +217,9 @@ var FormManager = (function($) {
         var $numberControls = $(el).find('.input-number');
 
         var tests = {
-          //"number": Validator.controlNumber($numberControls),
-          // "required": Validator.controlRequired($requiredControls),
-          // "email": Validator.controlEmail($emailControls),
+          "number": Validator.controlNumber($numberControls),
+          "required": Validator.controlRequired($requiredControls),
+          "email": Validator.controlEmail($emailControls)
           //"password": Validator.controlPasswordEquality($passwordControl, $passwordConfirm)
           //"length": Validator.controlInputLength($lengthControls),
           //"radiobox": Validator.controlRadiobox($radioControls)
@@ -227,10 +227,10 @@ var FormManager = (function($) {
 
         // Basta che uno dei test fallisca per generare un errore
         $.each(tests, function(index, val) {
-          // if(!val) {
-          //   event.preventDefault();
-          //   return false;
-          // }
+          if(!val) {
+            event.preventDefault();
+            return false;
+          }
         });
 
         console.log(event);

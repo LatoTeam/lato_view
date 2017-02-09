@@ -137,6 +137,11 @@ $select-dropdown-active-bg : rgba($form-input-hover-border-color, 0.67) !default
 // Arranger
 $arranger-text-color : $boulder !default;
 
+// Confirmation Popup
+$confirmation-popup-container-bg : transparent !default;
+$confirmation-popup-bg           : $white !default;
+$confirmation-popup-max-width    : 550px !default;
+
 // Dropdown
 $drop-bg                           : $flamingo !default;
 $drop-links-bg                     : $flamingo !default;

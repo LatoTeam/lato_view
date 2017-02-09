@@ -1,0 +1,63 @@
+.confirmation-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include size(100%);
+  background-color: $confirmation-popup-container-bg;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.15s ease 0.35s;
+  z-index: -1;
+  .is-confirmation-popup-open & {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.15s ease 0s;
+    z-index: 99999;
+  }
+}
+
+.confirmation-popup {
+  @include align();
+  position: fixed;
+  padding: 30px;
+  background-color: $confirmation-popup-bg;
+  max-width: $confirmation-popup-max-width;
+  box-shadow: $content-block-shadow;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.9) translate(-50%, -50%);
+  transition: all 0.35s ease 0.15s;
+  z-index: -1;
+  .is-confirmation-popup-open & {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translate(-50%, -50%);
+    z-index: 9999;
+  }
+}
+
+.confirmation-popup-question-container {
+  width: 100%;
+  text-align: center;
+  @include clearfix();
+}
+
+.confirmation-popup-answers {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 22px;
+}
+
+.confirmation-popup-answer {
+  display: inline-block;
+  margin-right: 20px;
+  text-decoration: none;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.confirmation-popup-question {
+  font-size: 16px;
+  letter-spacing: 1px;
+}

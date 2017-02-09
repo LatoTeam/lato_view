@@ -13,6 +13,9 @@
     padding: 0 15px 0 30px;
     @include clearfix();
   }
+  .is-confirmation-popup-open & {
+    overflow: hidden;
+  }
 }
 
 .admin-section-title {

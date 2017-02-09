@@ -6,27 +6,37 @@ $white        :  #ffffff;
 // Project specific colors
 $catskill-white : #edf3f7;
 $dusty-gray     : #999999;
-$rhino          : #040303;
-$ebony-clay     : #262626;
-$ship-cove      : #040303;
-$robin-blue     : #fff;
-$jungle-green   : darken(#26b75e, 15%);
-$scarlet        : darken(#e32908, 10%);
-$radical-red    : darken(#ff2f6c, 20%);
-$yellow-sea     : darken(#ffae03, 5%);
+$rhino          : #293b5a;
+$ebony-clay     : #292f43;
+$ship-cove      : #7b96c4;
+$robin-blue     : #00c8e7;
+$jungle-green   : #26b75e;
+$scarlet        : #e32908;
+$radical-red    : #ff2f6c;
+$yellow-sea     : #efdc5d;
+
+$woodsmoke       :  #0e1014;
+$miska           :  #ced3db;
+$catskill        :  #ebeef5;
+$cadet-blue      :  #9dafc2;
+$fiord           :  #3d3d67;
+$feral-blue      :  #0a47ba;
+$salmon          :  #ff7f67;
+$havelock        :  #4a90e2;
+$turquoise       :  #50e3c2;
 
 // Statuses colors
-$success-color : $jungle-green !default;
-$error-color   : $scarlet !default;
+$success-color : $turquoise !default;
+$error-color   : $salmon !default;
 $warning-color : $yellow-sea !default;
 
 // BASE
 
-$body-bg           : #EEE !default;
+$body-bg           : $catskill-white !default;
 $base-spacing      : $line-base * $font-size-base !default;
-$text-color        : $rhino !default;
-$text-accent-color : $robin-blue !default;
-$link-color        : $rhino !default;
+$text-color        : $fiord !default;
+$text-accent-color : $salmon !default;
+$link-color        : $feral-blue !default;
 $base-padding      : $headings-margin-bottom;
 $selection-color   : $body-bg !default;
 $selection-bg      : $text-color !default;
@@ -36,16 +46,17 @@ $selection-bg      : $text-color !default;
 // Content block
 $content-block-bg            : $white !default;
 $content-block-shadow        : 0 1px 4px rgba($text-color, 0.25) !default;
+$content-block-shadow        : 0px 11px 20px rgba($text-color, 0.08);
 $content-block-padding       : 20px !default;
 $content-block-margin-bottom : 30px !default;
 $content-block-title-size    : 30px !default;
 
 // Button colors.
-$button-bg    : lighten($ebony-clay , 20%) !default;
+$button-bg    : $feral-blue !default;
 $button-color : $white !default;
 
 // Button-Group
-$button-group-color  : $ship-cove !default;
+$button-group-color  : $feral-blue !default;
 $button-group-bg     : $white !default;
 $button-group-radius : 30px !default;
 
@@ -54,41 +65,42 @@ $nav-width                     : 85.3% !default;
 $nav-bg                        : $white !default;
 $nav-color                     : $text-color !default;
 $nav-shadow                    : 0 1px 4px rgba($text-color, 0.25) !default;
+$nav-shadow                    : 0px 11px 20px rgba($text-color, 0.04);
 $nav-padding-vertical          : 10px !default;
 $nav-base-padding              : $nav-padding-vertical 0 !default;
-$nav-actions-color             : $ship-cove !default;
-$nav-account-img-bg            : lighten($ebony-clay, 20%) !default;
+$nav-actions-color             : $cadet-blue !default;
+$nav-account-img-bg            : $cadet-blue !default;
 $nav-account-drop-shadow       : $text-color !default;
 $nav-account-drop-border-color : $catskill-white !default;
-$nav-account-drop-left-stripe  : $robin-blue !default;
-$nav-account-drop-icon-color   : $ship-cove !default;
+$nav-account-drop-left-stripe  : $feral-blue !default;
+$nav-account-drop-icon-color   : $cadet-blue !default;
 
 // Sidebar
 $sidebar-width             : 200px !default;
-$sidebar-bg                : $ebony-clay !default;
+$sidebar-bg                : $feral-blue !default;
 $sidebar-color             : $white !default;
-$sidebar-inactive-color    : #BFBEBE !default;
-$sidebar-icon-active-color : $robin-blue !default;
+$sidebar-inactive-color    : $cadet-blue !default;
+$sidebar-icon-active-color : $white !default;
 
 // Form
-$form-input-border-color       : darken($catskill-white, 10%) !default;
-$form-input-hover-border-color : $ship-cove !default;
+$form-input-border-color       : $feral-blue !default;
+$form-input-hover-border-color : $fiord !default;
 $form-input-padding            : 5px 10px !default;
 $form-control-margin           : 15px !default;
 $text-area-min-height          : 80px !default;
-$label-advise-color            : $ship-cove !default;
+$label-advise-color            : $cadet-blue !default;
 $form-error-color              : $error-color !default;
 $form-required-color           : $warning-color !default;
 
 // Form controls
 $form-control-border-color    : $form-input-border-color !default;
-$form-control-checked-bg      : $ebony-clay !default;
+$form-control-checked-bg      : $fiord !default;
 $form-control-checked-color   : $white !default;
-$form-autocomplete-color      : $dusty-gray !default;
-$form-control-check-hover     : $ebony-clay !default;
+$form-autocomplete-color      : $cadet-blue !default;
+$form-control-check-hover     : $havelock !default;
 
 // Input file
-$input-file-bg : $ship-cove !default;
+$input-file-bg : $cadet-blue !default;
 
 // Password-reveal submodule
 $psw-reveal-width  : 45px !default;
@@ -96,7 +108,7 @@ $psw-reveal-height : 35px !default;
 $psw-eye-bg        : $form-input-border-color !default;
 $psw-eye-size      : 20px !default;
 $psw-inner-size    : $psw-eye-size / 2 !default;
-$psw-active        : $ebony-clay !default;
+$psw-active        : $fiord !default;
 
 // Datepicker - Overrides external
 // $pd-font-family          : $font-stack;
@@ -118,8 +130,8 @@ $psw-active        : $ebony-clay !default;
 // $pd-day-selected-shadow  : #178fe5 !default;
 // $pd-day-disabled-color   : #999 !default;
 // $pd-week-color           : #999 !default;
-$picker-selected         :  $mine-shaft;
-$picker-date-today       :  $radical-red;
+$picker-selected         :  $cadet-blue;
+$picker-date-today       :  $salmon;
 $picker-item-hover-color :  $white;
 
 // Select
@@ -129,7 +141,7 @@ $select-dropdown-shadow    : 0 1px 4px rgba($text-color, 0.25) !default;
 $select-dropdown-active-bg : rgba($form-input-hover-border-color, 0.67) !default;
 
 // Arranger
-$arranger-text-color : darken($ship-cove, 15%) !default;
+$arranger-text-color : darken($cadet-blue, 5%) !default;
 
 // Confirmation Popup
 $confirmation-popup-container-bg : transparent !default;
@@ -137,28 +149,28 @@ $confirmation-popup-bg           : $white !default;
 $confirmation-popup-max-width    : 550px !default;
 
 // Dropdown
-$drop-bg                           : $ebony-clay !default;
-$drop-links-bg                     : $ebony-clay !default;
-$drop-links-hover-color            : $robin-blue !default;
-$drop-active-voice-color           : $ebony-clay !default;
-$drop-active-voice-underline-color : $robin-blue !default;
-$drop-icon-bg                      : $ebony-clay !default;
+$drop-bg                           : $feral-blue !default;
+$drop-links-bg                     : $feral-blue !default;
+$drop-links-hover-color            : $havelock !default;
+$drop-active-voice-color           : $fiord !default;
+$drop-active-voice-underline-color : $feral-blue !default;
+$drop-icon-bg                      : $feral-blue !default;
 
 // Flashes
-$flash-default-bg : $ebony-clay !default;
+$flash-default-bg : $fiord !default;
 $flash-danger-bg  : $error-color !default;
 $flash-success-bg : $success-color !default;
-$flash-info-bg    : $robin-blue !default;
+$flash-info-bg    : $feral-blue !default;
 $flash-warning-bg : $warning-color !default;
 $flash-shadow     : 0 1px 4px rgba(41, 59, 90, 0.25) !default;
 
 // Pagination
-$pagination-current-bg    : $rhino !default;
+$pagination-current-bg    : $fiord !default;
 $pagination-current-color : $white !default;
 
 // Step
 $step-paginate-spacing     : 35px !default;
-$step-index-base-color     : $ship-cove !default;
+$step-index-base-color     : $cadet-blue !default;
 $step-index-active-color   : $text-color !default;
 $step-index-base-size      : 40px !default;
 $step-index-base-spacing   : 25px !default;
@@ -169,10 +181,10 @@ $step-index-active-shadow  : 0px 8px 18px rgba($text-color, 0.3) !default;
 $search-bar-bg           : $white !default;
 $search-bar-shadow       : 0px 2px 6px rgba(black, 0.1) !default;
 $search-bar-focus-shadow : 0px 2px 8px rgba(black, 0.15) !default;
-$search-button-bg        : $robin-blue !default;
+$search-button-bg        : $feral-blue !default;
 $search-button-color     : $white !default;
 
 // VIEWS
-$login-view-base-bg            :  $ebony-clay !default;
-$login-view-first-gradient-bg  :  lighten($ebony-clay , 15%) !default;
-$login-view-second-gradient-bg :  lighten($ebony-clay , 22%) !default;
+$login-view-base-bg            :  $catskill !default;
+$login-view-first-gradient-bg  :  $cadet-blue !default;
+$login-view-second-gradient-bg :  lighten($cadet-blue, 22%) !default;

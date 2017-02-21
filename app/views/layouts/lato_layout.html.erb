@@ -12,11 +12,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
     <meta name="apple-mobile-web-app-title" content=<%= core_getApplicationName %>>
-    <% #Assets aggiuntivo per la cella mappa %>
+    <% #Assets added for map component%>
     <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false&key=#{view_getLatoGMapsKey}" %>
 
     <%= stylesheet_link_tag "lato_view/application", media: "all" %>
-    <% # LISTA DEGLI ASSETS CUSTOM %>
+    <% # ASSETS CUSTOM %>
     <% custom__lato_assets = view_getLatoAssetsItems %>
     <% custom__app_assets = view_getApplicationsAssetsItems %>
     <% custom__lato_assets.each do |asset| %>
@@ -37,17 +37,21 @@
   <div id="admin-wrapper">
     <% if(core_controlSession()) %>
 
-      <% # Stampa la sidebar del pannello %>
+      <% # Render sidebar %>
      <%= render 'lato_view/layout/sidebar' %>
 
       <div class="main-content">
 
-        <% # Stampa l'header del pannello %>
+        <% # Render header %>
         <%= render 'lato_view/layout/header' %>
 
         <main>
-          <% # Stampa i flash ricevuti dai controller %>
+          <% # Render flash %>
           <%= render 'lato_view/layout/flash' %>
+
+          <% # Render prompt %>
+          <%= render 'lato_view/layout/prompt' %>
+
           <div class="content-wrapper">
 
             <%= yield %>
@@ -67,7 +71,7 @@
   </div>
 
   <%= javascript_include_tag "lato_view/application" %>
-  <% # LISTA DEGLI ASSETS CUSTOM %>
+  <% # CUSTOM ASSETS %>
   <% custom__lato_assets.each do |asset| %>
     <% if asset[:type] === "js" %>
       <%= javascript_include_tag asset[:name] %>

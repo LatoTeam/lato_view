@@ -4,10 +4,11 @@ module LatoView
     @@colors = %w(normal yellow green red)
     @@sizes = %w(normal small xsmall)
 
-    attr_accessor :title, :url, :color, :size, :custom_class, :data_popup_text, :data_popup_no, :data_popup_ok
+    attr_accessor :title, :url, :color, :size, :custom_class, :data_popup_text,
+    :data_popup_no, :data_popup_ok
 
-    def initialize(title: '', url: '', color: 'normal', size: 'normal', 
-                   custom_class: '', data_popup_text: '', 
+    def initialize(title: '', url: '', color: 'normal', size: 'normal',
+                   custom_class: '', data_popup_text: '',
                    data_popup_no: '', data_popup_ok: '')
      # save params
       @title = title

@@ -41,7 +41,7 @@ module LatoView
         config = YAML.load(
           File.read(File.expand_path("#{directory}/view.yml", __FILE__))
         )
-        key = config['google_maps_key']
+        key = (config && config['google_maps_key'] ? config['google_maps_key'] : nill)
       end
       # ritorno il risultato
       return key

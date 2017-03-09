@@ -22,6 +22,7 @@ var ConfirmationPopup = (function($) {
       $confirmationPopupAnswerNope.text(messageNo);
 
       event.preventDefault();
+      event.stopPropagation();
 
       setTimeout(function() {
         $('body').addClass('is-confirmation-popup-open');

@@ -18,4 +18,6 @@
 
 # template: base
 
+# Set google maps API key (used for map input cell)
+
 # google_maps_key: ABC

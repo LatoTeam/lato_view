@@ -9,6 +9,7 @@ module LatoView
     def initialize(title: '', url: '', color: 'normal', size: 'normal', 
                    custom_class: '', data_popup_text: '', 
                    data_popup_no: '', data_popup_ok: '', custom_method: 'get')
+
      # save params
       @title = title
       @url = url

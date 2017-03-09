@@ -18,3 +18,6 @@ form_validation:
   char : Numero errato di caratteri.
   pass_same: I campi devono avere lo stesso valore.
   check: Non puoi lasciare vuoto questo campo.
+
+table_rows:
+  value_blank: Nessun valore inserito

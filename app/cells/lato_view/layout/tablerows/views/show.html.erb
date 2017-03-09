@@ -1,12 +1,13 @@
 <% @values.each do |val| %>
-	<% if !val[:value].nil? %>
 		<% string_value = val[:value]%>
 		<% if val[:value].in? [true, false]  %>
 			<% string_value = "<div class='status round-status #{val[:value]}'></div>"%>
+		<% end %>
+		<% if val[:value].blank? %>
+			<% string_value = VIEW_LANG['table_rows']['value_blank'] %>
 		<% end %>
 		<tr>
 		  <th><%= val[:title]%>:</th>
 		  <td><%= raw string_value%></td>
 		</tr>
-	<% end %>
 <% end %>

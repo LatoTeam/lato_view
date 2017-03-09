@@ -21,7 +21,7 @@ var ConfirmationPopup = (function($) {
       $confirmationPopupQuestion.text(messageText);
       $confirmationPopupAnswerOk.text(messageOk);
       $confirmationPopupAnswerOk.attr('href', location);
-      $confirmationPopupAnswerOk.data( "method", data_method);
+      $confirmationPopupAnswerOk.attr( "data-method", data_method);
       $confirmationPopupAnswerNope.text(messageNo);
 
       event.preventDefault();

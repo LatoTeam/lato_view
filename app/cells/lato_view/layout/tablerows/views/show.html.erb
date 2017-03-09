@@ -1,0 +1,10 @@
+<% @values.each do |val| %>
+	<% if !val['value'].nil? %>
+	<% string_value = val['value']%>
+	<% string_value = "<div class='status round-status #{string_value}'></div>" if val['value'].in? [true, false] %>
+	<tr>
+	  <th><%=val['title']%>:</th>
+	  <td><%= raw string_value%></td>
+	</tr>
+	<% end %>
+<% end %>

@@ -3,28 +3,40 @@
     <% @elements.each do |element| %>
     <tr>
       <% @attributes.each_with_index do |attribute, index| %>
-        <% value = element.send(attribute) %>
+        <% # se non è un hash %>
+        <% if !attribute.is_a?(Hash) %>
+          <% value = element.send(attribute) %>
 
-        <% # se e' un booleano %>
-        <% if(!!value == value) %>
+          <% # se e' un booleano %>
+          <% if(!!value == value) %>
 
-          <td data-label="<%= @head[index] %>">
-            <% if value %>
-              <div class="general-status">
-                <div class="status round-status true"></div>
-              </div>
-            <% else %>
-              <div class="general-status">
-                <div class="status round-status false"></div>
-              </div>
+            <td data-label="<%= @head[index] %>">
+              <% if value %>
+                <div class="general-status">
+                  <div class="status round-status true"></div>
+                </div>
+              <% else %>
+                <div class="general-status">
+                  <div class="status round-status false"></div>
+                </div>
+              <% end %>
+            </td>
+
+          <% else %>
+
+            <td data-label="<%= @head[index] %>"><%= value %></td>
+
+          <% end %>
+          <% # se e' un hash %>
+          <% else %>
+            <% if attribute[:type] == 'url' %>
+                <td data-label="<%= @head[index] %>"> 
+                  <a href="<%=attribute[:base_url]%>/<%=element.send(attribute[:id])%>">
+                    <%=element.send(attribute[:name])%>
+                  </a>
+                </td>
             <% end %>
-          </td>
-
-        <% else %>
-
-          <td data-label="<%= @head[index] %>"><%= value %></td>
-
-        <% end %>
+          <% end %>
 
       <% end %>
 

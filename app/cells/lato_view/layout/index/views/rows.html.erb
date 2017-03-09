@@ -5,6 +5,8 @@
       <% @attributes.each_with_index do |attribute, index| %>
         <% # se non è un hash %>
         <% if !attribute.is_a?(Hash) %>
+         <% puts "AAAAAAAAAAAAA" %>
+         <% puts attribute %>
           <% value = element.send(attribute) %>
 
           <% # se e' un booleano %>

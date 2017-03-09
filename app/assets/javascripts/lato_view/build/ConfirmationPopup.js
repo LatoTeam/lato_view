@@ -11,6 +11,9 @@ var ConfirmationPopup = (function($) {
       var $confirmationPopupAnswerNope = $confirmationPopup.find('.js-confirmation-popup-answer-nope');
 
       var location = $this.attr('href');
+      var data_method = $this.attr('data-method');
+      var data_method = $this.removeAttr('data-method');
+
       var messageOk = $this.data('popup-ok');
       var messageNo = $this.data('popup-no');
       var messageText = $this.data('popup-text');
@@ -19,10 +22,11 @@ var ConfirmationPopup = (function($) {
       $confirmationPopupQuestion.text(messageText);
       $confirmationPopupAnswerOk.text(messageOk);
       $confirmationPopupAnswerOk.attr('href', location);
+      $confirmationPopupAnswerOk.attr('data-method', data_method);
       $confirmationPopupAnswerNope.text(messageNo);
 
       event.preventDefault();
-      event.stopPropagation();
+
 
       setTimeout(function() {
         $('body').addClass('is-confirmation-popup-open');

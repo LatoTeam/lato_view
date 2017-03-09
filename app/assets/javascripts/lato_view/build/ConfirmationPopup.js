@@ -3,7 +3,7 @@ var ConfirmationPopup = (function($) {
 
   var _manageConfirmationPopup = function() {
     $(document).on('click', '.js-confirmation-popup-trigger', function(event) {
-      var $this = $(this);
+      var $this = $('.js-confirmation-popup-trigger');
 
       var $confirmationPopup = $('.js-confirmation-popup');
       var $confirmationPopupQuestion = $confirmationPopup.find('.js-confirmation-popup-question');
@@ -11,8 +11,7 @@ var ConfirmationPopup = (function($) {
       var $confirmationPopupAnswerNope = $confirmationPopup.find('.js-confirmation-popup-answer-nope');
 
       var location = $this.attr('href');
-      var data_method = $this.data( "method");
-      $this.removeAttr( "data-method");
+      var data_method = $this.data( "fake-method");
 
       var messageOk = $this.data('popup-ok');
       var messageNo = $this.data('popup-no');

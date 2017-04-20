@@ -4,10 +4,10 @@ module LatoView
     @@widths = VIEW_INPUTWIDTH
 
     attr_accessor :name, :placeholder, :value, :label, :width, :required,
-                  :disabled, :custom_class
+                  :disabled, :custom_class, :custom_id
 
     def initialize(name: 'input', placeholder: '', value: '', label: '',
-                   width: 'large', required: false, disabled: false)
+                   width: 'large', required: false, disabled: false, custom_class: '', custom_id: '')
       # save params
       @name = name
       @placeholder = placeholder
@@ -16,6 +16,8 @@ module LatoView
       @width = width
       @required = required
       @disabled = disabled
+      @custom_class = custom_class
+      @custom_id = custom_id
       # check params
       check_params
     end

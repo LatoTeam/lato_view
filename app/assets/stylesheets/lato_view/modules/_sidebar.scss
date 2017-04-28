@@ -43,10 +43,10 @@
   .sidebar-list-item {
     position: relative;
     .sidebar-main-link {
-      font-size: 16px;
+      font-size: 14px;
       color: $sidebar-inactive-color;
       display: block;
-      padding: 14px 0 14px 25px;
+      padding: 10px 0 14px 25px;
       text-decoration: none;
       transition: background-color 0.25s ease-in-out, color 0.25s ease;
       .sidebar-item-icon {

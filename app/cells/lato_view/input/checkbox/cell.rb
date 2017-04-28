@@ -7,7 +7,7 @@ module LatoView
                   :disabled, :custom_class
 
     def initialize(name: 'input', placeholder: '', value: '', label: '',
-                   width: 'large', required: false, disabled: false)
+                   width: 'large', required: false, disabled: false, custom_class: '')
       # save params
       @name = name
       @placeholder = placeholder
@@ -16,6 +16,7 @@ module LatoView
       @width = width
       @required = required
       @disabled = disabled
+      @custom_class = custom_class
       # check params
       check_params
     end

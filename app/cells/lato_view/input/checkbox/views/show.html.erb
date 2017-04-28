@@ -5,10 +5,10 @@
     <input type="hidden" name="<%= @name %>" value="0">
 
     <input type="checkbox" class="check <%= @custom_class %>" name="<%= @name %>"
-           id="<%= @name %>" value="1" <%= checked_data_input %>
+           id="<%= @name %><%= @unique_id %>" value="1" <%= checked_data_input %>
            <%= disabled_data_input %>>
 
-    <label class="label-control" for="<%= @name %>"><%= @label%></label>
+    <label class="label-control" for="<%= @name %><%= @unique_id %>"><%= @label%></label>
 
   </div>
 

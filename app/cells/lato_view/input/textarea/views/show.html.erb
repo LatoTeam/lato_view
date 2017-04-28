@@ -2,9 +2,7 @@
 
   <label class="form-label"><%= @label %></label>
 
-  <textarea class="textarea <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= disabled_data_input %>>
-    <%= @value %>
-  </textarea>
+  <textarea class="textarea <%= @custom_class %>" name="<%= @name %>" placeholder="<%= @placeholder %>" <%= disabled_data_input %>><%= @value %></textarea>
 
   <div class="input-error-message"></div>
 

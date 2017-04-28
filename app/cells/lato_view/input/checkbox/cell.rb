@@ -4,10 +4,13 @@ module LatoView
     @@widths = VIEW_INPUTWIDTH
 
     attr_accessor :name, :placeholder, :value, :label, :width, :required,
-                  :disabled, :custom_class
+                  :disabled, :unique_id
+    
+   # NB: The unique_id is used to use more checkbox with same name on same page.
 
     def initialize(name: 'input', placeholder: '', value: '', label: '',
-                   width: 'large', required: false, disabled: false, custom_class: '')
+                   width: 'large', required: false, disabled: false, custom_class: '' ,
+                   unique_id: '')
       # save params
       @name = name
       @placeholder = placeholder
@@ -17,6 +20,7 @@ module LatoView
       @required = required
       @disabled = disabled
       @custom_class = custom_class
+      @unique_id = unique_id
       # check params
       check_params
     end

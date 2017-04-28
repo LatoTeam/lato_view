@@ -4,14 +4,15 @@ module LatoView
     @@colors = %w(normal yellow green red)
     @@sizes = %w(normal small)
 
-    attr_accessor :title, :url, :color, :size
+    attr_accessor :title, :url, :color, :size, :custom_class, :method
 
-    def initialize(title: '', url: '', color: 'normal', size: 'normal', custom_class: '')
+    def initialize(title: '', url: '', color: 'normal', size: 'normal', custom_class: '', method: 'get')
      # save params
       @title = title
       @url = url
       @color = color
       @size = size
+      @method = method
       @custom_class = custom_class
       # check params
       check_params

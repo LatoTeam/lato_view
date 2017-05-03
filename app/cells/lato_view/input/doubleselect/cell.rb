@@ -38,6 +38,11 @@ module LatoView
       @second_select_value_field = second_select_value_field
       @token = token
 
+      # advise to not use double select
+      puts "@" * 20
+      puts "DOUBLE SELECT IS DEPRECATED. USE NSELECT."
+      puts "@" * 20
+
       # check params
       check_params
     end

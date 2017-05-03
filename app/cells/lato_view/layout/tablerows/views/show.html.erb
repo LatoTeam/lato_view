@@ -1,6 +1,6 @@
 <% @values.each do |val| %>
 		<% string_value = val[:value]%>
-		<% if val[:value].in? [true, false]  %>
+		<% if !!val[:value] == val[:value]%>
 			<% string_value = "<div class='status round-status #{val[:value]}'></div>"%>
 		<% end %>
 		<% if val[:value].blank? %>

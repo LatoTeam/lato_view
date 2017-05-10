@@ -133,7 +133,8 @@ var FormManager = (function($) {
     var $timePicker = $('.time-picker').pickatime({
       format: 'H:i',
       hiddenPrefix: '',
-      hiddenSuffix: ''
+      hiddenSuffix: '',
+      interval: 5
     });
   };
 
